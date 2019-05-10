@@ -208,14 +208,14 @@
     }
     
     SKPSMTPMessage *myMessage = [[SKPSMTPMessage alloc] init];
-    myMessage.fromEmail = @"15151963160@163.com"; //发送邮箱
-    myMessage.toEmail = @"linxiang@misrobot.com"; //收件邮箱
+    myMessage.fromEmail = @"1515196XXXX@163.com"; //发送邮箱
+    myMessage.toEmail = @"lin@mis.com"; //收件邮箱
     // myMessage.ccEmail = @"597207909@qq.com"; //抄送
     
     myMessage.relayHost = @"smtp.163.com";//发送地址host 网易企业邮箱
     myMessage.requiresAuth = YES;
-    myMessage.login = @"15151963160@163.com";//发送邮箱的用户名
-    myMessage.pass = @"misrobot001";  //发送邮箱的密码
+    myMessage.login = @"1515196XXXX@163.com";//发送邮箱的用户名
+    myMessage.pass = @"XXXXXX";  //发送邮箱的密码
     
     myMessage.wantsSecure = YES;
     myMessage.subject = @"OSCE Log Mail";//邮件主题
