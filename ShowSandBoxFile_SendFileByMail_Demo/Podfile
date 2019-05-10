@@ -1,0 +1,13 @@
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
+    target:"ShowSandBoxFile_SendFileByMail_Demo" do
+    use_frameworks!
+
+    pod 'Masonry'
+    pod 'SVProgressHUD'
+    pod 'skpsmtpmessage'   # 邮件
+
+end
+

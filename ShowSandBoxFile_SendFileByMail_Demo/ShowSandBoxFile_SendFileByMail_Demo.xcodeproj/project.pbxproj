@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		462FDB26228554B600E6E8F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 462FDB25228554B600E6E8F7 /* AppDelegate.m */; };
+		462FDB29228554B600E6E8F7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 462FDB28228554B600E6E8F7 /* ViewController.m */; };
+		462FDB2C228554B600E6E8F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 462FDB2A228554B600E6E8F7 /* Main.storyboard */; };
+		462FDB2E228554B900E6E8F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 462FDB2D228554B900E6E8F7 /* Assets.xcassets */; };
+		462FDB31228554B900E6E8F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 462FDB2F228554B900E6E8F7 /* LaunchScreen.storyboard */; };
+		462FDB34228554B900E6E8F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 462FDB33228554B900E6E8F7 /* main.m */; };
+		462FDB41228556C000E6E8F7 /* Study_ShowSandBox_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 462FDB3B228556C000E6E8F7 /* Study_ShowSandBox_Cell.m */; };
+		462FDB42228556C000E6E8F7 /* Study_ShowSandBoxVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 462FDB3D228556C000E6E8F7 /* Study_ShowSandBoxVC.m */; };
+		462FDB43228556C000E6E8F7 /* Study_ShowSandBox_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 462FDB3E228556C000E6E8F7 /* Study_ShowSandBox_Model.m */; };
+		462FDB472285574500E6E8F7 /* OSCELOGManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 462FDB462285574500E6E8F7 /* OSCELOGManager.m */; };
+		9225808D540182FDF0B01D11 /* Pods_ShowSandBoxFile_SendFileByMail_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B641605123567131C504CF14 /* Pods_ShowSandBoxFile_SendFileByMail_Demo.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		462FDB21228554B600E6E8F7 /* ShowSandBoxFile_SendFileByMail_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowSandBoxFile_SendFileByMail_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		462FDB24228554B600E6E8F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		462FDB25228554B600E6E8F7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		462FDB27228554B600E6E8F7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		462FDB28228554B600E6E8F7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		462FDB2B228554B600E6E8F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		462FDB2D228554B900E6E8F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		462FDB30228554B900E6E8F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		462FDB32228554B900E6E8F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		462FDB33228554B900E6E8F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		462FDB3B228556C000E6E8F7 /* Study_ShowSandBox_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Study_ShowSandBox_Cell.m; sourceTree = "<group>"; };
+		462FDB3C228556C000E6E8F7 /* Study_ShowSandBoxVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Study_ShowSandBoxVC.h; sourceTree = "<group>"; };
+		462FDB3D228556C000E6E8F7 /* Study_ShowSandBoxVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Study_ShowSandBoxVC.m; sourceTree = "<group>"; };
+		462FDB3E228556C000E6E8F7 /* Study_ShowSandBox_Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Study_ShowSandBox_Model.m; sourceTree = "<group>"; };
+		462FDB3F228556C000E6E8F7 /* Study_ShowSandBox_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Study_ShowSandBox_Cell.h; sourceTree = "<group>"; };
+		462FDB40228556C000E6E8F7 /* Study_ShowSandBox_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Study_ShowSandBox_Model.h; sourceTree = "<group>"; };
+		462FDB452285574500E6E8F7 /* OSCELOGManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCELOGManager.h; sourceTree = "<group>"; };
+		462FDB462285574500E6E8F7 /* OSCELOGManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCELOGManager.m; sourceTree = "<group>"; };
+		4D5F5103DB1D32F5B94E500E /* Pods-ShowSandBoxFile_SendFileByMail_Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowSandBoxFile_SendFileByMail_Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShowSandBoxFile_SendFileByMail_Demo/Pods-ShowSandBoxFile_SendFileByMail_Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		A11D44A5E90ED04DF2FE660D /* Pods-ShowSandBoxFile_SendFileByMail_Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowSandBoxFile_SendFileByMail_Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShowSandBoxFile_SendFileByMail_Demo/Pods-ShowSandBoxFile_SendFileByMail_Demo.release.xcconfig"; sourceTree = "<group>"; };
+		B641605123567131C504CF14 /* Pods_ShowSandBoxFile_SendFileByMail_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShowSandBoxFile_SendFileByMail_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		462FDB1E228554B600E6E8F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9225808D540182FDF0B01D11 /* Pods_ShowSandBoxFile_SendFileByMail_Demo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2EE9C14A995EDD02D89BE91B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B641605123567131C504CF14 /* Pods_ShowSandBoxFile_SendFileByMail_Demo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		39DD32DD32F4A030C840E8F5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4D5F5103DB1D32F5B94E500E /* Pods-ShowSandBoxFile_SendFileByMail_Demo.debug.xcconfig */,
+				A11D44A5E90ED04DF2FE660D /* Pods-ShowSandBoxFile_SendFileByMail_Demo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		462FDB18228554B600E6E8F7 = {
+			isa = PBXGroup;
+			children = (
+				462FDB23228554B600E6E8F7 /* ShowSandBoxFile_SendFileByMail_Demo */,
+				462FDB22228554B600E6E8F7 /* Products */,
+				39DD32DD32F4A030C840E8F5 /* Pods */,
+				2EE9C14A995EDD02D89BE91B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		462FDB22228554B600E6E8F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				462FDB21228554B600E6E8F7 /* ShowSandBoxFile_SendFileByMail_Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		462FDB23228554B600E6E8F7 /* ShowSandBoxFile_SendFileByMail_Demo */ = {
+			isa = PBXGroup;
+			children = (
+				462FDB24228554B600E6E8F7 /* AppDelegate.h */,
+				462FDB25228554B600E6E8F7 /* AppDelegate.m */,
+				462FDB27228554B600E6E8F7 /* ViewController.h */,
+				462FDB28228554B600E6E8F7 /* ViewController.m */,
+				462FDB442285570C00E6E8F7 /* WriteFileIntoSandBox */,
+				462FDB3A228556A700E6E8F7 /* ShowSandBoxFile */,
+				462FDB2A228554B600E6E8F7 /* Main.storyboard */,
+				462FDB2D228554B900E6E8F7 /* Assets.xcassets */,
+				462FDB2F228554B900E6E8F7 /* LaunchScreen.storyboard */,
+				462FDB32228554B900E6E8F7 /* Info.plist */,
+				462FDB33228554B900E6E8F7 /* main.m */,
+			);
+			path = ShowSandBoxFile_SendFileByMail_Demo;
+			sourceTree = "<group>";
+		};
+		462FDB3A228556A700E6E8F7 /* ShowSandBoxFile */ = {
+			isa = PBXGroup;
+			children = (
+				462FDB3C228556C000E6E8F7 /* Study_ShowSandBoxVC.h */,
+				462FDB3D228556C000E6E8F7 /* Study_ShowSandBoxVC.m */,
+				462FDB3F228556C000E6E8F7 /* Study_ShowSandBox_Cell.h */,
+				462FDB3B228556C000E6E8F7 /* Study_ShowSandBox_Cell.m */,
+				462FDB40228556C000E6E8F7 /* Study_ShowSandBox_Model.h */,
+				462FDB3E228556C000E6E8F7 /* Study_ShowSandBox_Model.m */,
+			);
+			path = ShowSandBoxFile;
+			sourceTree = "<group>";
+		};
+		462FDB442285570C00E6E8F7 /* WriteFileIntoSandBox */ = {
+			isa = PBXGroup;
+			children = (
+				462FDB452285574500E6E8F7 /* OSCELOGManager.h */,
+				462FDB462285574500E6E8F7 /* OSCELOGManager.m */,
+			);
+			path = WriteFileIntoSandBox;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		462FDB20228554B600E6E8F7 /* ShowSandBoxFile_SendFileByMail_Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 462FDB37228554B900E6E8F7 /* Build configuration list for PBXNativeTarget "ShowSandBoxFile_SendFileByMail_Demo" */;
+			buildPhases = (
+				50E35734A9857BD302792106 /* [CP] Check Pods Manifest.lock */,
+				462FDB1D228554B600E6E8F7 /* Sources */,
+				462FDB1E228554B600E6E8F7 /* Frameworks */,
+				462FDB1F228554B600E6E8F7 /* Resources */,
+				B4F2CB861CA1B7E4B1EA0F01 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShowSandBoxFile_SendFileByMail_Demo;
+			productName = ShowSandBoxFile_SendFileByMail_Demo;
+			productReference = 462FDB21228554B600E6E8F7 /* ShowSandBoxFile_SendFileByMail_Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		462FDB19228554B600E6E8F7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = Minxing;
+				TargetAttributes = {
+					462FDB20228554B600E6E8F7 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 462FDB1C228554B600E6E8F7 /* Build configuration list for PBXProject "ShowSandBoxFile_SendFileByMail_Demo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 462FDB18228554B600E6E8F7;
+			productRefGroup = 462FDB22228554B600E6E8F7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				462FDB20228554B600E6E8F7 /* ShowSandBoxFile_SendFileByMail_Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		462FDB1F228554B600E6E8F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				462FDB31228554B900E6E8F7 /* LaunchScreen.storyboard in Resources */,
+				462FDB2E228554B900E6E8F7 /* Assets.xcassets in Resources */,
+				462FDB2C228554B600E6E8F7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		50E35734A9857BD302792106 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShowSandBoxFile_SendFileByMail_Demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4F2CB861CA1B7E4B1EA0F01 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ShowSandBoxFile_SendFileByMail_Demo/Pods-ShowSandBoxFile_SendFileByMail_Demo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/skpsmtpmessage/skpsmtpmessage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/skpsmtpmessage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShowSandBoxFile_SendFileByMail_Demo/Pods-ShowSandBoxFile_SendFileByMail_Demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		462FDB1D228554B600E6E8F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				462FDB29228554B600E6E8F7 /* ViewController.m in Sources */,
+				462FDB34228554B900E6E8F7 /* main.m in Sources */,
+				462FDB42228556C000E6E8F7 /* Study_ShowSandBoxVC.m in Sources */,
+				462FDB472285574500E6E8F7 /* OSCELOGManager.m in Sources */,
+				462FDB41228556C000E6E8F7 /* Study_ShowSandBox_Cell.m in Sources */,
+				462FDB43228556C000E6E8F7 /* Study_ShowSandBox_Model.m in Sources */,
+				462FDB26228554B600E6E8F7 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		462FDB2A228554B600E6E8F7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				462FDB2B228554B600E6E8F7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		462FDB2F228554B900E6E8F7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				462FDB30228554B900E6E8F7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		462FDB35228554B900E6E8F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		462FDB36228554B900E6E8F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		462FDB38228554B900E6E8F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D5F5103DB1D32F5B94E500E /* Pods-ShowSandBoxFile_SendFileByMail_Demo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2STZ5AM32F;
+				INFOPLIST_FILE = ShowSandBoxFile_SendFileByMail_Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.misrobot.ShowSandBoxFile-SendFileByMail-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		462FDB39228554B900E6E8F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A11D44A5E90ED04DF2FE660D /* Pods-ShowSandBoxFile_SendFileByMail_Demo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2STZ5AM32F;
+				INFOPLIST_FILE = ShowSandBoxFile_SendFileByMail_Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.misrobot.ShowSandBoxFile-SendFileByMail-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		462FDB1C228554B600E6E8F7 /* Build configuration list for PBXProject "ShowSandBoxFile_SendFileByMail_Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				462FDB35228554B900E6E8F7 /* Debug */,
+				462FDB36228554B900E6E8F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		462FDB37228554B900E6E8F7 /* Build configuration list for PBXNativeTarget "ShowSandBoxFile_SendFileByMail_Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				462FDB38228554B900E6E8F7 /* Debug */,
+				462FDB39228554B900E6E8F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 462FDB19228554B600E6E8F7 /* Project object */;
+}
