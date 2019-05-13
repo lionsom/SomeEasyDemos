@@ -1,0 +1,356 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4645F0F822890FBF00F57B90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4645F0F722890FBF00F57B90 /* AppDelegate.m */; };
+		4645F0FB22890FBF00F57B90 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4645F0FA22890FBF00F57B90 /* ViewController.m */; };
+		4645F0FE22890FBF00F57B90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4645F0FC22890FBF00F57B90 /* Main.storyboard */; };
+		4645F10022890FC300F57B90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4645F0FF22890FC300F57B90 /* Assets.xcassets */; };
+		4645F10322890FC300F57B90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4645F10122890FC300F57B90 /* LaunchScreen.storyboard */; };
+		4645F10622890FC300F57B90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4645F10522890FC300F57B90 /* main.m */; };
+		4645F10E2289113C00F57B90 /* Gesture_Focus_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4645F10D2289113C00F57B90 /* Gesture_Focus_ViewController.m */; };
+		4645F1112289115100F57B90 /* Auto_Focus_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4645F1102289115100F57B90 /* Auto_Focus_ViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4645F0F322890FBF00F57B90 /* Scan_QRCode_Distance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scan_QRCode_Distance.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4645F0F622890FBF00F57B90 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4645F0F722890FBF00F57B90 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4645F0F922890FBF00F57B90 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4645F0FA22890FBF00F57B90 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4645F0FD22890FBF00F57B90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4645F0FF22890FC300F57B90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4645F10222890FC300F57B90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4645F10422890FC300F57B90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4645F10522890FC300F57B90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4645F10C2289113C00F57B90 /* Gesture_Focus_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gesture_Focus_ViewController.h; sourceTree = "<group>"; };
+		4645F10D2289113C00F57B90 /* Gesture_Focus_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Gesture_Focus_ViewController.m; sourceTree = "<group>"; };
+		4645F10F2289115100F57B90 /* Auto_Focus_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Auto_Focus_ViewController.h; sourceTree = "<group>"; };
+		4645F1102289115100F57B90 /* Auto_Focus_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Auto_Focus_ViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4645F0F022890FBF00F57B90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4645F0EA22890FBF00F57B90 = {
+			isa = PBXGroup;
+			children = (
+				4645F0F522890FBF00F57B90 /* Scan_QRCode_Distance */,
+				4645F0F422890FBF00F57B90 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4645F0F422890FBF00F57B90 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4645F0F322890FBF00F57B90 /* Scan_QRCode_Distance.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4645F0F522890FBF00F57B90 /* Scan_QRCode_Distance */ = {
+			isa = PBXGroup;
+			children = (
+				4645F0F622890FBF00F57B90 /* AppDelegate.h */,
+				4645F0F722890FBF00F57B90 /* AppDelegate.m */,
+				4645F0F922890FBF00F57B90 /* ViewController.h */,
+				4645F0FA22890FBF00F57B90 /* ViewController.m */,
+				4645F10C2289113C00F57B90 /* Gesture_Focus_ViewController.h */,
+				4645F10D2289113C00F57B90 /* Gesture_Focus_ViewController.m */,
+				4645F10F2289115100F57B90 /* Auto_Focus_ViewController.h */,
+				4645F1102289115100F57B90 /* Auto_Focus_ViewController.m */,
+				4645F0FC22890FBF00F57B90 /* Main.storyboard */,
+				4645F0FF22890FC300F57B90 /* Assets.xcassets */,
+				4645F10122890FC300F57B90 /* LaunchScreen.storyboard */,
+				4645F10422890FC300F57B90 /* Info.plist */,
+				4645F10522890FC300F57B90 /* main.m */,
+			);
+			path = Scan_QRCode_Distance;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4645F0F222890FBF00F57B90 /* Scan_QRCode_Distance */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4645F10922890FC300F57B90 /* Build configuration list for PBXNativeTarget "Scan_QRCode_Distance" */;
+			buildPhases = (
+				4645F0EF22890FBF00F57B90 /* Sources */,
+				4645F0F022890FBF00F57B90 /* Frameworks */,
+				4645F0F122890FBF00F57B90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Scan_QRCode_Distance;
+			productName = Scan_QRCode_Distance;
+			productReference = 4645F0F322890FBF00F57B90 /* Scan_QRCode_Distance.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4645F0EB22890FBF00F57B90 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = Minxing;
+				TargetAttributes = {
+					4645F0F222890FBF00F57B90 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 4645F0EE22890FBF00F57B90 /* Build configuration list for PBXProject "Scan_QRCode_Distance" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4645F0EA22890FBF00F57B90;
+			productRefGroup = 4645F0F422890FBF00F57B90 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4645F0F222890FBF00F57B90 /* Scan_QRCode_Distance */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4645F0F122890FBF00F57B90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4645F10322890FC300F57B90 /* LaunchScreen.storyboard in Resources */,
+				4645F10022890FC300F57B90 /* Assets.xcassets in Resources */,
+				4645F0FE22890FBF00F57B90 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4645F0EF22890FBF00F57B90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4645F1112289115100F57B90 /* Auto_Focus_ViewController.m in Sources */,
+				4645F0FB22890FBF00F57B90 /* ViewController.m in Sources */,
+				4645F10E2289113C00F57B90 /* Gesture_Focus_ViewController.m in Sources */,
+				4645F10622890FC300F57B90 /* main.m in Sources */,
+				4645F0F822890FBF00F57B90 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4645F0FC22890FBF00F57B90 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4645F0FD22890FBF00F57B90 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4645F10122890FC300F57B90 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4645F10222890FC300F57B90 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4645F10722890FC300F57B90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4645F10822890FC300F57B90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4645F10A22890FC300F57B90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2STZ5AM32F;
+				INFOPLIST_FILE = Scan_QRCode_Distance/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.misrobot.Scan-QRCode-Distance";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4645F10B22890FC300F57B90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2STZ5AM32F;
+				INFOPLIST_FILE = Scan_QRCode_Distance/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.misrobot.Scan-QRCode-Distance";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4645F0EE22890FBF00F57B90 /* Build configuration list for PBXProject "Scan_QRCode_Distance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4645F10722890FC300F57B90 /* Debug */,
+				4645F10822890FC300F57B90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4645F10922890FC300F57B90 /* Build configuration list for PBXNativeTarget "Scan_QRCode_Distance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4645F10A22890FC300F57B90 /* Debug */,
+				4645F10B22890FC300F57B90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4645F0EB22890FBF00F57B90 /* Project object */;
+}
