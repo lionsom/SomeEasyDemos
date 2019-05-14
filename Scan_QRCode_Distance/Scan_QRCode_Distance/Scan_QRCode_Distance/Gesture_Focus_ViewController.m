@@ -21,22 +21,24 @@
 @interface Gesture_Focus_ViewController ()<AVCaptureMetadataOutputObjectsDelegate, UIGestureRecognizerDelegate>
 
 /** 拍摄设备 手机的摄像机 */
-@property (assign,nonatomic) AVCaptureDevice * device;
+@property (nonatomic, strong) AVCaptureDevice * device;
 /** 输入数据源 */
-@property (strong,nonatomic) AVCaptureDeviceInput * input;
+@property (nonatomic, strong) AVCaptureDeviceInput * input;
 /** 输出数据源 */
-@property (strong,nonatomic) AVCaptureMetadataOutput * output;
+@property (nonatomic, strong) AVCaptureMetadataOutput * output;
 /** 输入输出的中间桥梁 负责把捕获的音视频数据输出到输出设备中 */
-@property (strong,nonatomic) AVCaptureSession * session;
+@property (nonatomic, strong) AVCaptureSession * session;
 /** 相机拍摄预览图层 */
-@property (strong,nonatomic) AVCaptureVideoPreviewLayer * previewLayer;
-@property (nonatomic,strong) AVCaptureStillImageOutput *stillImageOutput;  //拍照
+@property (nonatomic, strong) AVCaptureVideoPreviewLayer * previewLayer;
+@property (nonatomic, strong) AVCaptureStillImageOutput *stillImageOutput;  //拍照
 
 
 ///记录开始的缩放比例
-@property (nonatomic,assign) CGFloat beginGestureScale;
+@property (nonatomic, assign) CGFloat beginGestureScale;
 ///最后的缩放比例
-@property (nonatomic,assign) CGFloat effectiveScale;
+@property (nonatomic, assign) CGFloat effectiveScale;
+
+@property (nonatomic, assign) CGFloat maxScale;
 
 @property (nonatomic, strong) UIView * bgView;
 @property (nonatomic, strong) UIView * coverView;
@@ -53,6 +55,7 @@
     
     _beginGestureScale = 1.0f;
     _effectiveScale = 1.0f;
+    _maxScale = 3.0f;
     
     [self createAVCapture];
     
@@ -87,24 +90,32 @@
                                         cropRect.size.height/SCREEN_HEIGHT,
                                         cropRect.size.width/SCREEN_WIDTH);
  
-    
+    // Setup the still image file output
+    _stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
+    NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys:AVVideoCodecJPEG, AVVideoCodecKey,nil];
+    [_stillImageOutput setOutputSettings:outputSettings];
     
     // Session设置
     _session = [[AVCaptureSession alloc] init];
     // 高质量采集率
     [_session setSessionPreset:AVCaptureSessionPresetHigh];
     // 添加会话输入
-    [_session addInput:_input];
+    if ([_session canAddInput:_input]) {
+        [_session addInput:_input];
+    }
     // 添加会话输出
-    [_session addOutput:_output];
+    if ([_session canAddOutput:_output]) {
+        [_session addOutput:_output];
+    }
+    // 添加still image file
+    if ([_session canAddOutput:_stillImageOutput]) {
+        [_session addOutput:_stillImageOutput];
+    }
     // 设置扫码的编码格式
     _output.metadataObjectTypes = @[AVMetadataObjectTypeQRCode,
                                     AVMetadataObjectTypeEAN13Code,
                                     AVMetadataObjectTypeEAN8Code,
                                     AVMetadataObjectTypeCode128Code];
-    
-    
-    
     
     // 视频预览图层
     _bgView = [[UIView alloc] initWithFrame:self.view.frame];
@@ -171,8 +182,8 @@
     if (_effectiveScale < 1.0){
         _effectiveScale = 1.0;
     }
-    if (_effectiveScale > 3.0) {
-        _effectiveScale = 3.0;
+    if (_effectiveScale > _maxScale) {
+        _effectiveScale = _maxScale;
     }
     [self setScale:_effectiveScale];
 }
@@ -181,7 +192,7 @@
     if (_effectiveScale > 1.0) {
         _effectiveScale = 1.0;
     } else {
-        _effectiveScale = 3.0;
+        _effectiveScale = _maxScale;
     }
     [self setScale:_effectiveScale];
 }
@@ -203,23 +214,20 @@
     [_input.device unlockForConfiguration];
     
     
-    
-    // 动画
+    // 动画 Ⅰ
     [CATransaction begin];
-    [CATransaction setAnimationDuration:0.25];
+    [CATransaction setAnimationDuration:0.3];
 //    _previewLayer.affineTransform = CGAffineTransformMakeScale(scale, scale);   // 主要是改变相机图层的大小
     _bgView.transform = CGAffineTransformMakeScale(scale, scale);
     [CATransaction commit];
-    
-    // 有效区域
-    // 锁住
-    CGRect cropRect = CGRectMake(SCREEN_WIDTH/2-110,SCREEN_HEIGHT/2-110,220,220);
-    CGRect newRect = [_coverView convertRect:cropRect toView:_bgView];
-    _output.rectOfInterest =  CGRectMake(newRect.origin.y/_bgView.frame.size.height,
-                                         newRect.origin.x/_bgView.frame.size.width,
-                                         newRect.size.height/_bgView.frame.size.height,
-                                         newRect.size.width/_bgView.frame.size.width);
 
+    // 动画 Ⅱ
+//    [UIView animateWithDuration:0.3 animations:^{
+//        self->_bgView.transform = CGAffineTransformMakeScale(scale, scale);
+//    } completion:^(BOOL finished) {
+//
+//    }];
+    
     
     /* 在缩放后的frame上缩放（可以一直缩放）
     CGFloat zoom = scale / videoConnection.videoScaleAndCropFactor;
@@ -303,100 +311,5 @@
     return YES;
 }
 
-
-#pragma mark -  焦距
-
-//- (void)CameraScaleAction:(UIButton *)sender{
-//    kCameraScale+=0.5;   //去定义一个float类型，默认值为1.0
-//    if(kCameraScale>2.5)
-//        kCameraScale=1.0;
-//    //改变焦距   记住这里的输出链接类型要选中这个类型，否则屏幕会花的
-//    AVCaptureConnection *connect=[_metadataOutput connectionWithMediaType:AVMediaTypeVideo];
-//    [CATransaction begin];
-//    [CATransaction setAnimationDuration:0.2];
-//    [sender setTitle:[NSString stringWithFormat:@"%.1fX",(float)kCameraScale] forState:UIControlStateNormal];
-//    //主要是改变相机图层的大小
-//    [_previewLayer setAffineTransform:CGAffineTransformMakeScale(kCameraScale, kCameraScale)];
-//    connect.videoScaleAndCropFactor= kCameraScale;
-//    [CATransaction commit];
-//    //超出的部分切掉,否则影响扫描效果
-//    self.view.clipsToBounds=YES;
-//    self.view.layer.masksToBounds=YES;
-//}
-
-////对焦
-//-(void)foucus:(UITapGestureRecognizer *)sender
-//{
-//    if(_input.device.position==AVCaptureDevicePositionFront)
-//        return;
-//    if(sender.state==UIGestureRecognizerStateRecognized)
-//    {
-//        CGPoint location=[sender locationInView:self.view];
-//        //对焦
-//        __weak typeof(self) weakSelf=self;
-//        [self focusOnPoint:location completionHandler:^{
-//            weakSelf.focalReticule.center=location;
-//            weakSelf.focalReticule.alpha=0.0;
-//            weakSelf.focalReticule.hidden=NO;
-//            [UIView animateWithDuration:0.3 animations:^{
-//                weakSelf.focalReticule.alpha=1.0;
-//            }completion:^(BOOL finished) {
-//                [UIView animateWithDuration:0.3 animations:^{
-//                    weakSelf.focalReticule.alpha=0.0;
-//                }];
-//            }];
-//        }];
-//    }
-//}
-//
-//////对某一点对焦
-//-(void)focusOnPoint:(CGPoint)point completionHandler:(void(^)())completionHandler{
-//    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];;
-//    CGPoint pointOfInterest = CGPointZero;
-//    CGSize frameSize = self.view.bounds.size;
-//    pointOfInterest = CGPointMake(point.y / frameSize.height, 1.f - (point.x / frameSize.width));
-//    if ([device isFocusPointOfInterestSupported] && [device isFocusModeSupported:AVCaptureFocusModeAutoFocus])
-//    {
-//        NSError *error;
-//        if ([device lockForConfiguration:&error])
-//        {
-//            if ([device isWhiteBalanceModeSupported:AVCaptureWhiteBalanceModeAutoWhiteBalance])
-//            {
-//                [device setWhiteBalanceMode:AVCaptureWhiteBalanceModeAutoWhiteBalance];
-//            }
-//            if ([device isFocusModeSupported:AVCaptureFocusModeContinuousAutoFocus])
-//            {
-//                [device setFocusMode:AVCaptureFocusModeAutoFocus];
-//                [device setFocusPointOfInterest:pointOfInterest];
-//            }
-//            if([device isExposurePointOfInterestSupported] && [device isExposureModeSupported:AVCaptureExposureModeContinuousAutoExposure])
-//            {
-//                [device setExposurePointOfInterest:pointOfInterest];
-//                [device setExposureMode:AVCaptureExposureModeContinuousAutoExposure];
-//            }
-//            [device unlockForConfiguration];
-//            if(completionHandler)
-//                completionHandler();
-//        }
-//    }
-//    else{
-//        if(completionHandler)
-//            completionHandler();
-//    }
-//}
-
-
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
