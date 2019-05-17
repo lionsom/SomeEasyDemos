@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 static const NSInteger kDefaultCacheMaxCacheAge = 60 * 60 * 24 * 7; // 1 week
-static const NSInteger kMaxCacheSize = 10*1024;   //30 * 1024 * 1024;        // The maximum size of the cache, in bytes.  30M
+static const NSInteger kMaxCacheSize = 30 * 1024 * 1024;        // The maximum size of the cache, in bytes.  30M
 
 typedef void(^OSCELOGNoParamsBlock)(void);
 

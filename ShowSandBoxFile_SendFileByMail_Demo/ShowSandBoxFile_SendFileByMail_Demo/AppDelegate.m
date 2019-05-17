@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "Study_ShowSandBoxVC.h"
+
 @interface AppDelegate ()
 
 @end
@@ -17,7 +19,60 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    // 添加手势，弹出log页面
+    UISwipeGestureRecognizer* swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeDetected:)];
+    swipeGesture.numberOfTouchesRequired = 1;
+    swipeGesture.direction = (UISwipeGestureRecognizerDirectionLeft);
+    [[UIApplication sharedApplication].keyWindow addGestureRecognizer:swipeGesture];
+    
+    
     return YES;
+}
+
+#pragma mark - 显示Log页面
+
+- (void)onSwipeDetected:(UISwipeGestureRecognizer*)gs {
+    NSLog(@"当前页面 = %@",[self getCurrentViewController]);
+    Study_ShowSandBoxVC* vc = [[Study_ShowSandBoxVC alloc]init];
+    UIViewController * currentVC = [self getCurrentViewController];
+    if ([currentVC isKindOfClass:[Study_ShowSandBoxVC class]]) {
+        NSLog(@"已经显示");
+    } else {
+        [currentVC presentViewController:vc animated:YES completion:^{
+        }];
+    }
+}
+
+#pragma mark - 获取当前ViewController
+
+-(UIViewController *)getCurrentViewController {
+    // 获取默认的window
+    UIWindow *window = [[UIApplication sharedApplication].delegate window];
+    if (window.windowLevel != UIWindowLevelNormal) {
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        for (UIWindow * tmpWin in windows) {
+            if (tmpWin.windowLevel == UIWindowLevelNormal) {
+                window = tmpWin;
+                break;
+            }
+        }
+    }
+    
+    // 获取window的rootViewController
+    UIViewController * result = window.rootViewController;
+    while (result.presentedViewController) {
+        result = result.presentedViewController;
+    }
+    if ([result isKindOfClass:[UITabBarController class]]) {
+        result = [(UITabBarController *)result selectedViewController];
+    }
+    if ([result isKindOfClass:[UINavigationController class]]) {
+        result = [(UINavigationController *)result visibleViewController];
+    }
+    
+    return result;
 }
 
 

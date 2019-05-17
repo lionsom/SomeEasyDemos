@@ -16,6 +16,16 @@
 #import "NSData+Base64Additions.h"
 
 #import "Masonry.h"
+#import "SVProgressHUD+LX.h"
+
+typedef NS_ENUM(NSInteger, SDImageFormat) {
+    SDImageFormatUndefined = -1,
+    SDImageFormatJPEG = 0,
+    SDImageFormatPNG,
+    SDImageFormatGIF,
+    SDImageFormatTIFF,
+    SDImageFormatWebP
+};
 
 @interface Study_ShowSandBoxVC ()<SKPSMTPMessageDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -76,6 +86,7 @@
         file.name = @"🔙..";
         file.type = ASFileItemUp;
         file.path = filePath;
+        file.filesize = @"";
         [files addObject:file];
     }
     
@@ -95,9 +106,11 @@
         if (isDir) {
             file.type = ASFileItemDirectory;
             file.name = [NSString stringWithFormat:@"%@ %@", @"📁", path];
+            file.filesize = [self FileURL:fullPath isDirectory:YES];
         } else {
             file.type = ASFileItemFile;
             file.name = [NSString stringWithFormat:@"%@ %@", @"📄", path];
+            file.filesize = [self FileURL:fullPath isDirectory:NO];
         }
         [files addObject:file];
     }
@@ -196,50 +209,115 @@
 #pragma mark - SKP SMTP 邮件发送
 // 发送邮件 附件
 - (void)sendEmail:(Study_ShowSandBox_Model *)model {
-    
     NSString * filename = model.name;
     NSString * filepath = model.path;
+    NSData * txtData = nil;
+    NSData * imageData = nil;
+    NSData * audioData = nil;
+    NSData * videoData = nil;
     
-    // 附件内容为空，则不发送邮件
-    NSData *txtData = [NSData dataWithContentsOfFile:filepath];
-    if (txtData.length <= 0) {
-        NSLog(@"附件内容为空！！！");
+    // 1、邮件Body文本
+    NSString * content = [NSString stringWithCString:[filename UTF8String] encoding:NSUTF8StringEncoding];
+    // 1.1、附件内容
+    if ([filename hasSuffix:@".txt"]) {
+        txtData = [NSData dataWithContentsOfFile:filepath];
+    } else if ([filename hasSuffix:@".jpg"] || [filename hasSuffix:@".png"]) {
+        imageData = [NSData dataWithContentsOfFile:filepath];
+    } else if ([filename hasSuffix:@".mp3"]) {
+        audioData = [NSData dataWithContentsOfFile:filepath];
+    }  else if ([filename hasSuffix:@".mov"]) {
+        videoData = [NSData dataWithContentsOfFile:filepath];
+    } else {
+        txtData = [NSData dataWithContentsOfFile:filepath];
+    }
+    // 1.2、附件内容为空，则不发送邮件
+    if (txtData.length <= 0 && imageData.length <= 0 && audioData.length <=0 && videoData.length <= 0) {
+        [SVProgressHUD showError:@"附件内容为空，无法送邮件" toView:self.view dismissCompletion:nil];
         return;
     }
     
+    // 2、邮件内容整理
+    NSDictionary *bodyPart = @{};
+    NSDictionary *txtPart = @{};
+    NSDictionary *imagePart = @{};
+    NSDictionary *audioPart = @{};
+    NSDictionary *videoPart = @{};
+    if (content.length > 0) {
+        // 2.1、邮件内容
+        bodyPart =@{kSKPSMTPPartContentTypeKey :@"text/plain; charset=UTF-8",
+                    kSKPSMTPPartMessageKey:content,
+                    kSKPSMTPPartContentTransferEncodingKey :@"8bit"};
+    }
+    if (txtData.length > 0) {
+        // 2.2、附件 - txt
+        txtPart = @{kSKPSMTPPartContentTypeKey:@"text/directory;\r\n\tx-unix-mode=0644;\r\n\tname=\"text.txt\"",
+                    kSKPSMTPPartContentDispositionKey:@"attachment;\r\n\tfilename=\"text.txt\"",
+                    kSKPSMTPPartMessageKey:[txtData encodeBase64ForData],
+                    kSKPSMTPPartContentTransferEncodingKey:@"base64"};
+    }
+    if (imageData.length > 0) {
+        // 2.3、附件 - 图片
+        imagePart = @{kSKPSMTPPartContentTypeKey:@"image/jpg;\r\n\tx-unix-mode=0644;\r\n\tname=\"image.jpg\"",
+                      kSKPSMTPPartContentDispositionKey:@"attachment;\r\n\tfilename=\"image.jpg\"",
+                      kSKPSMTPPartMessageKey:[imageData encodeBase64ForData],
+                      kSKPSMTPPartContentTransferEncodingKey:@"base64"};
+    }
+    if (audioData.length > 0) {
+        // 2.4、附件 - mp3
+        audioPart = @{kSKPSMTPPartContentTypeKey:@"audio/mpeg;\r\n\tx-unix-mode=0644;\r\n\tname=\"audio.mp3\"",
+                      kSKPSMTPPartContentDispositionKey:@"attachment;\r\n\tfilename=\"audio.mp3\"",
+                      kSKPSMTPPartMessageKey:[audioData encodeBase64ForData],
+                      kSKPSMTPPartContentTransferEncodingKey:@"base64"};
+    }
+    if (videoData.length > 0) {
+        // 2.5、附件 - 视频
+         videoPart = @{kSKPSMTPPartContentTypeKey:@"video/quicktime;\r\n\tx-unix-mode=0644;\r\n\tname=\"video.mov\"",
+                       kSKPSMTPPartContentDispositionKey:@"attachment;\r\n\tfilename=\"video.mov\"",
+                       kSKPSMTPPartMessageKey:[videoData encodeBase64ForData],
+                       kSKPSMTPPartContentTransferEncodingKey:@"base64"};
+    }
+    
+    // 3、如果有附件，则需要添加到发送数组中
+    NSMutableArray * arr = [[NSMutableArray alloc] initWithCapacity:5];
+    if (bodyPart.count > 0) {
+        [arr addObject:bodyPart];
+    }
+    if (txtPart.count > 0) {
+        [arr addObject:txtPart];
+    }
+    if (imagePart.count > 0) {
+        [arr addObject:imagePart];
+    }
+    if (audioPart.count > 0) {
+        [arr addObject:audioPart];
+    }
+    if (videoPart.count > 0) {
+        [arr addObject:videoPart];
+    }
+    
+// ------------------------------------------
+    // 4、初始化 SKPSMTPMessage 对象
     SKPSMTPMessage *myMessage = [[SKPSMTPMessage alloc] init];
-    myMessage.fromEmail = @"1515196XXXX@163.com"; //发送邮箱
-    myMessage.toEmail = @"lin@mis.com"; //收件邮箱
+    myMessage.fromEmail = @"15151963160@163.com"; //发送邮箱
+    myMessage.toEmail = @"linxiang@misrobot.com"; //收件邮箱
     // myMessage.ccEmail = @"597207909@qq.com"; //抄送
     
     myMessage.relayHost = @"smtp.163.com";//发送地址host 网易企业邮箱
     myMessage.requiresAuth = YES;
-    myMessage.login = @"1515196XXXX@163.com";//发送邮箱的用户名
-    myMessage.pass = @"XXXXXX";  //发送邮箱的密码
+    myMessage.login = @"15151963160@163.com";//发送邮箱的用户名
+    myMessage.pass = @"misrobot001";  //发送邮箱的密码
     
     myMessage.wantsSecure = YES;
     myMessage.subject = @"OSCE Log Mail";//邮件主题
     myMessage.delegate = self;
     
-    // 文本
-    NSString *content = [NSString stringWithCString:[filename UTF8String] encoding:NSUTF8StringEncoding];
+    myMessage.parts = [arr copy];
     
-    NSDictionary *param =@{kSKPSMTPPartContentTypeKey :@"text/plain; charset=UTF-8",
-                           kSKPSMTPPartMessageKey : content,
-                           kSKPSMTPPartContentTransferEncodingKey :@"8bit"};
-    
-    // 附件
-    NSDictionary *txtPart = @{kSKPSMTPPartContentTypeKey:@"text/directory;\r\n\tx-unix-mode=0644;\r\n\tname=\"AAAA.txt\"",
-                              kSKPSMTPPartContentDispositionKey:@"attachment;\r\n\tfilename=\"OSCE调试Log.txt\"",
-                              kSKPSMTPPartMessageKey:[txtData encodeBase64ForData],
-                              kSKPSMTPPartContentTransferEncodingKey:@"base64"};
-    
-    myMessage.parts = [NSArray arrayWithObjects:param, txtPart,nil];
-    
+    [SVProgressHUD showMessage:@"正在发送..." toView:self.view];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
         [myMessage send];
-        [[NSRunLoop currentRunLoop] run]; //这里开启一下runloop要不然重试其他端口的操作不会进行
+        [[NSRunLoop currentRunLoop] run];  // 这里开启一下runloop要不然重试其他端口的操作不会进行
     });
 }
 
@@ -247,27 +325,103 @@
 #pragma mark - SKPSMTPMessage Delegeate
 
 - (void)messageSent:(SKPSMTPMessage *)message {
-    // 1. 实例化
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"邮件发送成功" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    // 2. 添加方法
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-    }]];
-    // 3. 显示
-    [self presentViewController:alert animated:YES completion:nil];
+    [SVProgressHUD hideHUDWithCompletion:^{
+        // 1. 实例化
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"邮件发送成功" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        // 2. 添加方法
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        }]];
+        // 3. 显示
+        [self presentViewController:alert animated:YES completion:nil];
+    }];
 }
 
 - (void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error {
     NSString *errorStr = [NSString stringWithFormat:@"error code : %ld \n %@ \n %@", (long)[error code], [error localizedDescription], [error localizedRecoverySuggestion]];
-    
-    // 1. 实例化
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"邮件发送失败" message:errorStr preferredStyle:UIAlertControllerStyleAlert];
-    // 2. 添加方法
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-    }]];
-    // 3. 显示
-    [self presentViewController:alert animated:YES completion:nil];
+    [SVProgressHUD hideHUDWithCompletion:^{
+        // 1. 实例化
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"邮件发送失败" message:errorStr preferredStyle:UIAlertControllerStyleAlert];
+        // 2. 添加方法
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        }]];
+        // 3. 显示
+        [self presentViewController:alert animated:YES completion:nil];
+    }];
 }
 
 
+#pragma mark - 计算文件大小
+
+- (NSString *)FileURL:(NSString *)cachepath isDirectory:(BOOL)isdirectory {
+    NSFileManager * fileManager = [NSFileManager new];
+    
+    // 获取文件夹下面的所有文件
+    NSArray *subpathArray = [fileManager subpathsAtPath:cachepath];
+    NSString *filePath = nil;
+    long long totleSize = 0;
+    
+    // 文件夹
+    if (subpathArray.count > 0) {
+        for (NSString *subpath in subpathArray) {
+            //拼接每一个文件的全路径
+            filePath = [cachepath stringByAppendingPathComponent:subpath];
+            NSDictionary *dict = [fileManager attributesOfItemAtPath:filePath error:nil];
+            long long size=[dict[@"NSFileSize"] longLongValue];
+            totleSize+=size;
+        }
+    } else {
+        // 单个文件
+        NSDictionary *dict = [fileManager attributesOfItemAtPath:cachepath error:nil];
+        long long size=[dict[@"NSFileSize"] longLongValue];
+        totleSize = size;
+    }
+    
+    //将文件夹大小转换为 G/M/KB/B
+    NSString *totleStr = @"";
+    if (totleSize > 1000 * 1000 * 1000) {
+        totleStr = [NSString stringWithFormat:@"%.1fGB",totleSize / 1000.0f / 1000.0f / 1000.0f];
+    } else if (totleSize > 1000 * 1000) {
+        totleStr = [NSString stringWithFormat:@"%.1fMB",totleSize / 1000.0f / 1000.0f];
+    } else if (totleSize > 1000) {
+        totleStr = [NSString stringWithFormat:@"%.1fKB",totleSize / 1000.0f];
+    } else {
+        totleStr = [NSString stringWithFormat:@"%.1fB",totleSize / 1.0f];
+    }
+    return totleStr;
+}
+
+
+#pragma mark -- 图片类型判断
+
+- (SDImageFormat)sd_imageFormatForImageData:(nullable NSData *)data {
+    if (!data) {
+        return SDImageFormatUndefined;
+    }
+    
+    uint8_t c;
+    [data getBytes:&c length:1];
+    switch (c) {
+        case 0xFF:
+            return SDImageFormatJPEG;
+        case 0x89:
+            return SDImageFormatPNG;
+        case 0x47:
+            return SDImageFormatGIF;
+        case 0x49:
+        case 0x4D:
+            return SDImageFormatTIFF;
+        case 0x52:
+            // R as RIFF for WEBP
+            if (data.length < 12) {
+                return SDImageFormatUndefined;
+            }
+            
+            NSString *testString = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 12)] encoding:NSASCIIStringEncoding];
+            if ([testString hasPrefix:@"RIFF"] && [testString hasSuffix:@"WEBP"]) {
+                return SDImageFormatWebP;
+            }
+    }
+    return SDImageFormatUndefined;
+}
 
 @end

@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString * name;
 @property (nonatomic, copy) NSString * path;
+@property (nonatomic, copy) NSString * filesize;
+
 @property (nonatomic, assign) ASFileItemType type;
 
 @end

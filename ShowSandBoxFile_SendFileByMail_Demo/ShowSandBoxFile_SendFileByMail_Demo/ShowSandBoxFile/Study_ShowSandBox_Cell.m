@@ -18,6 +18,7 @@ static NSString * reuseIdentifier = @"Study_ShowSandBox_Cell_ID";
 @interface Study_ShowSandBox_Cell()
 
 @property (nonatomic, strong) UILabel * nameLabel;
+@property (nonatomic, strong) UILabel * filesizeLabel;
 
 @end
 
@@ -57,6 +58,17 @@ static NSString * reuseIdentifier = @"Study_ShowSandBox_Cell_ID";
         make.top.and.right.and.bottom.equalTo(self);
     }];
     
+    _filesizeLabel = [[UILabel alloc] init];
+    _filesizeLabel.textColor = [UIColor blackColor];
+    _filesizeLabel.text = @"";
+    _filesizeLabel.adjustsFontSizeToFitWidth = YES;
+    _filesizeLabel.textAlignment = NSTextAlignmentRight;
+    [self addSubview:_filesizeLabel];
+    [_filesizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).offset(-10);
+        make.top.and.left.and.bottom.equalTo(self);
+    }];
+    
     UILabel * lineLabel = [[UILabel alloc]init];
     lineLabel.backgroundColor = [UIColor lightGrayColor];
     [self addSubview:lineLabel];
@@ -69,6 +81,12 @@ static NSString * reuseIdentifier = @"Study_ShowSandBox_Cell_ID";
 
 -(void)setmodel:(Study_ShowSandBox_Model *)model {
     _nameLabel.text = model.name;
+    
+    if (model.type == ASFileItemUp) {
+        _filesizeLabel.text = @"";
+    } else {
+        _filesizeLabel.text = model.filesize;
+    }
 }
 
 

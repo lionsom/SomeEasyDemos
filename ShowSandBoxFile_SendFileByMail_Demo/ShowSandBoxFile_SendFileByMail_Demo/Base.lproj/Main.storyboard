@@ -32,14 +32,44 @@
                                     <action selector="ShowSandBoxBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lMw-R6-5D3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaL-aI-rSo">
+                                <rect key="frame" x="10" y="354" width="394" height="30"/>
+                                <state key="normal" title="图片保存到沙盒"/>
+                                <connections>
+                                    <action selector="WriteImageBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kcD-sP-IoN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCd-d7-7YR">
+                                <rect key="frame" x="10" y="434" width="394" height="30"/>
+                                <state key="normal" title="mp3保存到沙盒"/>
+                                <connections>
+                                    <action selector="WriteMp3Btn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A5b-W1-oNj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O61-Mr-CQB">
+                                <rect key="frame" x="10" y="514" width="394" height="30"/>
+                                <state key="normal" title="视频保存到沙盒"/>
+                                <connections>
+                                    <action selector="WriteVideoBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0GO-0L-mFD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="KCd-d7-7YR" firstAttribute="top" secondItem="HaL-aI-rSo" secondAttribute="bottom" constant="50" id="7T3-bb-ggr"/>
+                            <constraint firstItem="HaL-aI-rSo" firstAttribute="top" secondItem="SGj-L1-ShK" secondAttribute="bottom" constant="50" id="A10-KK-l0b"/>
+                            <constraint firstItem="O61-Mr-CQB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="CHk-RH-olp"/>
+                            <constraint firstItem="KCd-d7-7YR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="GSI-ac-qfD"/>
                             <constraint firstItem="SGj-L1-ShK" firstAttribute="top" secondItem="EEZ-Va-Aco" secondAttribute="bottom" constant="100" id="IX6-5d-BWW"/>
+                            <constraint firstItem="HaL-aI-rSo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Nh3-5z-Kei"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="O61-Mr-CQB" secondAttribute="trailing" constant="10" id="P08-Mg-9Lv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KCd-d7-7YR" secondAttribute="trailing" constant="10" id="RRh-Tx-dPh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HaL-aI-rSo" secondAttribute="trailing" constant="10" id="Rvz-4b-WR9"/>
                             <constraint firstItem="EEZ-Va-Aco" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="bpu-Ln-mmf"/>
                             <constraint firstItem="SGj-L1-ShK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="cpR-Vh-3yI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SGj-L1-ShK" secondAttribute="trailing" constant="10" id="hjU-pT-RPL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EEZ-Va-Aco" secondAttribute="trailing" constant="10" id="jpz-vZ-tQI"/>
+                            <constraint firstItem="O61-Mr-CQB" firstAttribute="top" secondItem="KCd-d7-7YR" secondAttribute="bottom" constant="50" id="w08-1o-Q43"/>
                             <constraint firstItem="EEZ-Va-Aco" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="x3s-Nt-yrN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
