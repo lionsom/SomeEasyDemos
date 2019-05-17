@@ -43,6 +43,7 @@
     [UIImagePNGRepresentation(imgsave) writeToFile:Pathimg atomically:YES];
 }
 
+
 - (IBAction)WriteMp3Btn:(id)sender {
     // 保存到沙盒
     NSString * filePath = [[NSBundle mainBundle] pathForResource:@"平凡之路" ofType:@"mp3"];
