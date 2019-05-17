@@ -305,7 +305,7 @@ typedef NS_ENUM(NSInteger, SDImageFormat) {
     myMessage.relayHost = @"smtp.163.com";//发送地址host 网易企业邮箱
     myMessage.requiresAuth = YES;
     myMessage.login = @"15151963160@163.com";//发送邮箱的用户名
-    myMessage.pass = @"misrobot001";  //发送邮箱的密码
+    myMessage.pass = @"XXXXXX";  //发送邮箱的密码
     
     myMessage.wantsSecure = YES;
     myMessage.subject = @"OSCE Log Mail";//邮件主题
