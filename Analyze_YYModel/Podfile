@@ -1,0 +1,13 @@
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
+    target:"Analyze_YYModel" do
+    use_frameworks!
+
+    pod 'Masonry'
+    pod 'SVProgressHUD'
+	pod 'YYModel'
+	
+end
+

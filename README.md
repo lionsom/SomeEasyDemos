@@ -30,3 +30,8 @@ AVAudioPlayer，AVPlayer，AVQueuePlayer都支持后台播放、锁屏信息、�
 有效区域：[IOS二维码扫描,你需要注意的两件事](https://blog.cnbluebox.com/blog/2014/08/26/ioser-wei-ma-sao-miao/) <br>
 其他demo：[LBXScan](https://github.com/MxABC/LBXScan) <br>
 
+
+## Analyze_YYModel
+
+> 对YYModel进行使用，并分析实现。
+
