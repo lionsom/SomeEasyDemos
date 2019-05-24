@@ -4,5 +4,9 @@
     "age":"22",
     "created":"1965-07-31T00:00:00+0000",
     "timestamp" : 1558690635,
-    "isstu":"yesaa"
+    "isstu":"yesaa",
+    "friend":{
+        "name":"J.K.Rowing.",
+        "age":55
+    }
 }

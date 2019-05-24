@@ -17,7 +17,9 @@
  *  前：模型的属性   后：字典里的属性
  */
 + (NSDictionary *)modelCustomPropertyMapper {
-    return @{@"uid" : @"id"};
+    return @{@"uid" : @"id",
+             @"friend_name":@"friend.name"    // 声明friend_name字段在friend下的name
+             };
     
     // 映射可以设定多个映射字段
     // return @{@"uid":@[@"id",@"uid",@"ID"]};

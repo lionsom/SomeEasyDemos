@@ -13,6 +13,13 @@
 #import "numberModel.h"
 #import "User.h"
 
+#import "Author.h"
+#import "Book.h"
+
+#import "TeacherModel.h"
+
+#import "ContainerModel.h"
+#import "DemoModel.h"
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -45,7 +52,7 @@
 
 // row number
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 6;
 }
 
 // init cell
@@ -64,6 +71,18 @@
             return cell;
         }
         if (indexPath.row == 2) {
+            cell.textLabel.text = @"Model in Model";
+            return cell;
+        }
+        if (indexPath.row == 3) {
+            cell.textLabel.text = @"创建 [BBB] queue";
+            return cell;
+        }
+        if (indexPath.row == 4) {
+            cell.textLabel.text = @"创建 [BBB] queue";
+            return cell;
+        }
+        if (indexPath.row == 5) {
             cell.textLabel.text = @"创建 [BBB] queue";
             return cell;
         }
@@ -102,6 +121,15 @@
             [self simpleModelJsonModelConvert];
         }
         if (indexPath.row == 2) {
+            [self DoubleModelJsonModelConvert];
+        }
+        if (indexPath.row == 3) {
+            [self TeacherModelJsonModelConvert];
+        }
+        if (indexPath.row == 4) {
+            [self containerJsonModelConvert];
+        }
+        if (indexPath.row == 5) {
             
         }
     }
@@ -135,21 +163,71 @@
     NSDictionary *json = [self getJsonWithJsonName:@"SimpleModel"];
     // Convert json to model:
     User *user = [User yy_modelWithDictionary:json];
-    NSLog(@"uid = %@ , name = %@ , age = %@ , createT = %@ ,createT_String = %@ ,timestamp = %@ , isstu = %@",
+    NSLog(@"uid = %@ , name = %@ , age = %@ , createT = %@ ,createT_String = %@ ,timestamp = %@ , isstu = %@ , friend_name = %@",
           user.uid,
           user.name,
           user.age,
           user.created,
           user.created_String,
           user.timestamp,
-          user.isstu);
+          user.isstu,
+          user.friend_name);
     
     // Convert model to json:
     NSDictionary *jsonConvert = [user yy_modelToJSONObject];
     NSLog(@"%@",jsonConvert);
 }
 
-        
+
+- (void) DoubleModelJsonModelConvert {
+    NSDictionary *json = [self getJsonWithJsonName:@"DoubleModel"];
+    
+    // Convert json to model:
+    Book *book = [Book yy_modelWithDictionary:json];
+    NSLog(@"book ===== %@",book);
+    
+    // Convert model to json:
+    NSDictionary *jsonDict = [book yy_modelToJSONObject];
+    NSLog(@"jsonDict ===== %@",jsonDict);
+}
+
+
+
+- (void) TeacherModelJsonModelConvert {
+
+    NSDictionary *json = [self getJsonWithJsonName:@"TeacherModel"];
+    
+    // Convert json to model:
+    TeacherModel *book = [TeacherModel yy_modelWithDictionary:json];
+    NSLog(@"teacher ===== %@",book);
+    
+    // Convert model to json:
+    NSDictionary *jsonDict = [book yy_modelToJSONObject];
+    NSLog(@"jsonDict ===== %@",jsonDict);
+}
+
+
+- (void) containerJsonModelConvert {
+    NSDictionary *json =[self getJsonWithJsonName:@"ContainerModel"];
+    
+    ContainerModel *containModel = [ContainerModel yy_modelWithDictionary:json];
+    
+    NSDictionary *dataDict = [containModel valueForKey:@"data"];
+    
+    NSArray *listArray = [dataDict valueForKey:@"list"];
+    
+    //遍历数组获取里面的字典，在调用YYModel方法
+    [listArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSDictionary *listDict = obj;
+        List *listModel = [List yy_modelWithDictionary:listDict];
+        //随便获取count 和 id两个类型
+        NSString *count = [listModel valueForKey:@"count"];
+        NSString *id = [listModel valueForKey:@"id"];
+        NSLog(@"count == %@,id === %@",count,id);
+    }];
+}
+
+
 #pragma mark - Lazy init
 
 -(UITableView *)tableView {

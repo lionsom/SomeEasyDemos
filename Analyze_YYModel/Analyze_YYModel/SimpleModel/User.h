@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSNumber *timestamp;
 @property (nonatomic, copy) NSNumber *isstu;
 
+@property (nonatomic, copy) NSString *friend_name;
+
 @end
 
 NS_ASSUME_NONNULL_END
