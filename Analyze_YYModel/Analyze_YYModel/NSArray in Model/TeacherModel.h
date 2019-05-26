@@ -8,15 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+@class StudentModel;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TeacherModel : NSObject
 
-@property (strong, nonatomic) NSNumber *teacherid;
 @property (copy,   nonatomic) NSString *name;
 @property (assign, nonatomic) int age;
 @property (strong, nonatomic) NSArray *languages;
 @property (strong, nonatomic) NSDictionary *friendinfo;
+
+// 自定义容器类中的数据类型
+@property (nonatomic, strong) NSArray <StudentModel *>* students;
 
 @end
 

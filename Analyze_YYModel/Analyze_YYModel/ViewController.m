@@ -19,7 +19,8 @@
 #import "TeacherModel.h"
 
 #import "ContainerModel.h"
-#import "DemoModel.h"
+
+#import "BlackAndWhiteList.h"
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -75,15 +76,15 @@
             return cell;
         }
         if (indexPath.row == 3) {
-            cell.textLabel.text = @"创建 [BBB] queue";
+            cell.textLabel.text = @"基本容器类 in Model";
             return cell;
         }
         if (indexPath.row == 4) {
-            cell.textLabel.text = @"创建 [BBB] queue";
+            cell.textLabel.text = @"最复杂的组合 - 贴近实战";
             return cell;
         }
         if (indexPath.row == 5) {
-            cell.textLabel.text = @"创建 [BBB] queue";
+            cell.textLabel.text = @"黑白名单测试";
             return cell;
         }
     }
@@ -130,7 +131,7 @@
             [self containerJsonModelConvert];
         }
         if (indexPath.row == 5) {
-            
+            [self BlacklistAndWhitelistModelConvert];
         }
     }
 }
@@ -198,11 +199,11 @@
     NSDictionary *json = [self getJsonWithJsonName:@"TeacherModel"];
     
     // Convert json to model:
-    TeacherModel *book = [TeacherModel yy_modelWithDictionary:json];
-    NSLog(@"teacher ===== %@",book);
+    TeacherModel *teacher = [TeacherModel yy_modelWithDictionary:json];
+    NSLog(@"teacher ===== %@",teacher);
     
     // Convert model to json:
-    NSDictionary *jsonDict = [book yy_modelToJSONObject];
+    NSDictionary *jsonDict = [teacher yy_modelToJSONObject];
     NSLog(@"jsonDict ===== %@",jsonDict);
 }
 
@@ -225,6 +226,18 @@
         NSString *id = [listModel valueForKey:@"id"];
         NSLog(@"count == %@,id === %@",count,id);
     }];
+}
+
+
+- (void) BlacklistAndWhitelistModelConvert {
+    NSDictionary *json = [self getJsonWithJsonName:@"BlacklistAndWhitelist"];
+    
+    // Convert json to model:
+    BlackAndWhiteList *blacklistAndWhitelist = [BlackAndWhiteList yy_modelWithDictionary:json];
+    
+    // Convert model to json:
+    NSDictionary *jsonDict = [blacklistAndWhitelist yy_modelToJSONObject];
+    NSLog(@"jsonDict ===== %@",jsonDict);
 }
 
 

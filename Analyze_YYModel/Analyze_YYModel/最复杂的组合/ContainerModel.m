@@ -9,12 +9,16 @@
 #import "ContainerModel.h"
 
 @implementation ContainerModel
+
 + (NSDictionary *) modelCustomPropertyMapper {
     return @{@"errnoInteger" : @"errno"
              };
 }
 
 @end
+
+
+
 @implementation Data
 
 + (NSDictionary *)objectClassInArray{

@@ -16,7 +16,6 @@
 		46E0998D2297CBA9005EDB3B /* BlacklistAndWhitelist.json in Resources */ = {isa = PBXBuildFile; fileRef = 46E099872297CBA9005EDB3B /* BlacklistAndWhitelist.json */; };
 		46E0998E2297CBA9005EDB3B /* SimpleModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 46E099882297CBA9005EDB3B /* SimpleModel.json */; };
 		46E0998F2297CBA9005EDB3B /* DoubleModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 46E099892297CBA9005EDB3B /* DoubleModel.json */; };
-		46E099902297CBA9005EDB3B /* timestamp.json in Resources */ = {isa = PBXBuildFile; fileRef = 46E0998A2297CBA9005EDB3B /* timestamp.json */; };
 		46E099912297CBA9005EDB3B /* ContainerModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 46E0998B2297CBA9005EDB3B /* ContainerModel.json */; };
 		46E099952297D234005EDB3B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E099942297D234005EDB3B /* User.m */; };
 		46E099972297E90C005EDB3B /* NSNumberModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 46E099962297E90C005EDB3B /* NSNumberModel.json */; };
@@ -25,8 +24,9 @@
 		8A184ED022982E5F00864380 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A184ECE22982E5F00864380 /* Book.m */; };
 		8A184ED42298444D00864380 /* TeacherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A184ED32298444D00864380 /* TeacherModel.m */; };
 		8A184ED6229845F100864380 /* TeacherModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A184ED5229845F100864380 /* TeacherModel.json */; };
-		8A184EDC22984D5300864380 /* DemoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A184ED822984D5300864380 /* DemoModel.m */; };
 		8A184EDD22984D5300864380 /* ContainerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A184EDB22984D5300864380 /* ContainerModel.m */; };
+		8AF3C3DB229ADA0E008633B9 /* StudentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3C3DA229ADA0E008633B9 /* StudentModel.m */; };
+		8AF3C3E1229AE005008633B9 /* BlackAndWhiteList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3C3E0229AE005008633B9 /* BlackAndWhiteList.m */; };
 		8F7BDF3C82427B7508142D1C /* Pods_Analyze_YYModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0717AE993D551C6CAB7D451 /* Pods_Analyze_YYModel.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +44,6 @@
 		46E099872297CBA9005EDB3B /* BlacklistAndWhitelist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BlacklistAndWhitelist.json; sourceTree = "<group>"; };
 		46E099882297CBA9005EDB3B /* SimpleModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SimpleModel.json; sourceTree = "<group>"; };
 		46E099892297CBA9005EDB3B /* DoubleModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DoubleModel.json; sourceTree = "<group>"; };
-		46E0998A2297CBA9005EDB3B /* timestamp.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = timestamp.json; sourceTree = "<group>"; };
 		46E0998B2297CBA9005EDB3B /* ContainerModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ContainerModel.json; sourceTree = "<group>"; };
 		46E099932297D234005EDB3B /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		46E099942297D234005EDB3B /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -58,10 +57,12 @@
 		8A184ED22298444D00864380 /* TeacherModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherModel.h; sourceTree = "<group>"; };
 		8A184ED32298444D00864380 /* TeacherModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherModel.m; sourceTree = "<group>"; };
 		8A184ED5229845F100864380 /* TeacherModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TeacherModel.json; sourceTree = "<group>"; };
-		8A184ED822984D5300864380 /* DemoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoModel.m; sourceTree = "<group>"; };
-		8A184ED922984D5300864380 /* DemoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoModel.h; sourceTree = "<group>"; };
 		8A184EDA22984D5300864380 /* ContainerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerModel.h; sourceTree = "<group>"; };
 		8A184EDB22984D5300864380 /* ContainerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerModel.m; sourceTree = "<group>"; };
+		8AF3C3D9229ADA0E008633B9 /* StudentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudentModel.h; sourceTree = "<group>"; };
+		8AF3C3DA229ADA0E008633B9 /* StudentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudentModel.m; sourceTree = "<group>"; };
+		8AF3C3DF229AE005008633B9 /* BlackAndWhiteList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlackAndWhiteList.h; sourceTree = "<group>"; };
+		8AF3C3E0229AE005008633B9 /* BlackAndWhiteList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlackAndWhiteList.m; sourceTree = "<group>"; };
 		8C981D434B16599336F174DF /* Pods-Analyze_YYModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Analyze_YYModel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Analyze_YYModel/Pods-Analyze_YYModel.release.xcconfig"; sourceTree = "<group>"; };
 		D45F286AB77D49112F89286B /* Pods-Analyze_YYModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Analyze_YYModel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Analyze_YYModel/Pods-Analyze_YYModel.debug.xcconfig"; sourceTree = "<group>"; };
 		F0717AE993D551C6CAB7D451 /* Pods_Analyze_YYModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Analyze_YYModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,9 +103,10 @@
 			children = (
 				46E099982297EDFD005EDB3B /* NSNumber代替基本数据类型 */,
 				46E099922297D1EA005EDB3B /* SimpleModel */,
-				8A184ECA22982E3700864380 /* Model_In_Model */,
-				8A184ED122983BC500864380 /* 更多数据类型-NSArray等 */,
-				8A184ED722984C1F00864380 /* 自定义类型数据 */,
+				8A184ECA22982E3700864380 /* Model in Model */,
+				8A184ED122983BC500864380 /* NSArray in Model */,
+				8A184ED722984C1F00864380 /* 最复杂的组合 */,
+				8AF3C3DE229ADD90008633B9 /* 黑白名单 */,
 				46E0996F229799EB005EDB3B /* AppDelegate.h */,
 				46E09970229799EB005EDB3B /* AppDelegate.m */,
 				46E09972229799EB005EDB3B /* ViewController.h */,
@@ -126,9 +128,8 @@
 				46E099882297CBA9005EDB3B /* SimpleModel.json */,
 				46E099892297CBA9005EDB3B /* DoubleModel.json */,
 				8A184ED5229845F100864380 /* TeacherModel.json */,
-				46E099872297CBA9005EDB3B /* BlacklistAndWhitelist.json */,
-				46E0998A2297CBA9005EDB3B /* timestamp.json */,
 				46E0998B2297CBA9005EDB3B /* ContainerModel.json */,
+				46E099872297CBA9005EDB3B /* BlacklistAndWhitelist.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -151,35 +152,44 @@
 			path = "NSNumber代替基本数据类型";
 			sourceTree = "<group>";
 		};
-		8A184ECA22982E3700864380 /* Model_In_Model */ = {
+		8A184ECA22982E3700864380 /* Model in Model */ = {
 			isa = PBXGroup;
 			children = (
-				8A184ECD22982E5F00864380 /* Author.h */,
-				8A184ECB22982E5F00864380 /* Author.m */,
 				8A184ECC22982E5F00864380 /* Book.h */,
 				8A184ECE22982E5F00864380 /* Book.m */,
+				8A184ECD22982E5F00864380 /* Author.h */,
+				8A184ECB22982E5F00864380 /* Author.m */,
 			);
-			path = Model_In_Model;
+			path = "Model in Model";
 			sourceTree = "<group>";
 		};
-		8A184ED122983BC500864380 /* 更多数据类型-NSArray等 */ = {
+		8A184ED122983BC500864380 /* NSArray in Model */ = {
 			isa = PBXGroup;
 			children = (
 				8A184ED22298444D00864380 /* TeacherModel.h */,
 				8A184ED32298444D00864380 /* TeacherModel.m */,
+				8AF3C3D9229ADA0E008633B9 /* StudentModel.h */,
+				8AF3C3DA229ADA0E008633B9 /* StudentModel.m */,
 			);
-			path = "更多数据类型-NSArray等";
+			path = "NSArray in Model";
 			sourceTree = "<group>";
 		};
-		8A184ED722984C1F00864380 /* 自定义类型数据 */ = {
+		8A184ED722984C1F00864380 /* 最复杂的组合 */ = {
 			isa = PBXGroup;
 			children = (
 				8A184EDA22984D5300864380 /* ContainerModel.h */,
 				8A184EDB22984D5300864380 /* ContainerModel.m */,
-				8A184ED922984D5300864380 /* DemoModel.h */,
-				8A184ED822984D5300864380 /* DemoModel.m */,
 			);
-			path = "自定义类型数据";
+			path = "最复杂的组合";
+			sourceTree = "<group>";
+		};
+		8AF3C3DE229ADD90008633B9 /* 黑白名单 */ = {
+			isa = PBXGroup;
+			children = (
+				8AF3C3DF229AE005008633B9 /* BlackAndWhiteList.h */,
+				8AF3C3E0229AE005008633B9 /* BlackAndWhiteList.m */,
+			);
+			path = "黑白名单";
 			sourceTree = "<group>";
 		};
 		916A11F22A70A11BD318C23C /* Pods */ = {
@@ -261,7 +271,6 @@
 				46E0997C229799EE005EDB3B /* LaunchScreen.storyboard in Resources */,
 				46E099972297E90C005EDB3B /* NSNumberModel.json in Resources */,
 				46E0998E2297CBA9005EDB3B /* SimpleModel.json in Resources */,
-				46E099902297CBA9005EDB3B /* timestamp.json in Resources */,
 				46E0998D2297CBA9005EDB3B /* BlacklistAndWhitelist.json in Resources */,
 				46E099912297CBA9005EDB3B /* ContainerModel.json in Resources */,
 				46E09979229799EE005EDB3B /* Assets.xcassets in Resources */,
@@ -321,7 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A184EDC22984D5300864380 /* DemoModel.m in Sources */,
+				8AF3C3E1229AE005008633B9 /* BlackAndWhiteList.m in Sources */,
 				46E0999B2297EE2C005EDB3B /* numberModel.m in Sources */,
 				46E099952297D234005EDB3B /* User.m in Sources */,
 				8A184EDD22984D5300864380 /* ContainerModel.m in Sources */,
@@ -329,6 +338,7 @@
 				46E09974229799EB005EDB3B /* ViewController.m in Sources */,
 				46E0997F229799EE005EDB3B /* main.m in Sources */,
 				8A184ED022982E5F00864380 /* Book.m in Sources */,
+				8AF3C3DB229ADA0E008633B9 /* StudentModel.m in Sources */,
 				8A184ED42298444D00864380 /* TeacherModel.m in Sources */,
 				46E09971229799EB005EDB3B /* AppDelegate.m in Sources */,
 			);

@@ -15,7 +15,5 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) NSUInteger pages;
 @property (nonatomic, strong) Author *author; //Book 包含 Author 属性
-//更改之后的name
-//@property(nonatomic,strong)NSString *namePlus;
 
 @end

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @class Data,Latest_Expire_Bonus,List;
+
+
 @interface ContainerModel : NSObject
 
 @property (nonatomic, assign) NSInteger errnoInteger;
@@ -18,6 +20,8 @@
 @property (nonatomic, copy) NSString *error;
 
 @end
+
+
 @interface Data : NSObject
 
 @property (nonatomic, copy) NSString *count;
@@ -28,6 +32,8 @@
 
 @end
 
+
+
 @interface Latest_Expire_Bonus : NSObject
 
 @property (nonatomic, copy) NSString *minutes;
@@ -35,6 +41,8 @@
 @property (nonatomic, copy) NSString *money;
 
 @end
+
+
 
 @interface List : NSObject
 
