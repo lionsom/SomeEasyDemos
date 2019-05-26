@@ -33,5 +33,5 @@ AVAudioPlayer，AVPlayer，AVQueuePlayer都支持后台播放、锁屏信息、�
 
 ## Analyze_YYModel
 
-> 对YYModel进行使用，并分析实现。
+> 对YYModel简单使用的记录。对应文章 https://www.jianshu.com/p/912357d39b15
 
