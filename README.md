@@ -14,12 +14,12 @@ AVPlayer只支持单个媒体资源的播放
 AVAudioPlayer，AVPlayer，AVQueuePlayer都支持后台播放、锁屏信息、耳机控制等<br>
 * 关联博客：<http://blog.csdn.net/dolacmeng/article/details/77430108>
 
-**拓展：三方库语音合成**
-1、[科大讯飞-语音合成-**收费**](https://www.xfyun.cn/services/online_tts)
-2、[百度-语音合成](https://ai.baidu.com/sdk#tts)
-    * 离在线融合SDK - **免费，但有上限限制（QPS限制：100，可申请提高OPS）** - 提供Android/iOS离在线融合SDK，可以根据网络环境的变化自动进行在线合成与离线合成的切换，弱网环境也可继续使用。
-    * 离线SDK - **免费** - 需要填写合作咨询申请。
-3、[云知声-语言合成-免费 - 仅支持Android](http://dev.hivoice.cn/index.jsp)
+**拓展：三方库语音合成**<br>
+1、[科大讯飞-语音合成-**收费**](https://www.xfyun.cn/services/online_tts) <br>
+2、[百度-语音合成](https://ai.baidu.com/sdk#tts) <br>
+    * 离在线融合SDK - **免费，但有上限限制（QPS限制：100，可申请提高OPS）** - 提供Android/iOS离在线融合SDK，可以根据网络环境的变化自动进行在线合成与离线合成的切换，弱网环境也可继续使用。 <br>
+    * 离线SDK - **免费** - 需要填写合作咨询申请。 <br>
+3、[云知声-语言合成-免费 - 仅支持Android](http://dev.hivoice.cn/index.jsp) <br>
 
 ## ShowSandBoxFile_SendFileByMail_Demo
 
