@@ -1,0 +1,6 @@
+framework module Pods_Jpush_Demo {
+  umbrella header "Pods-Jpush_Demo-umbrella.h"
+
+  export *
+  module * { export * }
+}

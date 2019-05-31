@@ -42,3 +42,12 @@ AVAudioPlayer，AVPlayer，AVQueuePlayer都支持后台播放、锁屏信息、�
 
 > 对YYModel简单使用的记录。对应文章 https://www.jianshu.com/p/912357d39b15
 
+
+## Jpush_Demo
+
+> 模拟支付宝到账播报语言，iOS10之后的 `ServiceExtends`，
+
+**参考：**<br>
+* [极光推送官网](https://docs.jiguang.cn//jpush/guideline/intro/) <br>
+* [iOS远程推送自定义语音合成播放声音（类似支付宝收款提醒）](https://blog.csdn.net/BUG_delete/article/details/80408661) <br>
+
