@@ -51,3 +51,7 @@ AVAudioPlayer，AVPlayer，AVQueuePlayer都支持后台播放、锁屏信息、�
 * [极光推送官网](https://docs.jiguang.cn//jpush/guideline/intro/) <br>
 * [iOS远程推送自定义语音合成播放声音（类似支付宝收款提醒）](https://blog.csdn.net/BUG_delete/article/details/80408661) <br>
 
+
+## 更换 app 图标
+[iOS 10.3 如何更换 app 图标](https://www.ctolib.com/topics-115639.html)
+[iOS 动态修改app 图标](https://www.jianshu.com/p/83a67cf68c9c)
