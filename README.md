@@ -35,3 +35,17 @@ AVAudioPlayer，AVPlayer，AVQueuePlayer都支持后台播放、锁屏信息、�
 
 > 对YYModel简单使用的记录。对应文章 https://www.jianshu.com/p/912357d39b15
 
+
+## FactoryPattern-master
+
+> 简单工厂模式、工厂模式、抽象工厂模式
+
+[iOS 三种工厂模式(简单工厂模式、工厂模式、抽象工厂模式)](https://www.jianshu.com/p/847af218b1f0)
+
+[demo - FactoryPattern](https://github.com/MrGuys/FactoryPattern)
+
+
+
+
+
+
