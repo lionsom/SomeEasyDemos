@@ -1,53 +1,61 @@
 //
 //  Person.m
-//  Category与继承
+//  Category深入
 //
-//  Created by 启业云 on 2019/7/23.
+//  Created by 启业云 on 2019/7/24.
 //  Copyright © 2019 启业云. All rights reserved.
 //
 
 #import "Person.h"
 #import <objc/runtime.h>
 
-
 @implementation Person
 
--(void)play {
-    NSLog(@"in Person Play");
++(void)eat {
+    NSLog(@"本类 类方法：eat");
 }
 
-#pragma mark - description
-
--(NSString *)description {
-    return [NSString stringWithFormat:@"<%@ : %p> , name = %@, age = %ld, sex = %@, school = %@ , height = %@ , weight = %ld",[self class], self, self.name, (long)self.age, self.sex, self.school, self.height, (long)self.weight];
+-(void)run {
+    NSLog(@"本类 对象方法：run");
 }
 
 @end
 
 
-@implementation Person (C)
+@implementation Person (DD)
 
+#pragma mark - setter/getter
 -(void)setHeight:(NSString *)height {
     objc_setAssociatedObject(self, @selector(height), height, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
-
 -(NSString *)height {
     return objc_getAssociatedObject(self, _cmd);
 }
 
-
 - (void)setWeight:(NSNumber *)weight {
     objc_setAssociatedObject(self, @selector(weight), weight, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-
 -(NSNumber *)weight {
     return objc_getAssociatedObject(self, _cmd);
 }
 
-
--(void)play_C {
-    
-    NSLog(@"in Person Play_C");
+#pragma mark - Method
++(void)eat_Category {
+    NSLog(@"分类 类方法：eat_Category");
 }
+
+-(void)run_Category {
+    NSLog(@"分类 对象方法：run_Category");
+}
+
+#pragma mark - Protocol method
+-(void)requiredMethod {
+    NSLog(@"分类 Protocol requiredMethod");
+}
+
+-(void)optionalMethod {
+    NSLog(@"分类 Protocol optionalMethod");
+}
+
 
 @end

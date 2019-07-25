@@ -19,7 +19,6 @@
 		9908A03822E6B01E0022DC35 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 9908A03722E6B01E0022DC35 /* Person.m */; };
 		9908A03B22E6B08F0022DC35 /* Person+A.m in Sources */ = {isa = PBXBuildFile; fileRef = 9908A03A22E6B08F0022DC35 /* Person+A.m */; };
 		9908A03E22E6B0980022DC35 /* Person+B.m in Sources */ = {isa = PBXBuildFile; fileRef = 9908A03D22E6B0980022DC35 /* Person+B.m */; };
-		9908A04122E7283D0022DC35 /* Person+C.m in Sources */ = {isa = PBXBuildFile; fileRef = 9908A04022E7283D0022DC35 /* Person+C.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,8 +44,6 @@
 		9908A03A22E6B08F0022DC35 /* Person+A.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Person+A.m"; sourceTree = "<group>"; };
 		9908A03C22E6B0980022DC35 /* Person+B.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Person+B.h"; sourceTree = "<group>"; };
 		9908A03D22E6B0980022DC35 /* Person+B.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Person+B.m"; sourceTree = "<group>"; };
-		9908A03F22E7283D0022DC35 /* Person+C.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Person+C.h"; sourceTree = "<group>"; };
-		9908A04022E7283D0022DC35 /* Person+C.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Person+C.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,8 +114,6 @@
 				9908A03A22E6B08F0022DC35 /* Person+A.m */,
 				9908A03C22E6B0980022DC35 /* Person+B.h */,
 				9908A03D22E6B0980022DC35 /* Person+B.m */,
-				9908A03F22E7283D0022DC35 /* Person+C.h */,
-				9908A04022E7283D0022DC35 /* Person+C.m */,
 			);
 			path = "Category单独用";
 			sourceTree = "<group>";
@@ -208,7 +203,6 @@
 				9908A03222E6AB420022DC35 /* Dog.m in Sources */,
 				9908A02122E6A8210022DC35 /* main.m in Sources */,
 				9908A03E22E6B0980022DC35 /* Person+B.m in Sources */,
-				9908A04122E7283D0022DC35 /* Person+C.m in Sources */,
 				9908A01322E6A8200022DC35 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,3 +22,21 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface Person (C)
+
+@property (nonatomic, copy) NSString *height;
+
+@property (nonatomic, strong) NSNumber *weight;
+
+
+
+-(void)play_C;
+
+@end
+
+NS_ASSUME_NONNULL_END
