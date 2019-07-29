@@ -14,6 +14,18 @@
 		9908F5B422E8737F000E39EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9908F5B222E8737F000E39EC /* LaunchScreen.storyboard */; };
 		9908F5B722E8737F000E39EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9908F5B622E8737F000E39EC /* main.m */; };
 		9908F5BF22E8738F000E39EC /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 9908F5BE22E8738F000E39EC /* Person.m */; };
+		99B843BC22EEC46800CA415A /* MyClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B843BB22EEC46800CA415A /* MyClass.m */; };
+		99B843BF22EEC48100CA415A /* MyClass+Category_1.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B843BE22EEC48100CA415A /* MyClass+Category_1.m */; };
+		99B843C222EEC48E00CA415A /* MyClass+Category_2.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B843C122EEC48E00CA415A /* MyClass+Category_2.m */; };
+		99B843C622EECFDD00CA415A /* Stu.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B843C522EECFDD00CA415A /* Stu.m */; };
+		99B843C922EECFF900CA415A /* Stu+Stu_Category_1.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B843C822EECFF900CA415A /* Stu+Stu_Category_1.m */; };
+		99B843CC22EED00500CA415A /* Stu+Stu_Category_2.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B843CB22EED00500CA415A /* Stu+Stu_Category_2.m */; };
+		99B843D122EEE2C200CA415A /* Father.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B843D022EEE2C200CA415A /* Father.m */; };
+		99B843D422EEE2DB00CA415A /* Son.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B843D322EEE2DB00CA415A /* Son.m */; };
+		99B843D722EEE2EE00CA415A /* Father+Category_1.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B843D622EEE2EE00CA415A /* Father+Category_1.m */; };
+		99B843DA22EEE2FB00CA415A /* Father+Cagetory_2.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B843D922EEE2FB00CA415A /* Father+Cagetory_2.m */; };
+		99B843DD22EEE30C00CA415A /* Son+Category_1.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B843DC22EEE30C00CA415A /* Son+Category_1.m */; };
+		99B843E022EEE31C00CA415A /* Son+Category_2.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B843DF22EEE31C00CA415A /* Son+Category_2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +41,30 @@
 		9908F5B622E8737F000E39EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9908F5BD22E8738F000E39EC /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		9908F5BE22E8738F000E39EC /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		99B843BA22EEC46800CA415A /* MyClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyClass.h; sourceTree = "<group>"; };
+		99B843BB22EEC46800CA415A /* MyClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyClass.m; sourceTree = "<group>"; };
+		99B843BD22EEC48100CA415A /* MyClass+Category_1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyClass+Category_1.h"; sourceTree = "<group>"; };
+		99B843BE22EEC48100CA415A /* MyClass+Category_1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MyClass+Category_1.m"; sourceTree = "<group>"; };
+		99B843C022EEC48E00CA415A /* MyClass+Category_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyClass+Category_2.h"; sourceTree = "<group>"; };
+		99B843C122EEC48E00CA415A /* MyClass+Category_2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MyClass+Category_2.m"; sourceTree = "<group>"; };
+		99B843C422EECFDD00CA415A /* Stu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Stu.h; sourceTree = "<group>"; };
+		99B843C522EECFDD00CA415A /* Stu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Stu.m; sourceTree = "<group>"; };
+		99B843C722EECFF900CA415A /* Stu+Stu_Category_1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stu+Stu_Category_1.h"; sourceTree = "<group>"; };
+		99B843C822EECFF900CA415A /* Stu+Stu_Category_1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Stu+Stu_Category_1.m"; sourceTree = "<group>"; };
+		99B843CA22EED00500CA415A /* Stu+Stu_Category_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stu+Stu_Category_2.h"; sourceTree = "<group>"; };
+		99B843CB22EED00500CA415A /* Stu+Stu_Category_2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Stu+Stu_Category_2.m"; sourceTree = "<group>"; };
+		99B843CF22EEE2C200CA415A /* Father.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Father.h; sourceTree = "<group>"; };
+		99B843D022EEE2C200CA415A /* Father.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Father.m; sourceTree = "<group>"; };
+		99B843D222EEE2DB00CA415A /* Son.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Son.h; sourceTree = "<group>"; };
+		99B843D322EEE2DB00CA415A /* Son.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Son.m; sourceTree = "<group>"; };
+		99B843D522EEE2EE00CA415A /* Father+Category_1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Father+Category_1.h"; sourceTree = "<group>"; };
+		99B843D622EEE2EE00CA415A /* Father+Category_1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Father+Category_1.m"; sourceTree = "<group>"; };
+		99B843D822EEE2FB00CA415A /* Father+Cagetory_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Father+Cagetory_2.h"; sourceTree = "<group>"; };
+		99B843D922EEE2FB00CA415A /* Father+Cagetory_2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Father+Cagetory_2.m"; sourceTree = "<group>"; };
+		99B843DB22EEE30C00CA415A /* Son+Category_1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Son+Category_1.h"; sourceTree = "<group>"; };
+		99B843DC22EEE30C00CA415A /* Son+Category_1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Son+Category_1.m"; sourceTree = "<group>"; };
+		99B843DE22EEE31C00CA415A /* Son+Category_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Son+Category_2.h"; sourceTree = "<group>"; };
+		99B843DF22EEE31C00CA415A /* Son+Category_2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Son+Category_2.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				9908F5C022E87396000E39EC /* Person */,
+				99B843B922EEC42F00CA415A /* load&initialize调用 */,
+				99B843C322EECFC000CA415A /* 方法覆盖 */,
 				9908F5C122E873A1000E39EC /* Other */,
 				9908F5AD22E8737D000E39EC /* Main.storyboard */,
 				9908F5B022E8737F000E39EC /* Assets.xcassets */,
@@ -90,6 +128,68 @@
 				9908F5AB22E8737D000E39EC /* ViewController.m */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		99B843B922EEC42F00CA415A /* load&initialize调用 */ = {
+			isa = PBXGroup;
+			children = (
+				99B843E122EEE7E700CA415A /* New Group */,
+				99B843CD22EEE03700CA415A /* 普通的类 load */,
+				99B843CE22EEE05100CA415A /* 继承的类 load */,
+			);
+			path = "load&initialize调用";
+			sourceTree = "<group>";
+		};
+		99B843C322EECFC000CA415A /* 方法覆盖 */ = {
+			isa = PBXGroup;
+			children = (
+				99B843C422EECFDD00CA415A /* Stu.h */,
+				99B843C522EECFDD00CA415A /* Stu.m */,
+				99B843C722EECFF900CA415A /* Stu+Stu_Category_1.h */,
+				99B843C822EECFF900CA415A /* Stu+Stu_Category_1.m */,
+				99B843CA22EED00500CA415A /* Stu+Stu_Category_2.h */,
+				99B843CB22EED00500CA415A /* Stu+Stu_Category_2.m */,
+			);
+			path = "方法覆盖";
+			sourceTree = "<group>";
+		};
+		99B843CD22EEE03700CA415A /* 普通的类 load */ = {
+			isa = PBXGroup;
+			children = (
+				99B843BA22EEC46800CA415A /* MyClass.h */,
+				99B843BB22EEC46800CA415A /* MyClass.m */,
+				99B843BD22EEC48100CA415A /* MyClass+Category_1.h */,
+				99B843BE22EEC48100CA415A /* MyClass+Category_1.m */,
+				99B843C022EEC48E00CA415A /* MyClass+Category_2.h */,
+				99B843C122EEC48E00CA415A /* MyClass+Category_2.m */,
+			);
+			path = "普通的类 load";
+			sourceTree = "<group>";
+		};
+		99B843CE22EEE05100CA415A /* 继承的类 load */ = {
+			isa = PBXGroup;
+			children = (
+				99B843CF22EEE2C200CA415A /* Father.h */,
+				99B843D022EEE2C200CA415A /* Father.m */,
+				99B843D522EEE2EE00CA415A /* Father+Category_1.h */,
+				99B843D622EEE2EE00CA415A /* Father+Category_1.m */,
+				99B843D822EEE2FB00CA415A /* Father+Cagetory_2.h */,
+				99B843D922EEE2FB00CA415A /* Father+Cagetory_2.m */,
+				99B843D222EEE2DB00CA415A /* Son.h */,
+				99B843D322EEE2DB00CA415A /* Son.m */,
+				99B843DB22EEE30C00CA415A /* Son+Category_1.h */,
+				99B843DC22EEE30C00CA415A /* Son+Category_1.m */,
+				99B843DE22EEE31C00CA415A /* Son+Category_2.h */,
+				99B843DF22EEE31C00CA415A /* Son+Category_2.m */,
+			);
+			path = "继承的类 load";
+			sourceTree = "<group>";
+		};
+		99B843E122EEE7E700CA415A /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +262,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99B843D722EEE2EE00CA415A /* Father+Category_1.m in Sources */,
+				99B843DA22EEE2FB00CA415A /* Father+Cagetory_2.m in Sources */,
+				99B843DD22EEE30C00CA415A /* Son+Category_1.m in Sources */,
+				99B843E022EEE31C00CA415A /* Son+Category_2.m in Sources */,
+				99B843D122EEE2C200CA415A /* Father.m in Sources */,
+				99B843D422EEE2DB00CA415A /* Son.m in Sources */,
+				99B843CC22EED00500CA415A /* Stu+Stu_Category_2.m in Sources */,
+				99B843C922EECFF900CA415A /* Stu+Stu_Category_1.m in Sources */,
+				99B843C622EECFDD00CA415A /* Stu.m in Sources */,
+				99B843BC22EEC46800CA415A /* MyClass.m in Sources */,
+				99B843BF22EEC48100CA415A /* MyClass+Category_1.m in Sources */,
+				99B843C222EEC48E00CA415A /* MyClass+Category_2.m in Sources */,
 				9908F5AC22E8737D000E39EC /* ViewController.m in Sources */,
 				9908F5B722E8737F000E39EC /* main.m in Sources */,
 				9908F5BF22E8738F000E39EC /* Person.m in Sources */,
