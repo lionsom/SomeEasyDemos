@@ -17,6 +17,8 @@
 #import "Stu+Stu_Category_1.h"
 #import "Stu+Stu_Category_2.h"
 
+#import "NewFather.h"
+#import "NewSon.h"
 
 @interface ViewController ()
 
@@ -60,16 +62,20 @@
 //    [cls printName];  // 分类覆盖本类方法
 //    [cls newMethod];  // 分类新增方法
     
-    
+    NewFather *newfather = [[NewFather alloc] init];
+    NewSon *newson = [[NewSon alloc] init];
     
 /**
  第三模块：分类替换 本类方法
  */
-    [Stu getName];
-    Stu *s = [Stu new];
-    [s getAge];
+//    [Stu getName];
+//    Stu *s = [Stu new];
+//    [s getAge];
+//
+//    [s getSchool];
     
-    [s getSchool];
+
+
 }
 
 
