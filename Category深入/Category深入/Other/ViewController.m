@@ -62,8 +62,10 @@
 //    [cls printName];  // 分类覆盖本类方法
 //    [cls newMethod];  // 分类新增方法
     
-    NewFather *newfather = [[NewFather alloc] init];
-    NewSon *newson = [[NewSon alloc] init];
+//    NewFather *newfather = [[NewFather alloc] init];
+//    NewSon *newson = [[NewSon alloc] init];
+    
+    [NewSon alloc];
     
 /**
  第三模块：分类替换 本类方法

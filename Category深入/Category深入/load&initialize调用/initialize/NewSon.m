@@ -10,8 +10,8 @@
 
 @implementation NewSon
 
-//+(void)initialize {
-//    NSLog(@"NewFather initialize");
-//}
++(void)initialize {
+    NSLog(@"NewSon initialize");
+}
 
 @end
