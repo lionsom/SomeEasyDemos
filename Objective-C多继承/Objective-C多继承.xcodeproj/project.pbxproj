@@ -13,6 +13,9 @@
 		990DA0A422F2E75E00D8D111 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 990DA0A322F2E75E00D8D111 /* Assets.xcassets */; };
 		990DA0A722F2E75E00D8D111 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 990DA0A522F2E75E00D8D111 /* LaunchScreen.storyboard */; };
 		990DA0AA22F2E75E00D8D111 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 990DA0A922F2E75E00D8D111 /* main.m */; };
+		991DD3D422F3C2A000A2F1FA /* Programmer.m in Sources */ = {isa = PBXBuildFile; fileRef = 991DD3D322F3C2A000A2F1FA /* Programmer.m */; };
+		991DD3D722F3C2E400A2F1FA /* Programmer+Coding.m in Sources */ = {isa = PBXBuildFile; fileRef = 991DD3D622F3C2E400A2F1FA /* Programmer+Coding.m */; };
+		991DD3DD22F3C57E00A2F1FA /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 991DD3DC22F3C57E00A2F1FA /* Student.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,14 @@
 		990DA0A622F2E75E00D8D111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		990DA0A822F2E75E00D8D111 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		990DA0A922F2E75E00D8D111 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		991DD3D222F3C2A000A2F1FA /* Programmer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Programmer.h; sourceTree = "<group>"; };
+		991DD3D322F3C2A000A2F1FA /* Programmer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Programmer.m; sourceTree = "<group>"; };
+		991DD3D522F3C2E400A2F1FA /* Programmer+Coding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Programmer+Coding.h"; sourceTree = "<group>"; };
+		991DD3D622F3C2E400A2F1FA /* Programmer+Coding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Programmer+Coding.m"; sourceTree = "<group>"; };
+		991DD3DB22F3C57E00A2F1FA /* Student.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		991DD3DC22F3C57E00A2F1FA /* Student.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		991DD3DF22F3C5DD00A2F1FA /* RunProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunProtocol.h; sourceTree = "<group>"; };
+		991DD3E022F3C5EC00A2F1FA /* ChatProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +87,10 @@
 		990DA0B022F2E78100D8D111 /* 分类实现 */ = {
 			isa = PBXGroup;
 			children = (
+				991DD3D222F3C2A000A2F1FA /* Programmer.h */,
+				991DD3D322F3C2A000A2F1FA /* Programmer.m */,
+				991DD3D522F3C2E400A2F1FA /* Programmer+Coding.h */,
+				991DD3D622F3C2E400A2F1FA /* Programmer+Coding.m */,
 			);
 			path = "分类实现";
 			sourceTree = "<group>";
@@ -83,6 +98,10 @@
 		990DA0B122F2E78D00D8D111 /* 协议实现 */ = {
 			isa = PBXGroup;
 			children = (
+				991DD3DB22F3C57E00A2F1FA /* Student.h */,
+				991DD3DC22F3C57E00A2F1FA /* Student.m */,
+				991DD3DF22F3C5DD00A2F1FA /* RunProtocol.h */,
+				991DD3E022F3C5EC00A2F1FA /* ChatProtocol.h */,
 			);
 			path = "协议实现";
 			sourceTree = "<group>";
@@ -159,7 +178,10 @@
 			files = (
 				990DA09F22F2E75C00D8D111 /* ViewController.m in Sources */,
 				990DA0AA22F2E75E00D8D111 /* main.m in Sources */,
+				991DD3D722F3C2E400A2F1FA /* Programmer+Coding.m in Sources */,
 				990DA09C22F2E75C00D8D111 /* AppDelegate.m in Sources */,
+				991DD3D422F3C2A000A2F1FA /* Programmer.m in Sources */,
+				991DD3DD22F3C57E00A2F1FA /* Student.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
