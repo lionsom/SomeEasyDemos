@@ -73,10 +73,20 @@ AVAudioPlayer，AVPlayer，AVQueuePlayer都支持后台播放、锁屏信息、�
 
 
 
+## Category深入
+
+同步blog：[2019再看Category](https://github.com/lionsom/iOS-/blob/master/专题学习/2019再看Category.md)
 
 
 
+## 代码规范
 
+一个简单的代码规范示例。
 
+ 
+
+## Objective-C多继承
+
+多继承的一个实现demo，同步blog：[iOS多继承](https://github.com/lionsom/iOS-/blob/master/高级模块/iOS多继承.md)
 
 
