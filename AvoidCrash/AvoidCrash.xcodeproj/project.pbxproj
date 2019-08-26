@@ -13,6 +13,8 @@
 		990440C8230A3E74008FCE2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 990440C7230A3E74008FCE2E /* Assets.xcassets */; };
 		990440CB230A3E74008FCE2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 990440C9230A3E74008FCE2E /* LaunchScreen.storyboard */; };
 		990440CE230A3E74008FCE2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 990440CD230A3E74008FCE2E /* main.m */; };
+		990756FD231377EB00F2B472 /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 990756FC231377EB00F2B472 /* NSObject+Runtime.m */; };
+		9907570023137C4F00F2B472 /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 990756FF23137C4F00F2B472 /* NSArray+Safe.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		990440CA230A3E74008FCE2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		990440CC230A3E74008FCE2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		990440CD230A3E74008FCE2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		990756FB231377EB00F2B472 /* NSObject+Runtime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Runtime.h"; sourceTree = "<group>"; };
+		990756FC231377EB00F2B472 /* NSObject+Runtime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Runtime.m"; sourceTree = "<group>"; };
+		990756FE23137C4F00F2B472 /* NSArray+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Safe.h"; sourceTree = "<group>"; };
+		990756FF23137C4F00F2B472 /* NSArray+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Safe.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +48,7 @@
 		990440B2230A3E73008FCE2E = {
 			isa = PBXGroup;
 			children = (
+				990756FA231377D600F2B472 /* LXRuntime */,
 				990440BD230A3E73008FCE2E /* AvoidCrash */,
 				990440BC230A3E73008FCE2E /* Products */,
 			);
@@ -69,6 +76,17 @@
 				990440CD230A3E74008FCE2E /* main.m */,
 			);
 			path = AvoidCrash;
+			sourceTree = "<group>";
+		};
+		990756FA231377D600F2B472 /* LXRuntime */ = {
+			isa = PBXGroup;
+			children = (
+				990756FB231377EB00F2B472 /* NSObject+Runtime.h */,
+				990756FC231377EB00F2B472 /* NSObject+Runtime.m */,
+				990756FE23137C4F00F2B472 /* NSArray+Safe.h */,
+				990756FF23137C4F00F2B472 /* NSArray+Safe.m */,
+			);
+			path = LXRuntime;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +159,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				990756FD231377EB00F2B472 /* NSObject+Runtime.m in Sources */,
+				9907570023137C4F00F2B472 /* NSArray+Safe.m in Sources */,
 				990440C3230A3E73008FCE2E /* ViewController.m in Sources */,
 				990440CE230A3E74008FCE2E /* main.m in Sources */,
 				990440C0230A3E73008FCE2E /* AppDelegate.m in Sources */,
