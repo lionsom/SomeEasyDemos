@@ -167,7 +167,7 @@
 // Rows Number
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 8;
+        return 10;
     }else if (section == 1) {
         return 2;
     }
@@ -190,15 +190,23 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
         cell.textLabel.text = @"@[]; 创建数组崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 1) {
-        cell.textLabel.text = @"+ arrayWithObject:  崩溃";
+        cell.textLabel.text = @"+ arrayWithObject: 崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 2) {
-        cell.textLabel.text = @"+ arrayWithObjects: count:  崩溃";
+        cell.textLabel.text = @"+ arrayWithObjects: count: 崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 3) {
-        cell.textLabel.text = @"- initWithObjects: count:  崩溃";
+        cell.textLabel.text = @"- initWithObjects: count: 崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 4) {
-        cell.textLabel.text = @"@[]; 创建数组崩溃";
+        cell.textLabel.text = @"array[5] 崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 5) {
-        cell.textLabel.text = @"@[]; 创建数组崩溃";
+        cell.textLabel.text = @"- objectAtIndex: 崩溃";
+    } else if (indexPath.section == 0 && indexPath.row == 6) {
+        cell.textLabel.text = @"- objectAtIndexedSubscript: 崩溃";
+    } else if (indexPath.section == 0 && indexPath.row == 7) {
+        cell.textLabel.text = @"- objectsAtIndexes: 崩溃";
+    } else if (indexPath.section == 0 && indexPath.row == 8) {
+        cell.textLabel.text = @" NSArray 类簇一览";
+    } else if (indexPath.section == 0 && indexPath.row == 9) {
+        cell.textLabel.text = @" 崩溃";
     } else {
         cell.textLabel.text = @"AA";
     }
@@ -225,9 +233,9 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView * headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 100, 30)];
+    UIView * headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 500, 30)];
     headView.backgroundColor = [UIColor greenColor];
-    UILabel * titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100/2, 30)];
+    UILabel * titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 500, 30)];
     titleLabel.textAlignment = NSTextAlignmentLeft;
     titleLabel.textColor = [UIColor orangeColor];
     [headView addSubview:titleLabel];
@@ -263,7 +271,32 @@
         strings1[2] = @"Third";
         NSArray *arr10 = [[NSArray alloc] initWithObjects:strings1 count:3];
     } else if (indexPath.section == 0 && indexPath.row == 4) {
+        NSArray *arr11 = @[@"1", @"2"];
+        id a = arr11[5];
     } else if (indexPath.section == 0 && indexPath.row == 5) {
+        NSArray *arr11 = @[@"1", @"2"];
+        [arr11 objectAtIndex:3];
+    } else if (indexPath.section == 0 && indexPath.row == 6) {
+        NSArray *arr11 = @[@"1", @"2"];
+        [arr11 objectAtIndexedSubscript:3];
+    } else if (indexPath.section == 0 && indexPath.row == 7) {
+        NSArray *arr11 = @[@"1", @"2"];
+        NSIndexSet *se = [NSIndexSet indexSetWithIndex:9];
+        //或   NSIndexSet *se = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(2, 9)];
+        NSArray *test = [arr11 objectsAtIndexes:se];
+    } else if (indexPath.section == 0 && indexPath.row == 8) {
+        Class __NSPlaceholderArray = NSClassFromString(@"__NSPlaceholderArray");  // [NSArray alloc]; alloc后所得到的类
+        Class __NSArray0 = NSClassFromString(@"__NSArray0");     // 当init为一个空数组后，变成了__NSArray0
+        Class __NSSingleObjectArrayI = NSClassFromString(@"__NSSingleObjectArrayI");  // 如果有且仅有一个元素，那么为__NSSingleObjectArrayI
+        Class __NSArrayI = NSClassFromString(@"__NSArrayI");       // 如果数组大于一个元素，那么为__NSArrayI
+        // __NSFrozenArrayM   不知道如何触发
+        
+        // NSArray 类簇
+        NSArray *array = [NSArray alloc];                    // __NSPlaceholderArray
+        NSArray *arr1 = [array init];                        // __NSArray0
+        NSArray *arr2 = [array initWithObjects:@0, nil];     // __NSSingleObjectArrayI
+        NSArray *arr3 = [array initWithObjects:@0, @1, nil]; // __NSArrayI
+    } else if (indexPath.section == 0 && indexPath.row == 9) {
     } else {
     }
 }
@@ -295,7 +328,7 @@
             if ([_tableView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
                 _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
             }
-        }else {
+        } else {
             self.automaticallyAdjustsScrollViewInsets = NO;
         }
         
