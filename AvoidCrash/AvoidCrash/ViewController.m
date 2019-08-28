@@ -25,115 +25,6 @@
     [self.view addSubview:self.tableView];
 }
 
-
--(void)arrCrash {
-    /*
-//===========
-// Creating an Array
-//===========
-    // 崩溃 -[__NSPlaceholderArray initWithObjects:count:]: attempt to insert nil object from objects[0]
-    NSString *string = nil;
-    NSArray *arr1 = @[@"1",@"2",string];
-
-    NSArray *temp = nil;
-    NSArray *arr2 = [NSArray arrayWithArray:temp];
-
-    // 崩溃 -[__NSPlaceholderArray initWithObjects:count:]: attempt to insert nil object from objects[0]
-    NSArray *arr3 = [NSArray arrayWithObject:nil];
-
-    NSArray *arr4 = [NSArray arrayWithObjects:nil];
-
-    // 崩溃 -[__NSPlaceholderArray initWithObjects:count:]: attempt to insert nil object from objects[1]
-    NSString *strings[3];
-    strings[0] = @"First";
-    strings[1] = nil; // @"Second";
-    strings[2] = @"Third";
-    NSArray *arr5 = [NSArray arrayWithObjects:strings count:3];
-
-//===========
-// Initializing an Array
-//===========
-    NSArray *arr6 = [[NSArray alloc] init];
-
-    NSArray *arr7 = [[NSArray alloc] initWithArray:nil];
-
-    NSArray *arr8 = [[NSArray alloc] initWithArray:nil copyItems:YES];
-
-    NSArray *arr9 = [[NSArray alloc] initWithObjects:nil];
-
-    // 崩溃 -[__NSPlaceholderArray initWithObjects:count:]: attempt to insert nil object from objects[1]
-    NSString *strings1[3];
-    strings1[0] = @"First";
-    strings1[1] = nil; // @"Second";
-    strings1[2] = @"Third";
-    NSArray *arr10 = [[NSArray alloc] initWithObjects:strings1 count:3];
-
-//===========
-// Querying an Array
-//===========
-    NSArray *arr11 = @[@"1", @"2"];
-    
-    [arr11 containsObject:nil];
-    
-    arr11.count;
-    
-    // - getObjects: range:   不常用
-    NSArray *mArray = @[@"1",@"2",@"3",@"4",@"5",@"6"];
-    id *objects;
-    NSRange range = NSMakeRange(2, 4);
-    objects = malloc(sizeof(id) * range.length);
-    [mArray getObjects:objects range:range];
-    for (i = 0; i < range.length; i++) {
-        NSLog(@"objects: %@", objects[i]);
-    }
-    free(objects);
-    
-    NSArray *arr12 = nil;
-    id a = arr12.firstObject;
-    id b = arr12.lastObject;
-    
-    // 崩溃 -[__NSArrayI objectAtIndex:]: index 3 beyond bounds [0 .. 1]
-    [arr11 objectAtIndex:3];
-
-    // 崩溃 -[__NSArrayI objectAtIndexedSubscript:]: index 3 beyond bounds [0 .. 1]
-    [arr11 objectAtIndexedSubscript:3];
-     
-    // 崩溃 -[NSArray objectsAtIndexes:]: index 9 in index set beyond bounds [0 .. 3]
-    NSIndexSet *se = [NSIndexSet indexSetWithIndex:9];
-//或   NSIndexSet *se = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(2, 9)];
-    NSArray *test = [arr11 objectsAtIndexes:se];
-    
-    // - objectEnumerator
-    // - reverseObjectEnumerator
-    // 返回一个枚举器对象，该对象允许您以 正序/逆序 访问数组中的每个对象。
-    NSEnumerator *enumerator = [arr11 objectEnumerator];
-    id anObject;
-    while (anObject = [enumerator nextObject]) {
-        // code to act on each element as it is returned
-        NSLog(@"%@", anObject);
-    }
-    
-    NSEnumerator *reverseEnumerator = [arr11 reverseObjectEnumerator];
-    id anreverseObject;
-    while (anreverseObject = [reverseEnumerator nextObject]) {
-        // code to act on each element as it is returned
-        NSLog(@"%@", anreverseObject);
-    }
-    
-//===========
-// Finding Objects in an Array
-//===========
-    NSArray *arr13 = @[@"1",@"2"];
-    NSArray *arr14 = nil;
-    
-    [arr13 indexOfObject:nil];
-    
-    [arr13 indexOfObject:nil inRange:NSMakeRange(1, 1)];
- */
-}
-
-
-
 -(void)dic {
     id dic = @{@"A":@"111",
                @"B":@"222"
@@ -204,9 +95,9 @@
     } else if (indexPath.section == 0 && indexPath.row == 7) {
         cell.textLabel.text = @"- objectsAtIndexes: 崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 8) {
-        cell.textLabel.text = @" NSArray 类簇一览";
+        cell.textLabel.text = @"- getObjects: range: 崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 9) {
-        cell.textLabel.text = @" 崩溃";
+        cell.textLabel.text = @" NSArray 类簇一览";
     } else {
         cell.textLabel.text = @"AA";
     }
@@ -274,29 +165,121 @@
         NSArray *arr11 = @[@"1", @"2"];
         id a = arr11[5];
     } else if (indexPath.section == 0 && indexPath.row == 5) {
-        NSArray *arr11 = @[@"1", @"2"];
-        [arr11 objectAtIndex:3];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"NSArray objectAtIndex:" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"NSArray" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            // 崩溃 -[NSArray objectAtIndex:]: method sent to an uninitialized immutable array object
+            NSArray *array = [NSArray alloc];                    // __NSPlaceholderArray
+            [array objectAtIndex:2];
+        }];
+        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"__NSArray0" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSArray *array = [NSArray alloc];                    // __NSPlaceholderArray
+            NSArray *arr1 = [array init];                        // __NSArray0
+            [arr1 objectAtIndex:2];
+        }];
+        UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"__NSSingleObjectArrayI" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSArray *array = [NSArray alloc];                    // __NSPlaceholderArray
+            NSArray *arr2 = [array initWithObjects:@0, nil];     // __NSSingleObjectArrayI
+            [arr2 objectAtIndex:2];
+        }];
+        UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"__NSArrayI" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSArray *array = [NSArray alloc];                    // __NSPlaceholderArray
+            NSArray *arr3 = [array initWithObjects:@0, @1, nil]; // __NSArrayI
+            [arr3 objectAtIndex:5];
+        }];
+        UIAlertAction *action4 = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        }];
+        [alert addAction:action0];
+        [alert addAction:action1];
+        [alert addAction:action2];
+        [alert addAction:action3];
+        [alert addAction:action4];
+        [self presentViewController:alert animated:YES completion:nil];
     } else if (indexPath.section == 0 && indexPath.row == 6) {
-        NSArray *arr11 = @[@"1", @"2"];
-        [arr11 objectAtIndexedSubscript:3];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"NSArray objectAtIndexedSubscript:" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"NSArray" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            // 崩溃 -[NSArray objectAtIndex:]: method sent to an uninitialized immutable array object
+            NSArray *array = [NSArray alloc];                    // __NSPlaceholderArray
+            [array objectAtIndexedSubscript:2];
+        }];
+        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"__NSArray0" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSArray *array = [NSArray alloc];                    // __NSPlaceholderArray
+            NSArray *arr1 = [array init];                        // __NSArray0
+            [arr1 objectAtIndexedSubscript:2];
+        }];
+        UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"__NSSingleObjectArrayI" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSArray *array = [NSArray alloc];                    // __NSPlaceholderArray
+            NSArray *arr2 = [array initWithObjects:@0, nil];     // __NSSingleObjectArrayI
+            [arr2 objectAtIndexedSubscript:2];
+        }];
+        UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"__NSArrayI" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSArray *array = [NSArray alloc];                    // __NSPlaceholderArray
+            NSArray *arr3 = [array initWithObjects:@0, @1, nil]; // __NSArrayI
+            [arr3 objectAtIndexedSubscript:5];
+        }];
+        UIAlertAction *action4 = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        }];
+        [alert addAction:action0];
+        [alert addAction:action1];
+        [alert addAction:action2];
+        [alert addAction:action3];
+        [alert addAction:action4];
+        [self presentViewController:alert animated:YES completion:nil];        
     } else if (indexPath.section == 0 && indexPath.row == 7) {
+        // 崩溃 -[NSArray objectsAtIndexes:]: index 9 in index set beyond bounds [0 .. 1]
         NSArray *arr11 = @[@"1", @"2"];
         NSIndexSet *se = [NSIndexSet indexSetWithIndex:9];
         //或   NSIndexSet *se = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(2, 9)];
         NSArray *test = [arr11 objectsAtIndexes:se];
     } else if (indexPath.section == 0 && indexPath.row == 8) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"NSArray getObjects:range:" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"NSArray" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            // 崩溃 -[NSArray objectAtIndex:]: method sent to an uninitialized immutable array object
+            NSArray *array = [NSArray alloc];                    // __NSPlaceholderArray
+            NSRange range = NSMakeRange(0, 11);
+            __unsafe_unretained id cArray[range.length];
+            [array getObjects:cArray range:range];
+        }];
+        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"__NSArray0" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSArray *array = [NSArray alloc];                    // __NSPlaceholderArray
+            NSArray *arr1 = [array init];                        // __NSArray0
+            NSRange range = NSMakeRange(0, 11);
+            __unsafe_unretained id cArray[range.length];
+            [arr1 getObjects:cArray range:range];
+        }];
+        UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"__NSSingleObjectArrayI" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSArray *array = [NSArray alloc];                    // __NSPlaceholderArray
+            NSArray *arr2 = [array initWithObjects:@0, nil];     // __NSSingleObjectArrayI
+            NSRange range = NSMakeRange(0, 11);
+            __unsafe_unretained id cArray[range.length];
+            [arr2 getObjects:cArray range:range];
+        }];
+        UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"__NSArrayI" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSArray *array = [NSArray alloc];                    // __NSPlaceholderArray
+            NSArray *arr3 = [array initWithObjects:@0, @1, nil]; // __NSArrayI
+            NSRange range = NSMakeRange(0, 11);
+            __unsafe_unretained id cArray[range.length];
+            [arr3 getObjects:cArray range:range];
+        }];
+        UIAlertAction *action4 = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        }];
+        [alert addAction:action0];
+        [alert addAction:action1];
+        [alert addAction:action2];
+        [alert addAction:action3];
+        [alert addAction:action4];
+        [self presentViewController:alert animated:YES completion:nil];
+    } else if (indexPath.section == 0 && indexPath.row == 9) {
         Class __NSPlaceholderArray = NSClassFromString(@"__NSPlaceholderArray");  // [NSArray alloc]; alloc后所得到的类
         Class __NSArray0 = NSClassFromString(@"__NSArray0");     // 当init为一个空数组后，变成了__NSArray0
         Class __NSSingleObjectArrayI = NSClassFromString(@"__NSSingleObjectArrayI");  // 如果有且仅有一个元素，那么为__NSSingleObjectArrayI
         Class __NSArrayI = NSClassFromString(@"__NSArrayI");       // 如果数组大于一个元素，那么为__NSArrayI
-        // __NSFrozenArrayM   不知道如何触发
+        // __NSFrozenArrayM            NSMutableArray用copy修饰之后，在使用addObjectsFromArray方法时崩溃
         
         // NSArray 类簇
         NSArray *array = [NSArray alloc];                    // __NSPlaceholderArray
         NSArray *arr1 = [array init];                        // __NSArray0
         NSArray *arr2 = [array initWithObjects:@0, nil];     // __NSSingleObjectArrayI
         NSArray *arr3 = [array initWithObjects:@0, @1, nil]; // __NSArrayI
-    } else if (indexPath.section == 0 && indexPath.row == 9) {
     } else {
     }
 }
@@ -340,6 +323,115 @@
     return _tableView;
 }
 
+
+
+#pragma mark - Private
+
+-(void)arrCrash {
+    /*
+     //===========
+     // Creating an Array
+     //===========
+     // 崩溃 -[__NSPlaceholderArray initWithObjects:count:]: attempt to insert nil object from objects[0]
+     NSString *string = nil;
+     NSArray *arr1 = @[@"1",@"2",string];
+     
+     NSArray *temp = nil;
+     NSArray *arr2 = [NSArray arrayWithArray:temp];
+     
+     // 崩溃 -[__NSPlaceholderArray initWithObjects:count:]: attempt to insert nil object from objects[0]
+     NSArray *arr3 = [NSArray arrayWithObject:nil];
+     
+     NSArray *arr4 = [NSArray arrayWithObjects:nil];
+     
+     // 崩溃 -[__NSPlaceholderArray initWithObjects:count:]: attempt to insert nil object from objects[1]
+     NSString *strings[3];
+     strings[0] = @"First";
+     strings[1] = nil; // @"Second";
+     strings[2] = @"Third";
+     NSArray *arr5 = [NSArray arrayWithObjects:strings count:3];
+     
+     //===========
+     // Initializing an Array
+     //===========
+     NSArray *arr6 = [[NSArray alloc] init];
+     
+     NSArray *arr7 = [[NSArray alloc] initWithArray:nil];
+     
+     NSArray *arr8 = [[NSArray alloc] initWithArray:nil copyItems:YES];
+     
+     NSArray *arr9 = [[NSArray alloc] initWithObjects:nil];
+     
+     // 崩溃 -[__NSPlaceholderArray initWithObjects:count:]: attempt to insert nil object from objects[1]
+     NSString *strings1[3];
+     strings1[0] = @"First";
+     strings1[1] = nil; // @"Second";
+     strings1[2] = @"Third";
+     NSArray *arr10 = [[NSArray alloc] initWithObjects:strings1 count:3];
+     
+     //===========
+     // Querying an Array
+     //===========
+     NSArray *arr11 = @[@"1", @"2"];
+     
+     [arr11 containsObject:nil];
+     
+     arr11.count;
+     
+     // - getObjects: range:   不常用
+     NSArray *mArray = @[@"1",@"2",@"3",@"4",@"5",@"6"];
+     id *objects;
+     NSRange range = NSMakeRange(2, 4);
+     objects = malloc(sizeof(id) * range.length);
+     [mArray getObjects:objects range:range];
+     for (i = 0; i < range.length; i++) {
+     NSLog(@"objects: %@", objects[i]);
+     }
+     free(objects);
+     
+     NSArray *arr12 = nil;
+     id a = arr12.firstObject;
+     id b = arr12.lastObject;
+     
+     // 崩溃 -[__NSArrayI objectAtIndex:]: index 3 beyond bounds [0 .. 1]
+     [arr11 objectAtIndex:3];
+     
+     // 崩溃 -[__NSArrayI objectAtIndexedSubscript:]: index 3 beyond bounds [0 .. 1]
+     [arr11 objectAtIndexedSubscript:3];
+     
+     // 崩溃 -[NSArray objectsAtIndexes:]: index 9 in index set beyond bounds [0 .. 3]
+     NSIndexSet *se = [NSIndexSet indexSetWithIndex:9];
+     //或   NSIndexSet *se = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(2, 9)];
+     NSArray *test = [arr11 objectsAtIndexes:se];
+     
+     // - objectEnumerator
+     // - reverseObjectEnumerator
+     // 返回一个枚举器对象，该对象允许您以 正序/逆序 访问数组中的每个对象。
+     NSEnumerator *enumerator = [arr11 objectEnumerator];
+     id anObject;
+     while (anObject = [enumerator nextObject]) {
+     // code to act on each element as it is returned
+     NSLog(@"%@", anObject);
+     }
+     
+     NSEnumerator *reverseEnumerator = [arr11 reverseObjectEnumerator];
+     id anreverseObject;
+     while (anreverseObject = [reverseEnumerator nextObject]) {
+     // code to act on each element as it is returned
+     NSLog(@"%@", anreverseObject);
+     }
+     
+     //===========
+     // Finding Objects in an Array
+     //===========
+     NSArray *arr13 = @[@"1",@"2"];
+     NSArray *arr14 = nil;
+     
+     [arr13 indexOfObject:nil];
+     
+     [arr13 indexOfObject:nil inRange:NSMakeRange(1, 1)];
+     */
+}
 
 
 
