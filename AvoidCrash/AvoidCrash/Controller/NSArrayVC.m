@@ -1,20 +1,20 @@
 //
-//  ViewController.m
+//  NSArrayVC.m
 //  AvoidCrash
 //
-//  Created by 启业云 on 2019/8/19.
+//  Created by 启业云 on 2019/8/28.
 //  Copyright © 2019 启业云. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "NSArrayVC.h"
 
-@interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface NSArrayVC ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
 
-@implementation ViewController
+@implementation NSArrayVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,7 +39,7 @@
     [arr1 enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         NSLog(@"%@ %@",key, obj);
     }];
-
+    
     id dic1 = @{@"A":@"111",
                 @"B":@"222"
                 };
@@ -52,15 +52,13 @@
 #pragma mark - TableView DataSource
 // Section Number
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 1;
 }
 
 // Rows Number
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
         return 10;
-    }else if (section == 1) {
-        return 2;
     }
     return 0;
 }
@@ -97,7 +95,7 @@
     } else if (indexPath.section == 0 && indexPath.row == 8) {
         cell.textLabel.text = @"- getObjects: range: 崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 9) {
-        cell.textLabel.text = @" NSArray 类簇一览";
+        cell.textLabel.text = @" NSArray 类簇一览 (看代码)";
     } else {
         cell.textLabel.text = @"AA";
     }
@@ -133,10 +131,7 @@
     
     if (section == 0) {
         titleLabel.text = @"  NSArray崩溃的方法有哪些";
-    }else if (section == 1) {
-        titleLabel.text = @"  NSDictionary崩溃的方法有哪些";
     }
-
     return headView;
 }
 
@@ -223,7 +218,7 @@
         [alert addAction:action2];
         [alert addAction:action3];
         [alert addAction:action4];
-        [self presentViewController:alert animated:YES completion:nil];        
+        [self presentViewController:alert animated:YES completion:nil];
     } else if (indexPath.section == 0 && indexPath.row == 7) {
         // 崩溃 -[NSArray objectsAtIndexes:]: index 9 in index set beyond bounds [0 .. 1]
         NSArray *arr11 = @[@"1", @"2"];
@@ -239,7 +234,7 @@
             __unsafe_unretained id cArray[range.length];
             [array getObjects:cArray range:range];
         }];
-        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"__NSArray0" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"__NSArray0 (同NSArray)" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             NSArray *array = [NSArray alloc];                    // __NSPlaceholderArray
             NSArray *arr1 = [array init];                        // __NSArray0
             NSRange range = NSMakeRange(0, 11);
@@ -285,13 +280,12 @@
 }
 
 
-
 #pragma mark - Lazy init
 -(UITableView *)tableView {
     
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 50, self.view.frame.size.width, self.view.frame.size.height - 100) style:UITableViewStylePlain];
-
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 150) style:UITableViewStylePlain];
+        
         //设置代理
         _tableView.delegate = self;
         _tableView.dataSource =self;
@@ -432,8 +426,6 @@
      [arr13 indexOfObject:nil inRange:NSMakeRange(1, 1)];
      */
 }
-
-
 
 
 @end

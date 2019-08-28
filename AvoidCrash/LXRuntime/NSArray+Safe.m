@@ -46,7 +46,6 @@
     
     // getObjects:range:  不常用，所以就忽略了！！！
     [__NSArray swapInstanceMethod:@selector(getObjects:range:) currentMethod:@selector(safe_getObjects:range:)];
-    [__NSArray0 swapInstanceMethod:@selector(getObjects:range:) currentMethod:@selector(safe_getObjects0:range:)];
     [__NSSingleObjectArrayI swapInstanceMethod:@selector(getObjects:range:) currentMethod:@selector(safe_getObjectsSI:range:)];
     [__NSArrayI swapInstanceMethod:@selector(getObjects:range:) currentMethod:@selector(safe_getObjectsI:range:)];
 }
@@ -222,18 +221,6 @@
     }
     @catch (NSException *exception) {
         NSLog(@"safe_getObjects: range: 崩溃拦截");
-    }
-    @finally {
-    }
-}
-
-// __NSArray0  getObjects: count:
-- (void)safe_getObjects0:(id _Nonnull __unsafe_unretained [_Nonnull])objects range:(NSRange)range {
-    @try {
-        [self safe_getObjects0:objects range:range];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"safe_getObjects0: range: 崩溃拦截");
     }
     @finally {
     }
