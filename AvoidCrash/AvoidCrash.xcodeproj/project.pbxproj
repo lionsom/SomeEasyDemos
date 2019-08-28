@@ -51,7 +51,6 @@
 		990440B2230A3E73008FCE2E = {
 			isa = PBXGroup;
 			children = (
-				990756FA231377D600F2B472 /* LXRuntime */,
 				990440BD230A3E73008FCE2E /* AvoidCrash */,
 				990440BC230A3E73008FCE2E /* Products */,
 			);
@@ -68,6 +67,7 @@
 		990440BD230A3E73008FCE2E /* AvoidCrash */ = {
 			isa = PBXGroup;
 			children = (
+				990756FA231377D600F2B472 /* LXRuntime */,
 				99528C6A2316B2BB00E6900A /* Controller */,
 				990440BE230A3E73008FCE2E /* AppDelegate.h */,
 				990440BF230A3E73008FCE2E /* AppDelegate.m */,

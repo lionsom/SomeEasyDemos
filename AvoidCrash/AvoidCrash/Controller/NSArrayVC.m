@@ -20,34 +20,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self arrCrash];
-    
+    self.title = @"NSArray";
+
     [self.view addSubview:self.tableView];
 }
-
--(void)dic {
-    id dic = @{@"A":@"111",
-               @"B":@"222"
-               };
-    NSString *C = dic[@"C"];
-    NSLog(@"C");
-    
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setValue:nil forKey:@"11"];
-    
-    id arr1 = @[@"1",@"2",@"3"];
-    [arr1 enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-        NSLog(@"%@ %@",key, obj);
-    }];
-    
-    id dic1 = @{@"A":@"111",
-                @"B":@"222"
-                };
-    [dic1 enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSLog(@"%@",obj);
-    }];
-}
-
 
 #pragma mark - TableView DataSource
 // Section Number
@@ -321,8 +297,7 @@
 
 #pragma mark - Private
 
--(void)arrCrash {
-    /*
+-(void)array_Method_Crash {
      //===========
      // Creating an Array
      //===========
@@ -374,15 +349,13 @@
      
      // - getObjects: range:   不常用
      NSArray *mArray = @[@"1",@"2",@"3",@"4",@"5",@"6"];
-     id *objects;
-     NSRange range = NSMakeRange(2, 4);
-     objects = malloc(sizeof(id) * range.length);
-     [mArray getObjects:objects range:range];
-     for (i = 0; i < range.length; i++) {
-     NSLog(@"objects: %@", objects[i]);
+     NSRange range = NSMakeRange(0, 11);
+     __unsafe_unretained id cArray[range.length];
+     [mArray getObjects:cArray range:range];
+     for (int i = 0; i < range.length; i++) {
+         NSLog(@"objects: %@", cArray[i]);
      }
-     free(objects);
-     
+    
      NSArray *arr12 = nil;
      id a = arr12.firstObject;
      id b = arr12.lastObject;
@@ -424,7 +397,6 @@
      [arr13 indexOfObject:nil];
      
      [arr13 indexOfObject:nil inRange:NSMakeRange(1, 1)];
-     */
 }
 
 

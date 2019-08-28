@@ -12,43 +12,43 @@
 #import "NSObject+Runtime.h"
 
 @implementation NSArray (Safe)
-
-+ (void)load {
-    Class __NSArray = NSClassFromString(@"NSArray");                              // NSArray
-    Class __NSPlaceholderArray = NSClassFromString(@"__NSPlaceholderArray");      // [NSArray alloc]; alloc后所得到的类
-    Class __NSArray0 = NSClassFromString(@"__NSArray0");                          // 当init为一个空数组后，变成了__NSArray0
-    Class __NSSingleObjectArrayI = NSClassFromString(@"__NSSingleObjectArrayI");  // 如果有且仅有一个元素，那么为__NSSingleObjectArrayI
-    Class __NSArrayI = NSClassFromString(@"__NSArrayI");                          // 如果数组大于一个元素，那么为__NSArrayI
-
-    
-//=================================================================
-//                        Creating an Array
-//=================================================================
-    // 类方法
-    [__NSArray swapClassMethod:@selector(arrayWithObject:) currentMethod:@selector(safe_arrayWithObject:)];
-    [__NSArray swapClassMethod:@selector(arrayWithObjects:count:) currentMethod:@selector(safe_arrayWithObjects:count:)];
-    // 实例方法
-    [__NSPlaceholderArray swapInstanceMethod:@selector(initWithObjects: count:) currentMethod:@selector(safe_initWithObjects: count:)];
-    
-//=================================================================
-//                        Querying an Array
-//=================================================================
-    // objectAtIndex:
-    [__NSArray0 swapInstanceMethod:@selector(objectAtIndex:) currentMethod:@selector(safe_objectAtIndex0:)];
-    [__NSSingleObjectArrayI swapInstanceMethod:@selector(objectAtIndex:) currentMethod:@selector(safe_objectAtIndexSI:)];
-    [__NSArrayI swapInstanceMethod:@selector(objectAtIndex:) currentMethod:@selector(safe_objectAtIndexI:)];
-    
-    // objectAtIndexedSubscript:
-    [__NSArrayI swapInstanceMethod:@selector(objectAtIndexedSubscript:) currentMethod:@selector(safe_objectAtIndexedSubscriptI:)];
-    
-    // objectsAtIndexes:
-    [__NSArray swapInstanceMethod:@selector(objectsAtIndexes:) currentMethod:@selector(safe_objectsAtIndexes:)];
-    
-    // getObjects:range:  不常用，所以就忽略了！！！
-    [__NSArray swapInstanceMethod:@selector(getObjects:range:) currentMethod:@selector(safe_getObjects:range:)];
-    [__NSSingleObjectArrayI swapInstanceMethod:@selector(getObjects:range:) currentMethod:@selector(safe_getObjectsSI:range:)];
-    [__NSArrayI swapInstanceMethod:@selector(getObjects:range:) currentMethod:@selector(safe_getObjectsI:range:)];
-}
+//
+//+ (void)load {
+//    Class __NSArray = NSClassFromString(@"NSArray");                              // NSArray
+//    Class __NSPlaceholderArray = NSClassFromString(@"__NSPlaceholderArray");      // [NSArray alloc]; alloc后所得到的类
+//    Class __NSArray0 = NSClassFromString(@"__NSArray0");                          // 当init为一个空数组后，变成了__NSArray0
+//    Class __NSSingleObjectArrayI = NSClassFromString(@"__NSSingleObjectArrayI");  // 如果有且仅有一个元素，那么为__NSSingleObjectArrayI
+//    Class __NSArrayI = NSClassFromString(@"__NSArrayI");                          // 如果数组大于一个元素，那么为__NSArrayI
+//
+//    
+////=================================================================
+////                        Creating an Array
+////=================================================================
+//    // 类方法
+//    [__NSArray swapClassMethod:@selector(arrayWithObject:) currentMethod:@selector(safe_arrayWithObject:)];
+//    [__NSArray swapClassMethod:@selector(arrayWithObjects:count:) currentMethod:@selector(safe_arrayWithObjects:count:)];
+//    // 实例方法
+//    [__NSPlaceholderArray swapInstanceMethod:@selector(initWithObjects: count:) currentMethod:@selector(safe_initWithObjects: count:)];
+//    
+////=================================================================
+////                        Querying an Array
+////=================================================================
+//    // objectAtIndex:
+//    [__NSArray0 swapInstanceMethod:@selector(objectAtIndex:) currentMethod:@selector(safe_objectAtIndex0:)];
+//    [__NSSingleObjectArrayI swapInstanceMethod:@selector(objectAtIndex:) currentMethod:@selector(safe_objectAtIndexSI:)];
+//    [__NSArrayI swapInstanceMethod:@selector(objectAtIndex:) currentMethod:@selector(safe_objectAtIndexI:)];
+//    
+//    // objectAtIndexedSubscript:
+//    [__NSArrayI swapInstanceMethod:@selector(objectAtIndexedSubscript:) currentMethod:@selector(safe_objectAtIndexedSubscriptI:)];
+//    
+//    // objectsAtIndexes:
+//    [__NSArray swapInstanceMethod:@selector(objectsAtIndexes:) currentMethod:@selector(safe_objectsAtIndexes:)];
+//    
+//    // getObjects:range:  不常用，所以就忽略了！！！
+//    [__NSArray swapInstanceMethod:@selector(getObjects:range:) currentMethod:@selector(safe_getObjects:range:)];
+//    [__NSSingleObjectArrayI swapInstanceMethod:@selector(getObjects:range:) currentMethod:@selector(safe_getObjectsSI:range:)];
+//    [__NSArrayI swapInstanceMethod:@selector(getObjects:range:) currentMethod:@selector(safe_getObjectsI:range:)];
+//}
 
 
 

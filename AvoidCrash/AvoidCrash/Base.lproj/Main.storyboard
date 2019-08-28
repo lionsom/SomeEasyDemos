@@ -39,11 +39,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgB-Wb-tEm">
-                                <rect key="frame" x="125" y="195" width="151" height="70"/>
+                                <rect key="frame" x="0.0" y="84" width="203" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="NSArray"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="jNK-vq-U6T"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sT4-XC-TBr">
+                                <rect key="frame" x="211" y="84" width="203" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="NSMutableArray"/>
+                                <connections>
+                                    <segue destination="kaC-xn-ke9" kind="show" id="KLF-hm-OWX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -54,7 +62,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bms-La-R4F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1120.2898550724638" y="-56.25"/>
+            <point key="canvasLocation" x="-1171.0144927536232" y="-56.25"/>
+        </scene>
+        <!--Mutable ArrayVC-->
+        <scene sceneID="J7O-8m-NPQ">
+            <objects>
+                <viewController id="kaC-xn-ke9" customClass="NSMutableArrayVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wZi-I7-woc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rPG-4G-OGn"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Joj-2l-f8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-287" y="596"/>
         </scene>
         <!--ArrayVC-->
         <scene sceneID="tne-QT-ifu">
