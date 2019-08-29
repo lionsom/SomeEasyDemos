@@ -38,7 +38,7 @@
         return 9;
     }
     else if (section == 1) {
-        return 10;
+        return 13;
     }
     return 0;
 }
@@ -77,7 +77,31 @@
     }
     
     else if (indexPath.section == 1 && indexPath.row == 0) {
-        cell.textLabel.text = @"  类簇一览 (看代码)";
+        cell.textLabel.text = @"- addObject: 崩溃";
+    } else if (indexPath.section == 1 && indexPath.row == 1) {
+        cell.textLabel.text = @"- insertObject: atIndex: 崩溃";
+    } else if (indexPath.section == 1 && indexPath.row == 2) {
+        cell.textLabel.text = @"- insertObjects: atIndexes: 崩溃";
+    } else if (indexPath.section == 1 && indexPath.row == 3) {
+        cell.textLabel.text = @"- removeObject: InRange: 崩溃";
+    } else if (indexPath.section == 1 && indexPath.row == 4) {
+        cell.textLabel.text = @"- removeObjectAtIndex: 崩溃";
+    } else if (indexPath.section == 1 && indexPath.row == 5) {
+        cell.textLabel.text = @"- removeObjectsAtIndexes: 崩溃";
+    } else if (indexPath.section == 1 && indexPath.row == 6) {
+        cell.textLabel.text = @"- removeObjectIdenticalTo: inRange: 崩溃";
+    } else if (indexPath.section == 1 && indexPath.row == 7) {
+        cell.textLabel.text = @"- removeObjectsInRange: 崩溃";
+    } else if (indexPath.section == 1 && indexPath.row == 8) {
+        cell.textLabel.text = @"- replaceObjectAtIndex: withObject: 崩溃";
+    } else if (indexPath.section == 1 && indexPath.row == 9) {
+        cell.textLabel.text = @"- setObject: atIndexedSubscript: 崩溃";
+    } else if (indexPath.section == 1 && indexPath.row == 10) {
+        cell.textLabel.text = @"- replaceObjectsAtIndexes: withObjects: 崩溃";
+    } else if (indexPath.section == 1 && indexPath.row == 11) {
+        cell.textLabel.text = @"- replaceObjectsInRange: withObjectsFromArray: 崩溃";
+    } else if (indexPath.section == 1 && indexPath.row == 12) {
+        cell.textLabel.text = @"- replaceObjectsInRange: withObjectsFromArray: range: 崩溃";
     } else {
         cell.textLabel.text = @"AA";
     }
@@ -145,10 +169,8 @@
         mArr0[3];
     } else if (indexPath.section == 0 && indexPath.row == 5) {
         [mArr0 objectAtIndex:3];
-
     } else if (indexPath.section == 0 && indexPath.row == 6) {
         [mArr0 objectAtIndexedSubscript:3];
-
     } else if (indexPath.section == 0 && indexPath.row == 7) {
         NSIndexSet *se = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(2, 9)];
         NSArray *test = [mArr0 objectsAtIndexes:se];
@@ -159,7 +181,62 @@
     }
     
     else if (indexPath.section == 1 && indexPath.row == 0) {
-        
+        NSMutableArray *mArr8 = [[NSMutableArray alloc] init];
+        [mArr8 addObject:nil];
+    } else if (indexPath.section == 1 && indexPath.row == 1) {
+        NSMutableArray *mArr8 = [[NSMutableArray alloc] init];
+        [mArr8 insertObject:nil atIndex:7];
+        [mArr8 insertObject:@"1" atIndex:7];
+    } else if (indexPath.section == 1 && indexPath.row == 2) {
+        NSMutableArray *mArr8 = [[NSMutableArray alloc] init];
+        NSArray *array = [NSArray arrayWithObjects:@"q",@"d",@"e", nil];  // 2.插入的数组可以为nil
+        NSRange range = NSMakeRange(1, [array count]);
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
+        [mArr8 insertObjects:array atIndexes:indexSet];
+    } else if (indexPath.section == 1 && indexPath.row == 3) {
+        NSMutableArray *mArr10 = [[NSMutableArray alloc] init];
+        [mArr10 removeObject:@"1" inRange:NSMakeRange(1,2)]; // 崩溃 越界
+        [mArr10 removeObject:nil inRange:NSMakeRange(0,0)];  // 不崩溃
+    } else if (indexPath.section == 1 && indexPath.row == 4) {
+        NSMutableArray *mArr10 = [[NSMutableArray alloc] init];
+        [mArr10 removeObjectAtIndex:2];
+    } else if (indexPath.section == 1 && indexPath.row == 5) {
+        NSMutableArray *mArr10 = [[NSMutableArray alloc] init];
+        NSRange range1 = NSMakeRange(1, 4);
+        NSIndexSet *indexSet1 = [NSIndexSet indexSetWithIndexesInRange:range1];
+        [mArr10 removeObjectsAtIndexes:indexSet1];
+    } else if (indexPath.section == 1 && indexPath.row == 6) {
+        NSMutableArray *mArr10 = [[NSMutableArray alloc] init];
+        [mArr10 removeObjectIdenticalTo:@"1" inRange:NSMakeRange(2, 4)];
+    } else if (indexPath.section == 1 && indexPath.row == 7) {
+        NSMutableArray *mArr10 = [[NSMutableArray alloc] init];
+        [mArr10 removeObjectsInRange:NSMakeRange(1, 3)];
+    } else if (indexPath.section == 1 && indexPath.row == 8) {
+        NSMutableArray *mArr11 = [[NSMutableArray alloc] init];
+        [mArr11 replaceObjectAtIndex:2 withObject:nil];
+        [mArr11 replaceObjectAtIndex:2 withObject:@"2"];
+    } else if (indexPath.section == 1 && indexPath.row == 9) {
+        NSMutableArray *mArr11 = [[NSMutableArray alloc] init];
+        [mArr11 setObject:nil atIndexedSubscript:2];
+        [mArr11 setObject:@"1" atIndexedSubscript:2];
+    } else if (indexPath.section == 1 && indexPath.row == 10) {
+        NSMutableArray *mArr11 = [[NSMutableArray alloc] init];
+        NSRange range2 = NSMakeRange(1, 4);
+        NSIndexSet *indexSet2 = [NSIndexSet indexSetWithIndexesInRange:range2];
+        [mArr11 replaceObjectsAtIndexes:indexSet2 withObjects:nil];
+        [mArr11 replaceObjectsAtIndexes:nil withObjects:@[@"1"]];
+    } else if (indexPath.section == 1 && indexPath.row == 11) {
+        NSMutableArray *mArr11 = [[NSMutableArray alloc] init];
+        [mArr11 replaceObjectsInRange:NSMakeRange(1, 3) withObjectsFromArray:nil];
+        NSMutableArray *mArr12 = [NSMutableArray arrayWithArray:@[@"a",@"b",@"c"]];
+        [mArr12 replaceObjectsInRange:NSMakeRange(0, 2) withObjectsFromArray:nil];
+        NSMutableArray *mArr13 = [NSMutableArray arrayWithArray:@[@"a",@"b",@"c"]];
+        [mArr13 replaceObjectsInRange:NSMakeRange(0, 2) withObjectsFromArray:@[@"1",@"2",@"3",@"3",@"3"]];
+    } else if (indexPath.section == 1 && indexPath.row == 12) {
+        NSMutableArray *mArr14 = [NSMutableArray arrayWithArray:@[@"a",@"b",@"c"]];
+        [mArr14 replaceObjectsInRange:NSMakeRange(0, 5) withObjectsFromArray:@[@"1"] range:NSMakeRange(0, 1)];  // 原数组越界
+        [mArr14 replaceObjectsInRange:NSMakeRange(0, 3) withObjectsFromArray:@[@"1"] range:NSMakeRange(0, 3)];  // From数组越界
+
     }
 }
 
@@ -303,9 +380,9 @@
     [mArr10 removeObject:@"1"];
     [mArr10 removeObject:nil];
 
-    // 崩溃 -[__NSArrayM removeObjectsInRange:]: range {1, 2} extends beyond bounds for empty array
-    [mArr10 removeObjectsInRange:NSMakeRange(1, 2)];
-
+    // 崩溃 -[NSMutableArray removeObject:inRange:]: range {1, 2} extends beyond bounds for empty array
+    [mArr10 removeObject:@"1" inRange:NSMakeRange(1,2)];
+    
     // 崩溃 -[__NSArrayM removeObjectsInRange:]: range {2, 1} extends beyond bounds for empty array
     [mArr10 removeObjectAtIndex:2];
     
