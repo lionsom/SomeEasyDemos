@@ -198,7 +198,7 @@
         [mArr10 removeObject:@"1" inRange:NSMakeRange(1,2)]; // 崩溃 越界
         [mArr10 removeObject:nil inRange:NSMakeRange(0,0)];  // 不崩溃
     } else if (indexPath.section == 1 && indexPath.row == 4) {
-        NSMutableArray *mArr10 = [[NSMutableArray alloc] init];
+        NSMutableArray *mArr10 = [NSMutableArray arrayWithObjects:@"2",@"1", nil];
         [mArr10 removeObjectAtIndex:2];
     } else if (indexPath.section == 1 && indexPath.row == 5) {
         NSMutableArray *mArr10 = [[NSMutableArray alloc] init];
@@ -212,7 +212,7 @@
         NSMutableArray *mArr10 = [[NSMutableArray alloc] init];
         [mArr10 removeObjectsInRange:NSMakeRange(1, 3)];
     } else if (indexPath.section == 1 && indexPath.row == 8) {
-        NSMutableArray *mArr11 = [[NSMutableArray alloc] init];
+        NSMutableArray *mArr11 = [NSMutableArray arrayWithObjects:@"2",@"1", nil];
         [mArr11 replaceObjectAtIndex:2 withObject:nil];
         [mArr11 replaceObjectAtIndex:2 withObject:@"2"];
     } else if (indexPath.section == 1 && indexPath.row == 9) {

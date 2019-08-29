@@ -137,7 +137,7 @@
         id a = arr11[5];
     } else if (indexPath.section == 0 && indexPath.row == 5) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"NSArray objectAtIndex:" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-        UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"NSArray(未容错)" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"__NSPlaceholderArray(未容错)" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             // 崩溃 -[NSArray objectAtIndex:]: method sent to an uninitialized immutable array object
             NSArray *array = [NSArray alloc];                    // __NSPlaceholderArray
             [array objectAtIndex:2];
@@ -167,7 +167,7 @@
         [self presentViewController:alert animated:YES completion:nil];
     } else if (indexPath.section == 0 && indexPath.row == 6) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"NSArray objectAtIndexedSubscript:" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-        UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"NSArray(未容错)" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"__NSPlaceholderArray(未容错)" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             // 崩溃 -[NSArray objectAtIndex:]: method sent to an uninitialized immutable array object
             NSArray *array = [NSArray alloc];                    // __NSPlaceholderArray
             [array objectAtIndexedSubscript:2];
@@ -196,6 +196,7 @@
         [alert addAction:action4];
         [self presentViewController:alert animated:YES completion:nil];
     } else if (indexPath.section == 0 && indexPath.row == 7) {
+        // clang -rewrite-objc main.m   objc_getClass("NSArray")  sel_registerName("objectsAtIndexes:")
         // 崩溃 -[NSArray objectsAtIndexes:]: index 9 in index set beyond bounds [0 .. 1]
         NSArray *arr11 = @[@"1", @"2"];
         NSIndexSet *se = [NSIndexSet indexSetWithIndex:9];
@@ -210,7 +211,7 @@
             __unsafe_unretained id cArray[range.length];
             [array getObjects:cArray range:range];
         }];
-        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"__NSArray0 (同NSArray)" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"__NSArray0" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             NSArray *array = [NSArray alloc];                    // __NSPlaceholderArray
             NSArray *arr1 = [array init];                        // __NSArray0
             NSRange range = NSMakeRange(0, 11);

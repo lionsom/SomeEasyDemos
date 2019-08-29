@@ -54,6 +54,22 @@
                                     <segue destination="kaC-xn-ke9" kind="show" id="KLF-hm-OWX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zva-CW-wAE">
+                                <rect key="frame" x="211" y="162" width="203" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="NSMutableDictionary"/>
+                                <connections>
+                                    <segue destination="4IW-om-oGZ" kind="show" id="XbP-xE-1fX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m76-AS-g5X">
+                                <rect key="frame" x="0.0" y="162" width="203" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="NSDictionary"/>
+                                <connections>
+                                    <segue destination="IDB-lJ-zaR" kind="show" id="0Tf-yW-qo3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="1hX-dT-GWu"/>
@@ -93,6 +109,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-286" y="-56"/>
+        </scene>
+        <!--DictionaryVC-->
+        <scene sceneID="5XW-We-yPc">
+            <objects>
+                <viewController id="IDB-lJ-zaR" customClass="NSDictionaryVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FBx-26-OBd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="3Ge-r8-NdZ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LG4-em-8lJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="484" y="-56"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="yTB-Ts-A9U">
+            <objects>
+                <viewController id="4IW-om-oGZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CCu-v8-bdP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="dTg-7B-PLv"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Joe-Y5-5Xd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="483" y="596"/>
         </scene>
     </scenes>
 </document>
