@@ -171,7 +171,6 @@
 // __NSArrayI  objectAtIndex:
 - (id)safe_objectAtIndexI:(NSUInteger)index {
     id object = nil;
-    
     @try {
         object = [self safe_objectAtIndexI:index];
     }
@@ -186,8 +185,7 @@
 
 #pragma mark ------ objectAtIndexedSubscript: ------
 
--(id)safe_objectAtIndexedSubscriptI:(NSUInteger)index
-{
+-(id)safe_objectAtIndexedSubscriptI:(NSUInteger)index {
     id object=nil;
     @try {
         object = [self safe_objectAtIndexedSubscriptI:index];

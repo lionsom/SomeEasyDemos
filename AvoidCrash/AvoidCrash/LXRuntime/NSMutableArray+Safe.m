@@ -14,8 +14,8 @@
 @implementation NSMutableArray (Safe)
 
 +(void)load {
+    Class __NSArrayMutable = NSClassFromString(@"NSArrayMutable");                    // NSArrayMutable
     Class __NSArrayM = NSClassFromString(@"__NSArrayM");                              // __NSArrayM
-    Class __NSArrayMutable = NSClassFromString(@"NSArrayMutable");                    // __NSArrayM
 
 //=================================================================
 //                 NSMutableArray继承NSArray的方法
@@ -80,6 +80,7 @@
     // replaceObjectsInRange:withObjectsFromArray:range:
     [__NSArrayM swapInstanceMethod:@selector(replaceObjectsInRange:withObjectsFromArray:range:) currentMethod:@selector(safe_replaceObjectsInRangeM:withObjectsFromArray:range:)];
 }
+
 
 //=================================================================
 //                 NSMutableArray继承NSArray的方法
