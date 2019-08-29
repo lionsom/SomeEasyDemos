@@ -24,9 +24,12 @@
 //=================================================================
 //                        Creating an Array
 //=================================================================
-    // 类方法 这两个方法底层都是调用 __NSPlaceholderArray initWithObjects: count: 所以可不写
-//    [__NSArray swapClassMethod:@selector(arrayWithObject:) currentMethod:@selector(safe_arrayWithObject:)];
-//    [__NSArray swapClassMethod:@selector(arrayWithObjects:count:) currentMethod:@selector(safe_arrayWithObjects:count:)];
+    /** 类方法
+     若 __NSPlaceholderArray initWithObjects: count: 不重写，则这两个类方法会走自己的重写方法拦截；
+     若 __NSPlaceholderArray initWithObjects: count: 重写，则会走此方法拦截；
+     */
+    [__NSArray swapClassMethod:@selector(arrayWithObject:) currentMethod:@selector(safe_arrayWithObject:)];
+    [__NSArray swapClassMethod:@selector(arrayWithObjects:count:) currentMethod:@selector(safe_arrayWithObjects:count:)];
     // 实例方法
     [__NSPlaceholderArray swapInstanceMethod:@selector(initWithObjects: count:) currentMethod:@selector(safe_initWithObjects: count:)];
     
@@ -58,7 +61,6 @@
 //=================================================================
 #pragma mark - ============ Creating an Array ============
 
-/*
 #pragma mark ------ arrayWithObject: ------
 + (instancetype)safe_arrayWithObject:(id)anObject {
     id instance = nil;
@@ -104,7 +106,6 @@
         return instance;
     }
 }
- */
 
 #pragma mark ------ initWithObjects: count: ------
 - (instancetype)safe_initWithObjects:(const id _Nonnull [_Nullable])objects count:(NSUInteger)cnt {
