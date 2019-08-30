@@ -14,6 +14,17 @@
 @implementation NSArray (Safe)
 
 + (void)load {
+    // 类继承关系
+    // __NSPlaceholderArray       占位数组
+    // __NSArrayI                 继承于 NSArray
+    // __NSSingleObjectArrayI     继承于 NSArray
+    // __NSArray0                 继承于 NSArray
+    // __NSFrozenArrayM           继承于 NSArray
+    // __NSArrayM                 继承于 NSMutableArray
+    // __NSCFArray                继承于 NSMutableArray
+    // NSMutableArray             继承于 NSArray
+    // NSArray                    继承于 NSObject
+    
     Class __NSArray = NSClassFromString(@"NSArray");                              // NSArray
     Class __NSPlaceholderArray = NSClassFromString(@"__NSPlaceholderArray");      // [NSArray alloc]; alloc后所得到的类
     Class __NSArray0 = NSClassFromString(@"__NSArray0");                          // 当init为一个空数组后，变成了__NSArray0
@@ -25,13 +36,14 @@
 //                        Creating an Array
 //=================================================================
     /** 类方法
-     若 __NSPlaceholderArray initWithObjects: count: 不重写，则这两个类方法会走自己的重写方法拦截；
-     若 __NSPlaceholderArray initWithObjects: count: 重写，则会走此方法拦截；
+     这两个乃是类方法，底层同样会调用 initWithObjects: count: 实例方法，所以
+        若 __NSPlaceholderArray initWithObjects: count: 不重写，则这两个类方法会走自己的重写方法拦截；
+        若 __NSPlaceholderArray initWithObjects: count: 重写，则会走此方法拦截；
      */
     [__NSArray swapClassMethod:@selector(arrayWithObject:) currentMethod:@selector(safe_arrayWithObject:)];
     [__NSArray swapClassMethod:@selector(arrayWithObjects:count:) currentMethod:@selector(safe_arrayWithObjects:count:)];
     // 实例方法
-    [__NSPlaceholderArray swapInstanceMethod:@selector(initWithObjects: count:) currentMethod:@selector(safe_initWithObjects: count:)];
+    [__NSPlaceholderArray swapInstanceMethod:@selector(initWithObjects: count:) currentMethod:@selector(safe_initWithObjectsP: count:)];
     
 //=================================================================
 //                        Querying an Array
@@ -108,13 +120,13 @@
 }
 
 #pragma mark ------ initWithObjects: count: ------
-- (instancetype)safe_initWithObjects:(const id _Nonnull [_Nullable])objects count:(NSUInteger)cnt {
+- (instancetype)safe_initWithObjectsP:(const id _Nonnull [_Nullable])objects count:(NSUInteger)cnt {
     id instance = nil;
     @try {
-        instance = [self safe_initWithObjects:objects count:cnt];
+        instance = [self safe_initWithObjectsP:objects count:cnt];
     }
     @catch (NSException *exception) {
-        NSLog(@"__NSPlaceholderArray safe_initWithObjects:count: 崩溃拦截");
+        NSLog(@"__NSPlaceholderArray safe_initWithObjectsP:count: 崩溃拦截");
         // 以下是对错误数据的处理，把为nil的数据去掉,然后初始化数组
         NSInteger newObjsIndex = 0;
         id   newObjects[cnt];
@@ -125,7 +137,7 @@
                 newObjsIndex++;
             }
         }
-        instance = [self safe_initWithObjects:newObjects count:newObjsIndex];
+        instance = [self safe_initWithObjectsP:newObjects count:newObjsIndex];
     }
     @finally {
         return instance;

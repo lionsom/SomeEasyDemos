@@ -241,11 +241,20 @@
         [alert addAction:action4];
         [self presentViewController:alert animated:YES completion:nil];
     } else if (indexPath.section == 0 && indexPath.row == 9) {
-        Class __NSPlaceholderArray = NSClassFromString(@"__NSPlaceholderArray");  // [NSArray alloc]; alloc后所得到的类
-        Class __NSArray0 = NSClassFromString(@"__NSArray0");     // 当init为一个空数组后，变成了__NSArray0
-        Class __NSSingleObjectArrayI = NSClassFromString(@"__NSSingleObjectArrayI");  // 如果有且仅有一个元素，那么为__NSSingleObjectArrayI
-        Class __NSArrayI = NSClassFromString(@"__NSArrayI");       // 如果数组大于一个元素，那么为__NSArrayI
-        // __NSFrozenArrayM            NSMutableArray用copy修饰之后，在使用addObjectsFromArray方法时崩溃
+        // 类继承关系
+        // __NSPlaceholderArray       占位数组
+        // __NSArrayI                 继承于 NSArray
+        // __NSSingleObjectArrayI     继承于 NSArray
+        // __NSArray0                 继承于 NSArray
+        // __NSFrozenArrayM           继承于 NSArray
+        // __NSArrayM                 继承于 NSMutableArray
+        // __NSCFArray                继承于 NSMutableArray
+        // NSMutableArray             继承于 NSArray
+        // NSArray                    继承于 NSObject
+        NSClassFromString(@"__NSPlaceholderArray");   // [NSArray alloc]; alloc后所得到的类
+        NSClassFromString(@"__NSArray0");             // 当init为一个空数组后，变成了__NSArray0
+        NSClassFromString(@"__NSSingleObjectArrayI"); // 如果有且仅有一个元素，那么为__NSSingleObjectArrayI
+        NSClassFromString(@"__NSArrayI");             // 如果数组大于一个元素，那么为__NSArrayI
         
         // NSArray 类簇
         NSArray *array = [NSArray alloc];                    // __NSPlaceholderArray
