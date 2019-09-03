@@ -64,9 +64,9 @@
     } else if (indexPath.section == 0 && indexPath.row == 4) {
         cell.textLabel.text = @"- initWithObjects: forKeys: count: 崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 5) {
-        cell.textLabel.text = @"+ dictionaryWithObjectsAndKeys: 崩溃 (未拦截，慎用此方法)";
+        cell.textLabel.text = @"未拦截 + dictionaryWithObjectsAndKeys: 崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 6) {
-        cell.textLabel.text = @"- initWithObjectsAndKeys: 崩溃 (未拦截，慎用此方法)";
+        cell.textLabel.text = @"未拦截 - initWithObjectsAndKeys: 崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 7) {
         cell.textLabel.text = @"+ dictionaryWithObject: forKey:: 崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 8) {
@@ -74,7 +74,7 @@
     } else if (indexPath.section == 0 && indexPath.row == 9) {
         cell.textLabel.text = @"- setValue: forKey: 崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 10) {
-        cell.textLabel.text = @"正常-valueForKey:与-objectForKey:";
+        cell.textLabel.text = @"正常 -valueForKey:与-objectForKey:";
     }
     return cell;
 }

@@ -14,6 +14,8 @@
 		990440CE230A3E74008FCE2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 990440CD230A3E74008FCE2E /* main.m */; };
 		990756FD231377EB00F2B472 /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 990756FC231377EB00F2B472 /* NSObject+Runtime.m */; };
 		9907570023137C4F00F2B472 /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 990756FF23137C4F00F2B472 /* NSArray+Safe.m */; };
+		994BEA40231D31D7000E463F /* NSMutableDictionaryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 994BEA3F231D31D7000E463F /* NSMutableDictionaryVC.m */; };
+		994BEA43231D31E6000E463F /* NSMutableDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 994BEA42231D31E6000E463F /* NSMutableDictionary+Safe.m */; };
 		994FB85123175C3700C5F5F0 /* NSMutableArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 994FB85023175C3700C5F5F0 /* NSMutableArray+Safe.m */; };
 		994FB8542317B1AF00C5F5F0 /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 994FB8532317B1AF00C5F5F0 /* NSDictionary+Safe.m */; };
 		994FB8572317DF3000C5F5F0 /* NSDictionaryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 994FB8562317DF3000C5F5F0 /* NSDictionaryVC.m */; };
@@ -34,6 +36,10 @@
 		990756FC231377EB00F2B472 /* NSObject+Runtime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Runtime.m"; sourceTree = "<group>"; };
 		990756FE23137C4F00F2B472 /* NSArray+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Safe.h"; sourceTree = "<group>"; };
 		990756FF23137C4F00F2B472 /* NSArray+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Safe.m"; sourceTree = "<group>"; };
+		994BEA3E231D31D7000E463F /* NSMutableDictionaryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSMutableDictionaryVC.h; sourceTree = "<group>"; };
+		994BEA3F231D31D7000E463F /* NSMutableDictionaryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSMutableDictionaryVC.m; sourceTree = "<group>"; };
+		994BEA41231D31E6000E463F /* NSMutableDictionary+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Safe.h"; sourceTree = "<group>"; };
+		994BEA42231D31E6000E463F /* NSMutableDictionary+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Safe.m"; sourceTree = "<group>"; };
 		994FB84F23175C3700C5F5F0 /* NSMutableArray+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Safe.h"; sourceTree = "<group>"; };
 		994FB85023175C3700C5F5F0 /* NSMutableArray+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Safe.m"; sourceTree = "<group>"; };
 		994FB8522317B1AF00C5F5F0 /* NSDictionary+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Safe.h"; sourceTree = "<group>"; };
@@ -100,6 +106,8 @@
 				994FB85023175C3700C5F5F0 /* NSMutableArray+Safe.m */,
 				994FB8522317B1AF00C5F5F0 /* NSDictionary+Safe.h */,
 				994FB8532317B1AF00C5F5F0 /* NSDictionary+Safe.m */,
+				994BEA41231D31E6000E463F /* NSMutableDictionary+Safe.h */,
+				994BEA42231D31E6000E463F /* NSMutableDictionary+Safe.m */,
 			);
 			path = LXRuntime;
 			sourceTree = "<group>";
@@ -113,6 +121,8 @@
 				99528C722316B58D00E6900A /* NSMutableArrayVC.m */,
 				994FB8552317DF3000C5F5F0 /* NSDictionaryVC.h */,
 				994FB8562317DF3000C5F5F0 /* NSDictionaryVC.m */,
+				994BEA3E231D31D7000E463F /* NSMutableDictionaryVC.h */,
+				994BEA3F231D31D7000E463F /* NSMutableDictionaryVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -194,7 +204,9 @@
 				994FB8572317DF3000C5F5F0 /* NSDictionaryVC.m in Sources */,
 				9907570023137C4F00F2B472 /* NSArray+Safe.m in Sources */,
 				990440CE230A3E74008FCE2E /* main.m in Sources */,
+				994BEA43231D31E6000E463F /* NSMutableDictionary+Safe.m in Sources */,
 				990440C0230A3E73008FCE2E /* AppDelegate.m in Sources */,
+				994BEA40231D31D7000E463F /* NSMutableDictionaryVC.m in Sources */,
 				994FB8542317B1AF00C5F5F0 /* NSDictionary+Safe.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

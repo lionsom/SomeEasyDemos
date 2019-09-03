@@ -125,10 +125,10 @@
             </objects>
             <point key="canvasLocation" x="484" y="-56"/>
         </scene>
-        <!--View Controller-->
+        <!--Mutable DictionaryVC-->
         <scene sceneID="yTB-Ts-A9U">
             <objects>
-                <viewController id="4IW-om-oGZ" sceneMemberID="viewController">
+                <viewController id="4IW-om-oGZ" customClass="NSMutableDictionaryVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CCu-v8-bdP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
