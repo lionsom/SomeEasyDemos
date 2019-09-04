@@ -33,7 +33,7 @@
 // Rows Number
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 9;
+        return 10;
     } else if (section == 1) {
         return 4;
     }
@@ -71,6 +71,8 @@
         cell.textLabel.text = @"+ dictionaryWithObject: forKey:: 崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 8) {
         cell.textLabel.text = @"@{} 创建NSMutableDictionary 崩溃";
+    } else if (indexPath.section == 0 && indexPath.row == 9) {
+        cell.textLabel.text = @"正常 -valueForKey:与-objectForKey:";
     }
     
     else if (indexPath.section == 1 && indexPath.row == 0) {
@@ -207,6 +209,11 @@
                                               str:@"b",
                                               @"3":@"c"
                                               };
+    } else if (indexPath.section == 0 && indexPath.row == 9) {
+        NSMutableDictionary *mdict10 = [[NSMutableDictionary alloc] init];
+        
+        [mdict10 objectForKey:nil];
+        [mdict10 valueForKey:@"123"];
     }
     
     
