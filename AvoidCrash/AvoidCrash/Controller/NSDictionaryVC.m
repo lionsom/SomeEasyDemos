@@ -20,7 +20,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"NSDictionary";
-        
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     [self.view addSubview:self.tableView];
 }
 
@@ -33,7 +35,7 @@
 // Rows Number
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 11;
+        return 10;
     }
     return 0;
 }
@@ -70,8 +72,6 @@
     } else if (indexPath.section == 0 && indexPath.row == 8) {
         cell.textLabel.text = @"@{} 创建Dictionary 崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 9) {
-        cell.textLabel.text = @"未拦截 - setValue: forKey: 崩溃";
-    } else if (indexPath.section == 0 && indexPath.row == 10) {
         cell.textLabel.text = @"正常 -valueForKey:与-objectForKey:";
     }
     return cell;
@@ -192,15 +192,6 @@
                                        };
         
     } else if (indexPath.section == 0 && indexPath.row == 9) {
-        // 字典不可变，
-        NSDictionary *defaultDict = @{@"1":@"a",
-                                      @"2":@"b",
-                                      @"3":@"c"
-                                      };
-        // 崩溃 [<__NSDictionaryI 0x600000207380> setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key 2.
-        // 需要将其变为可变字典
-        [defaultDict setValue:@"a" forKey:@"2"];
-    } else if (indexPath.section == 0 && indexPath.row == 10) {
         // 字典不可变，
         NSDictionary *defaultDict = @{@"1":@"a",
                                       @"2":@"b",

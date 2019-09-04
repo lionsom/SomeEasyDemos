@@ -12,15 +12,22 @@
 		990440C8230A3E74008FCE2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 990440C7230A3E74008FCE2E /* Assets.xcassets */; };
 		990440CB230A3E74008FCE2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 990440C9230A3E74008FCE2E /* LaunchScreen.storyboard */; };
 		990440CE230A3E74008FCE2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 990440CD230A3E74008FCE2E /* main.m */; };
-		990756FD231377EB00F2B472 /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 990756FC231377EB00F2B472 /* NSObject+Runtime.m */; };
-		9907570023137C4F00F2B472 /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 990756FF23137C4F00F2B472 /* NSArray+Safe.m */; };
 		994BEA40231D31D7000E463F /* NSMutableDictionaryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 994BEA3F231D31D7000E463F /* NSMutableDictionaryVC.m */; };
-		994BEA43231D31E6000E463F /* NSMutableDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 994BEA42231D31E6000E463F /* NSMutableDictionary+Safe.m */; };
-		994FB85123175C3700C5F5F0 /* NSMutableArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 994FB85023175C3700C5F5F0 /* NSMutableArray+Safe.m */; };
-		994FB8542317B1AF00C5F5F0 /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 994FB8532317B1AF00C5F5F0 /* NSDictionary+Safe.m */; };
 		994FB8572317DF3000C5F5F0 /* NSDictionaryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 994FB8562317DF3000C5F5F0 /* NSDictionaryVC.m */; };
 		99528C702316B2F400E6900A /* NSArrayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 99528C6F2316B2F400E6900A /* NSArrayVC.m */; };
 		99528C732316B58D00E6900A /* NSMutableArrayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 99528C722316B58D00E6900A /* NSMutableArrayVC.m */; };
+		99E9CCAC231F6ACF00FBA422 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9CCAB231F6ACF00FBA422 /* MainVC.m */; };
+		99E9CCFA231FD72400FBA422 /* QYCSafeProtector.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9CCE1231FD72400FBA422 /* QYCSafeProtector.m */; };
+		99E9CCFB231FD72400FBA422 /* NSObject+QYCMethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9CCE2231FD72400FBA422 /* NSObject+QYCMethodSwizzling.m */; };
+		99E9CCFC231FD72400FBA422 /* QYCAvoidCrash_KVCTest_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9CCE5231FD72400FBA422 /* QYCAvoidCrash_KVCTest_VC.m */; };
+		99E9CCFD231FD72400FBA422 /* QYCAvoidCrashTestMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9CCE6231FD72400FBA422 /* QYCAvoidCrashTestMainVC.m */; };
+		99E9CCFE231FD72400FBA422 /* QYCAvoidCrash_KVCCrashObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9CCE7231FD72400FBA422 /* QYCAvoidCrash_KVCCrashObject.m */; };
+		99E9CCFF231FD72400FBA422 /* QYCAvoidCrash_ContainerTest_VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9CCE8231FD72400FBA422 /* QYCAvoidCrash_ContainerTest_VC.m */; };
+		99E9CD00231FD72400FBA422 /* NSArray+QYCSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9CCED231FD72400FBA422 /* NSArray+QYCSafe.m */; };
+		99E9CD01231FD72400FBA422 /* NSMutableDictionary+QYCSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9CCF0231FD72400FBA422 /* NSMutableDictionary+QYCSafe.m */; };
+		99E9CD02231FD72400FBA422 /* NSDictionary+QYCSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9CCF2231FD72400FBA422 /* NSDictionary+QYCSafe.m */; };
+		99E9CD03231FD72400FBA422 /* NSMutableArray+QYCSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9CCF3231FD72400FBA422 /* NSMutableArray+QYCSafe.m */; };
+		99E9CD04231FD72400FBA422 /* NSObject+QYCKVCSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9CCF7231FD72400FBA422 /* NSObject+QYCKVCSafe.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,24 +39,39 @@
 		990440CA230A3E74008FCE2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		990440CC230A3E74008FCE2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		990440CD230A3E74008FCE2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		990756FB231377EB00F2B472 /* NSObject+Runtime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Runtime.h"; sourceTree = "<group>"; };
-		990756FC231377EB00F2B472 /* NSObject+Runtime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Runtime.m"; sourceTree = "<group>"; };
-		990756FE23137C4F00F2B472 /* NSArray+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Safe.h"; sourceTree = "<group>"; };
-		990756FF23137C4F00F2B472 /* NSArray+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Safe.m"; sourceTree = "<group>"; };
 		994BEA3E231D31D7000E463F /* NSMutableDictionaryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSMutableDictionaryVC.h; sourceTree = "<group>"; };
 		994BEA3F231D31D7000E463F /* NSMutableDictionaryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSMutableDictionaryVC.m; sourceTree = "<group>"; };
-		994BEA41231D31E6000E463F /* NSMutableDictionary+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Safe.h"; sourceTree = "<group>"; };
-		994BEA42231D31E6000E463F /* NSMutableDictionary+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Safe.m"; sourceTree = "<group>"; };
-		994FB84F23175C3700C5F5F0 /* NSMutableArray+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Safe.h"; sourceTree = "<group>"; };
-		994FB85023175C3700C5F5F0 /* NSMutableArray+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Safe.m"; sourceTree = "<group>"; };
-		994FB8522317B1AF00C5F5F0 /* NSDictionary+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Safe.h"; sourceTree = "<group>"; };
-		994FB8532317B1AF00C5F5F0 /* NSDictionary+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Safe.m"; sourceTree = "<group>"; };
 		994FB8552317DF3000C5F5F0 /* NSDictionaryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSDictionaryVC.h; sourceTree = "<group>"; };
 		994FB8562317DF3000C5F5F0 /* NSDictionaryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSDictionaryVC.m; sourceTree = "<group>"; };
 		99528C6E2316B2F400E6900A /* NSArrayVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSArrayVC.h; sourceTree = "<group>"; };
 		99528C6F2316B2F400E6900A /* NSArrayVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSArrayVC.m; sourceTree = "<group>"; };
 		99528C712316B58C00E6900A /* NSMutableArrayVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSMutableArrayVC.h; sourceTree = "<group>"; };
 		99528C722316B58D00E6900A /* NSMutableArrayVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSMutableArrayVC.m; sourceTree = "<group>"; };
+		99E9CCAA231F6ACE00FBA422 /* MainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
+		99E9CCAB231F6ACF00FBA422 /* MainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
+		99E9CCE0231FD72400FBA422 /* QYCAvoidCrashProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYCAvoidCrashProtocol.h; sourceTree = "<group>"; };
+		99E9CCE1231FD72400FBA422 /* QYCSafeProtector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYCSafeProtector.m; sourceTree = "<group>"; };
+		99E9CCE2231FD72400FBA422 /* NSObject+QYCMethodSwizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+QYCMethodSwizzling.m"; sourceTree = "<group>"; };
+		99E9CCE4231FD72400FBA422 /* QYCAvoidCrash_ContainerTest_VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYCAvoidCrash_ContainerTest_VC.h; sourceTree = "<group>"; };
+		99E9CCE5231FD72400FBA422 /* QYCAvoidCrash_KVCTest_VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYCAvoidCrash_KVCTest_VC.m; sourceTree = "<group>"; };
+		99E9CCE6231FD72400FBA422 /* QYCAvoidCrashTestMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYCAvoidCrashTestMainVC.m; sourceTree = "<group>"; };
+		99E9CCE7231FD72400FBA422 /* QYCAvoidCrash_KVCCrashObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYCAvoidCrash_KVCCrashObject.m; sourceTree = "<group>"; };
+		99E9CCE8231FD72400FBA422 /* QYCAvoidCrash_ContainerTest_VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYCAvoidCrash_ContainerTest_VC.m; sourceTree = "<group>"; };
+		99E9CCE9231FD72400FBA422 /* QYCAvoidCrash_KVCTest_VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYCAvoidCrash_KVCTest_VC.h; sourceTree = "<group>"; };
+		99E9CCEA231FD72400FBA422 /* QYCAvoidCrashTestMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYCAvoidCrashTestMainVC.h; sourceTree = "<group>"; };
+		99E9CCEB231FD72400FBA422 /* QYCAvoidCrash_KVCCrashObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYCAvoidCrash_KVCCrashObject.h; sourceTree = "<group>"; };
+		99E9CCED231FD72400FBA422 /* NSArray+QYCSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+QYCSafe.m"; sourceTree = "<group>"; };
+		99E9CCEE231FD72400FBA422 /* NSMutableArray+QYCSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+QYCSafe.h"; sourceTree = "<group>"; };
+		99E9CCEF231FD72400FBA422 /* NSDictionary+QYCSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+QYCSafe.h"; sourceTree = "<group>"; };
+		99E9CCF0231FD72400FBA422 /* NSMutableDictionary+QYCSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+QYCSafe.m"; sourceTree = "<group>"; };
+		99E9CCF1231FD72400FBA422 /* NSArray+QYCSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+QYCSafe.h"; sourceTree = "<group>"; };
+		99E9CCF2231FD72400FBA422 /* NSDictionary+QYCSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+QYCSafe.m"; sourceTree = "<group>"; };
+		99E9CCF3231FD72400FBA422 /* NSMutableArray+QYCSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+QYCSafe.m"; sourceTree = "<group>"; };
+		99E9CCF4231FD72400FBA422 /* NSMutableDictionary+QYCSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+QYCSafe.h"; sourceTree = "<group>"; };
+		99E9CCF6231FD72400FBA422 /* NSObject+QYCKVCSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+QYCKVCSafe.h"; sourceTree = "<group>"; };
+		99E9CCF7231FD72400FBA422 /* NSObject+QYCKVCSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+QYCKVCSafe.m"; sourceTree = "<group>"; };
+		99E9CCF8231FD72400FBA422 /* QYCSafeProtector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYCSafeProtector.h; sourceTree = "<group>"; };
+		99E9CCF9231FD72400FBA422 /* NSObject+QYCMethodSwizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+QYCMethodSwizzling.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +104,7 @@
 		990440BD230A3E73008FCE2E /* AvoidCrash */ = {
 			isa = PBXGroup;
 			children = (
-				990756FA231377D600F2B472 /* LXRuntime */,
+				99E9CCDF231FD72400FBA422 /* AvoidCrash */,
 				99528C6A2316B2BB00E6900A /* Controller */,
 				990440BE230A3E73008FCE2E /* AppDelegate.h */,
 				990440BF230A3E73008FCE2E /* AppDelegate.m */,
@@ -95,26 +117,11 @@
 			path = AvoidCrash;
 			sourceTree = "<group>";
 		};
-		990756FA231377D600F2B472 /* LXRuntime */ = {
-			isa = PBXGroup;
-			children = (
-				990756FB231377EB00F2B472 /* NSObject+Runtime.h */,
-				990756FC231377EB00F2B472 /* NSObject+Runtime.m */,
-				990756FE23137C4F00F2B472 /* NSArray+Safe.h */,
-				990756FF23137C4F00F2B472 /* NSArray+Safe.m */,
-				994FB84F23175C3700C5F5F0 /* NSMutableArray+Safe.h */,
-				994FB85023175C3700C5F5F0 /* NSMutableArray+Safe.m */,
-				994FB8522317B1AF00C5F5F0 /* NSDictionary+Safe.h */,
-				994FB8532317B1AF00C5F5F0 /* NSDictionary+Safe.m */,
-				994BEA41231D31E6000E463F /* NSMutableDictionary+Safe.h */,
-				994BEA42231D31E6000E463F /* NSMutableDictionary+Safe.m */,
-			);
-			path = LXRuntime;
-			sourceTree = "<group>";
-		};
 		99528C6A2316B2BB00E6900A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				99E9CCAA231F6ACE00FBA422 /* MainVC.h */,
+				99E9CCAB231F6ACF00FBA422 /* MainVC.m */,
 				99528C6E2316B2F400E6900A /* NSArrayVC.h */,
 				99528C6F2316B2F400E6900A /* NSArrayVC.m */,
 				99528C712316B58C00E6900A /* NSMutableArrayVC.h */,
@@ -125,6 +132,60 @@
 				994BEA3F231D31D7000E463F /* NSMutableDictionaryVC.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		99E9CCDF231FD72400FBA422 /* AvoidCrash */ = {
+			isa = PBXGroup;
+			children = (
+				99E9CCEC231FD72400FBA422 /* Container */,
+				99E9CCF5231FD72400FBA422 /* KVC */,
+				99E9CCF9231FD72400FBA422 /* NSObject+QYCMethodSwizzling.h */,
+				99E9CCE2231FD72400FBA422 /* NSObject+QYCMethodSwizzling.m */,
+				99E9CCE0231FD72400FBA422 /* QYCAvoidCrashProtocol.h */,
+				99E9CCF8231FD72400FBA422 /* QYCSafeProtector.h */,
+				99E9CCE1231FD72400FBA422 /* QYCSafeProtector.m */,
+				99E9CCE3231FD72400FBA422 /* TestViewController */,
+			);
+			path = AvoidCrash;
+			sourceTree = "<group>";
+		};
+		99E9CCE3231FD72400FBA422 /* TestViewController */ = {
+			isa = PBXGroup;
+			children = (
+				99E9CCEA231FD72400FBA422 /* QYCAvoidCrashTestMainVC.h */,
+				99E9CCE6231FD72400FBA422 /* QYCAvoidCrashTestMainVC.m */,
+				99E9CCE4231FD72400FBA422 /* QYCAvoidCrash_ContainerTest_VC.h */,
+				99E9CCE8231FD72400FBA422 /* QYCAvoidCrash_ContainerTest_VC.m */,
+				99E9CCEB231FD72400FBA422 /* QYCAvoidCrash_KVCCrashObject.h */,
+				99E9CCE7231FD72400FBA422 /* QYCAvoidCrash_KVCCrashObject.m */,
+				99E9CCE9231FD72400FBA422 /* QYCAvoidCrash_KVCTest_VC.h */,
+				99E9CCE5231FD72400FBA422 /* QYCAvoidCrash_KVCTest_VC.m */,
+			);
+			path = TestViewController;
+			sourceTree = "<group>";
+		};
+		99E9CCEC231FD72400FBA422 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				99E9CCED231FD72400FBA422 /* NSArray+QYCSafe.m */,
+				99E9CCEE231FD72400FBA422 /* NSMutableArray+QYCSafe.h */,
+				99E9CCEF231FD72400FBA422 /* NSDictionary+QYCSafe.h */,
+				99E9CCF0231FD72400FBA422 /* NSMutableDictionary+QYCSafe.m */,
+				99E9CCF1231FD72400FBA422 /* NSArray+QYCSafe.h */,
+				99E9CCF2231FD72400FBA422 /* NSDictionary+QYCSafe.m */,
+				99E9CCF3231FD72400FBA422 /* NSMutableArray+QYCSafe.m */,
+				99E9CCF4231FD72400FBA422 /* NSMutableDictionary+QYCSafe.h */,
+			);
+			path = Container;
+			sourceTree = "<group>";
+		};
+		99E9CCF5231FD72400FBA422 /* KVC */ = {
+			isa = PBXGroup;
+			children = (
+				99E9CCF6231FD72400FBA422 /* NSObject+QYCKVCSafe.h */,
+				99E9CCF7231FD72400FBA422 /* NSObject+QYCKVCSafe.m */,
+			);
+			path = KVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,17 +258,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				994FB85123175C3700C5F5F0 /* NSMutableArray+Safe.m in Sources */,
-				990756FD231377EB00F2B472 /* NSObject+Runtime.m in Sources */,
+				99E9CCAC231F6ACF00FBA422 /* MainVC.m in Sources */,
+				99E9CCFC231FD72400FBA422 /* QYCAvoidCrash_KVCTest_VC.m in Sources */,
+				99E9CCFE231FD72400FBA422 /* QYCAvoidCrash_KVCCrashObject.m in Sources */,
+				99E9CCFA231FD72400FBA422 /* QYCSafeProtector.m in Sources */,
+				99E9CCFB231FD72400FBA422 /* NSObject+QYCMethodSwizzling.m in Sources */,
 				99528C702316B2F400E6900A /* NSArrayVC.m in Sources */,
 				99528C732316B58D00E6900A /* NSMutableArrayVC.m in Sources */,
 				994FB8572317DF3000C5F5F0 /* NSDictionaryVC.m in Sources */,
-				9907570023137C4F00F2B472 /* NSArray+Safe.m in Sources */,
+				99E9CD04231FD72400FBA422 /* NSObject+QYCKVCSafe.m in Sources */,
+				99E9CD00231FD72400FBA422 /* NSArray+QYCSafe.m in Sources */,
 				990440CE230A3E74008FCE2E /* main.m in Sources */,
-				994BEA43231D31E6000E463F /* NSMutableDictionary+Safe.m in Sources */,
+				99E9CD01231FD72400FBA422 /* NSMutableDictionary+QYCSafe.m in Sources */,
+				99E9CD03231FD72400FBA422 /* NSMutableArray+QYCSafe.m in Sources */,
 				990440C0230A3E73008FCE2E /* AppDelegate.m in Sources */,
+				99E9CCFD231FD72400FBA422 /* QYCAvoidCrashTestMainVC.m in Sources */,
 				994BEA40231D31D7000E463F /* NSMutableDictionaryVC.m in Sources */,
-				994FB8542317B1AF00C5F5F0 /* NSDictionary+Safe.m in Sources */,
+				99E9CCFF231FD72400FBA422 /* QYCAvoidCrash_ContainerTest_VC.m in Sources */,
+				99E9CD02231FD72400FBA422 /* NSDictionary+QYCSafe.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
