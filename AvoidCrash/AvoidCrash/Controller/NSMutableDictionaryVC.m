@@ -19,23 +19,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
     self.title = @"NSMutableDictionaryVC";
     
-    [self mutabledictionary_Method_Crash];
+    [self.view addSubview:self.tableView];
 }
-
 
 #pragma mark - TableView DataSource
 // Section Number
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 // Rows Number
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 11;
+        return 9;
+    } else if (section == 1) {
+        return 4;
     }
     return 0;
 }
@@ -54,9 +54,9 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     if (indexPath.section == 0 && indexPath.row == 0) {
-        cell.textLabel.text = @"NSDictionary 类簇";
+        cell.textLabel.text = @"NSMutableDictionary 类簇";
     } else if (indexPath.section == 0 && indexPath.row == 1) {
-        cell.textLabel.text = @"+ dictionaryWithObjects:nil forKeys: 崩溃";
+        cell.textLabel.text = @"+ dictionaryWithObjects: forKeys: 崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 2) {
         cell.textLabel.text = @"+ dictionaryWithObjects: forKeys: count: 崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 3) {
@@ -64,17 +64,23 @@
     } else if (indexPath.section == 0 && indexPath.row == 4) {
         cell.textLabel.text = @"- initWithObjects: forKeys: count: 崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 5) {
-        cell.textLabel.text = @"+ dictionaryWithObjectsAndKeys: 崩溃 (未拦截，慎用此方法)";
+        cell.textLabel.text = @"未拦截 + dictionaryWithObjectsAndKeys: 崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 6) {
-        cell.textLabel.text = @"- initWithObjectsAndKeys: 崩溃 (未拦截，慎用此方法)";
+        cell.textLabel.text = @"未拦截 - initWithObjectsAndKeys: 崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 7) {
         cell.textLabel.text = @"+ dictionaryWithObject: forKey:: 崩溃";
     } else if (indexPath.section == 0 && indexPath.row == 8) {
-        cell.textLabel.text = @"@{} 创建Dictionary 崩溃";
-    } else if (indexPath.section == 0 && indexPath.row == 9) {
+        cell.textLabel.text = @"@{} 创建NSMutableDictionary 崩溃";
+    }
+    
+    else if (indexPath.section == 1 && indexPath.row == 0) {
+        cell.textLabel.text = @"- setObject: forKey: 崩溃";
+    } else if (indexPath.section == 1 && indexPath.row == 1) {
+        cell.textLabel.text = @"- setObject: forKeyedSubscript: 崩溃";
+    } else if (indexPath.section == 1 && indexPath.row == 2) {
         cell.textLabel.text = @"- setValue: forKey: 崩溃";
-    } else if (indexPath.section == 0 && indexPath.row == 10) {
-        cell.textLabel.text = @"正常-valueForKey:与-objectForKey:";
+    } else if (indexPath.section == 1 && indexPath.row == 3) {
+        cell.textLabel.text = @"- removeObjectForKey: 崩溃";
     }
     return cell;
 }
@@ -106,7 +112,10 @@
     [headView addSubview:titleLabel];
     
     if (section == 0) {
-        titleLabel.text = @"  NSMutableDictionary 方法";
+        titleLabel.text = @"  NSMutableDictionary继承NSDictionary的方法";
+    }
+    else if (section == 1) {
+        titleLabel.text = @"  NSMutableDictionary扩展的方法";
     }
     return headView;
 }
@@ -138,28 +147,93 @@
         NSClassFromString(@"__NSSingleEnterDictionaryArrayI"); // 如果有且仅有一个元素，那么为__NSSingleEnterDictionaryArrayI
         NSClassFromString(@"__NSDictionaryI");                 // 如果数组大于一个元素，那么为__NSDictionaryI
         
-        // NSArray 类簇
-        NSDictionary *dict = [NSDictionary alloc];                                     // __NSPlaceholderDictionary
-        NSDictionary *dict1 = [dict init];                                             // __NSDictionary0
-        NSDictionary *dict2 = [dict initWithObjectsAndKeys:@"a",@"1", nil];            // __NSSingleEnterDictionaryArrayI
-        NSDictionary *dict3 = [dict initWithObjectsAndKeys:@"a",@"1", @"b",@"1", nil]; // __NSDictionaryI
+        // NSDictionary 类簇
+        NSMutableDictionary *mdict1 = [NSMutableDictionary dictionaryWithCapacity:0];     // __NSDictionaryM
+        NSMutableDictionary *mdict2 = [[NSMutableDictionary alloc] init];                 // __NSDictionaryM
+        NSMutableDictionary *mdict3 = [[NSMutableDictionary alloc] initWithCapacity:0];   // __NSDictionaryM
+        NSMutableDictionary *mdict4 = [NSMutableDictionary dictionaryWithDictionary:nil]; // __NSDictionaryM
+        
+        NSMutableDictionary *dict = [NSMutableDictionary alloc];      // __NSPlaceholderDictionary
+        id dict1 = [dict init];                                             // __NSDictionaryM
+        id dict2 = [dict initWithObjectsAndKeys:@"a",@"1", nil];            // __NSDictionaryM
+        id dict3 = [dict initWithObjectsAndKeys:@"a",@"1", @"b",@"1", nil]; // __NSDictionaryM
+        NSLog(@"11");
     } else if (indexPath.section == 0 && indexPath.row == 1) {
-        
+        // 崩溃 -[NSDictionary initWithObjects:forKeys:]: count of objects (0) differs from count of keys (2)
+        NSMutableDictionary *dict3 = [NSMutableDictionary dictionaryWithObjects:nil forKeys:@[@"1",@"2"]];
+        // 崩溃 -[NSDictionary initWithObjects:forKeys:]: count of objects (1) differs from count of keys (0)
+        NSMutableDictionary *dict31 = [NSMutableDictionary dictionaryWithObjects:@[@"1"] forKeys:nil];
+        // 崩溃 -[NSDictionary initWithObjects:forKeys:]: count of objects (1) differs from count of keys (3)
+        NSMutableDictionary *dict32 = [NSMutableDictionary dictionaryWithObjects:@[@"1"] forKeys:@[@"1",@"2",@"3"]];
     } else if (indexPath.section == 0 && indexPath.row == 2) {
-        
+        // 崩溃 -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[2]
+        NSMutableDictionary *dict4 = [NSMutableDictionary dictionaryWithObjects:valueArray forKeys:keyArray count:3];
     } else if (indexPath.section == 0 && indexPath.row == 3) {
-        
+        // 崩溃 -[NSDictionary initWithObjects:forKeys:]: count of objects (0) differs from count of keys (1)
+        NSMutableDictionary *dict5 = [[NSMutableDictionary alloc] initWithObjects:nil forKeys:@[@"1"]];
+        // 崩溃 -[NSDictionary initWithObjects:forKeys:]: count of objects (1) differs from count of keys (0)
+        NSMutableDictionary *dict51 = [[NSMutableDictionary alloc] initWithObjects:@[@"1"] forKeys:nil];
+        // 崩溃 -[NSDictionary initWithObjects:forKeys:]: count of objects (1) differs from count of keys (3)
+        NSMutableDictionary *dict52 = [[NSMutableDictionary alloc] initWithObjects:@[@"1"] forKeys:@[@"1",@"2",@"3"]];
     } else if (indexPath.section == 0 && indexPath.row == 4) {
-        
+        // 崩溃 -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[3]
+        NSMutableDictionary *dict6 = [[NSMutableDictionary alloc] initWithObjects:valueArray forKeys:keyArray count:3];
     } else if (indexPath.section == 0 && indexPath.row == 5) {
-        
+        NSMutableDictionary *dict7 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@1,@"a",@2,@"3", nil];
+        // 崩溃 +[NSDictionary dictionaryWithObjectsAndKeys:]: second object of each pair must be non-nil.  Or, did you forget to nil-terminate your parameter list?
+        NSMutableDictionary *dict71 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@1,nil, @2,@"b", nil];
+        // 崩溃 +[NSDictionary dictionaryWithObjectsAndKeys:]: second object of each pair must be non-nil.  Or, did you forget to nil-terminate your parameter list?
+        NSMutableDictionary *dict72 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@1,@"a", @2, nil];
     } else if (indexPath.section == 0 && indexPath.row == 6) {
-        
+        NSMutableDictionary *dict8 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@1,@"a",@2,@"3", nil];
+        // 崩溃 -[__NSPlaceholderDictionary initWithObjectsAndKeys:]: second object of each pair must be non-nil.  Or, did you forget to nil-terminate your parameter list?
+        NSMutableDictionary *dict81 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@1,nil,@2,@"3", nil];
+        // 崩溃 -[__NSPlaceholderDictionary initWithObjectsAndKeys:]: second object of each pair must be non-nil.  Or, did you forget to nil-terminate your parameter list?
+        NSMutableDictionary *dict82 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@1,@"a",@2, nil];
     } else if (indexPath.section == 0 && indexPath.row == 7) {
-        
+        // 崩溃 -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[0]
+        NSMutableDictionary *dict9 = [NSMutableDictionary dictionaryWithObject:nil forKey:@"1"];
+        // 崩溃 -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[0]'
+        NSMutableDictionary *dict91 = [NSMutableDictionary dictionaryWithObject:@"1" forKey:nil];
     } else if (indexPath.section == 0 && indexPath.row == 8) {
+        NSString *str = nil;
+        // 崩溃 -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[2]
+        NSMutableDictionary *defaultDict = @{@"1":@"a",
+                                             @"2":@"b",
+                                             @"3":str
+                                             };
+        // 崩溃 -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[1]
+        NSMutableDictionary *defaultDict1 = @{@"1":@"a",
+                                              str:@"b",
+                                              @"3":@"c"
+                                              };
+    }
+    
+    
+    else if (indexPath.section == 1 && indexPath.row == 0) {
+        NSMutableDictionary *mdict5 = [[NSMutableDictionary alloc] init];
+        // 崩溃 -[__NSDictionaryM setObject:forKey:]: object cannot be nil (key: 1)
+        [mdict5 setObject:nil forKey:@"1"];
+        // 崩溃 -[__NSDictionaryM setObject:forKey:]: key cannot be nil
+        [mdict5 setObject:@"1" forKey:nil];
+    } else if (indexPath.section == 1 && indexPath.row == 1) {
+        NSMutableDictionary *mdict5 = [[NSMutableDictionary alloc] init];
         
-    } else if (indexPath.section == 0 && indexPath.row == 9) {
+        [mdict5 setObject:nil forKeyedSubscript:@"1"];
+        // 崩溃  -[__NSDictionaryM setObject:forKeyedSubscript:]: key cannot be nil
+        [mdict5 setObject:@"1" forKeyedSubscript:nil];
+    } else if (indexPath.section == 1 && indexPath.row == 2) {
+        NSMutableDictionary *mdict5 = [[NSMutableDictionary alloc] init];
+        
+        [mdict5 setValue:nil forKey:@"1"];
+        // 崩溃 -[__NSDictionaryM setObject:forKey:]: key cannot be nil
+        [mdict5 setValue:@"1" forKey:nil];
+    } else if (indexPath.section == 1 && indexPath.row == 3) {
+        NSMutableDictionary *mdict6 = [[NSMutableDictionary alloc] init];
+        
+        // 崩溃 -[__NSDictionaryM removeObjectForKey:]: key cannot be nil
+        [mdict6 removeObjectForKey:nil];
+        
     }
 }
 
@@ -201,57 +275,58 @@
     return _tableView;
 }
 
-#pragma mark - Private
+
+#pragma mark - Private 忽略
 
 -(void)mutabledictionary_Method_Crash {
     //===========
     // 0. NSMutableDictionary 继承 NSDictionary 方法
     //===========
     
-//    // 崩溃 -[NSDictionary initWithObjects:forKeys:]: count of objects (0) differs from count of keys (2)
-//    NSDictionary *dict3 = [NSDictionary dictionaryWithObjects:nil forKeys:@[@"1",@"2"]];
-//    // 崩溃 -[NSDictionary initWithObjects:forKeys:]: count of objects (1) differs from count of keys (0)
-//    NSDictionary *dict31 = [NSDictionary dictionaryWithObjects:@[@"1"] forKeys:nil];
-//    // 崩溃 -[NSDictionary initWithObjects:forKeys:]: count of objects (1) differs from count of keys (3)
-//    NSDictionary *dict32 = [NSDictionary dictionaryWithObjects:@[@"1"] forKeys:@[@"1",@"2",@"3"]];
-//
-//    NSString *keyArray[2];
-//    NSString *valueArray[3];
-//    keyArray[0] = @"1";
-//    keyArray[1] = @"2";
-//    valueArray[0] = @"a";
-//    valueArray[1] = @"b";
-//    valueArray[2] = @"c";
-//    // 崩溃 -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[2]
-//    NSDictionary *dict4 = [NSDictionary dictionaryWithObjects:valueArray forKeys:keyArray count:3];
-//
-//    // 崩溃 -[NSDictionary initWithObjects:forKeys:]: count of objects (0) differs from count of keys (1)
-//    NSDictionary *dict5 = [[NSDictionary alloc] initWithObjects:nil forKeys:@[@"1"]];
-//    // 崩溃 -[NSDictionary initWithObjects:forKeys:]: count of objects (1) differs from count of keys (0)
-//    NSDictionary *dict51 = [[NSDictionary alloc] initWithObjects:@[@"1"] forKeys:nil];
-//    // 崩溃 -[NSDictionary initWithObjects:forKeys:]: count of objects (1) differs from count of keys (3)
-//    NSDictionary *dict52 = [[NSDictionary alloc] initWithObjects:@[@"1"] forKeys:@[@"1",@"2",@"3"]];
-//
-//    // 崩溃 -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[3]
-//    NSDictionary *dict6 = [[NSDictionary alloc] initWithObjects:valueArray forKeys:keyArray count:3];
-//
-///*  + dictionaryWithObjectsAndKeys:   -initWithObjectsAndKeys:  NSDictionary未处理
-//    NSDictionary *dict7 = [NSDictionary dictionaryWithObjectsAndKeys:@1,@"a",@2,@"3", nil];
-//    // 崩溃 +[NSDictionary dictionaryWithObjectsAndKeys:]: second object of each pair must be non-nil.  Or, did you forget to nil-terminate your parameter list?
-//    NSDictionary *dict71 = [NSDictionary dictionaryWithObjectsAndKeys:@1,nil, @2,@"b", nil];
-//    // 崩溃 +[NSDictionary dictionaryWithObjectsAndKeys:]: second object of each pair must be non-nil.  Or, did you forget to nil-terminate your parameter list?
-//    NSDictionary *dict72 = [NSDictionary dictionaryWithObjectsAndKeys:@1,@"a", @2, nil];
-//
-//    NSDictionary *dict8 = [[NSDictionary alloc] initWithObjectsAndKeys:@1,@"a",@2,@"3", nil];
-//    // 崩溃 -[__NSPlaceholderDictionary initWithObjectsAndKeys:]: second object of each pair must be non-nil.  Or, did you forget to nil-terminate your parameter list?
-//    NSDictionary *dict81 = [[NSDictionary alloc] initWithObjectsAndKeys:@1,nil,@2,@"3", nil];
-//    // 崩溃 -[__NSPlaceholderDictionary initWithObjectsAndKeys:]: second object of each pair must be non-nil.  Or, did you forget to nil-terminate your parameter list?
-//    NSDictionary *dict82 = [[NSDictionary alloc] initWithObjectsAndKeys:@1,@"a",@2, nil];
-// */
-//    // 崩溃 -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[0]
-//    NSDictionary *dict9 = [NSDictionary dictionaryWithObject:nil forKey:@"1"];
-//    // 崩溃 -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[0]'
-//    NSDictionary *dict91 = [NSDictionary dictionaryWithObject:@"1" forKey:nil];
+    // 崩溃 -[NSDictionary initWithObjects:forKeys:]: count of objects (0) differs from count of keys (2)
+    NSMutableDictionary *dict3 = [NSMutableDictionary dictionaryWithObjects:nil forKeys:@[@"1",@"2"]];
+    // 崩溃 -[NSDictionary initWithObjects:forKeys:]: count of objects (1) differs from count of keys (0)
+    NSMutableDictionary *dict31 = [NSMutableDictionary dictionaryWithObjects:@[@"1"] forKeys:nil];
+    // 崩溃 -[NSDictionary initWithObjects:forKeys:]: count of objects (1) differs from count of keys (3)
+    NSMutableDictionary *dict32 = [NSMutableDictionary dictionaryWithObjects:@[@"1"] forKeys:@[@"1",@"2",@"3"]];
+
+    NSString *keyArray[2];
+    NSString *valueArray[3];
+    keyArray[0] = @"1";
+    keyArray[1] = @"2";
+    valueArray[0] = @"a";
+    valueArray[1] = @"b";
+    valueArray[2] = @"c";
+    // 崩溃 -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[2]
+    NSMutableDictionary *dict4 = [NSMutableDictionary dictionaryWithObjects:valueArray forKeys:keyArray count:3];
+
+    // 崩溃 -[NSDictionary initWithObjects:forKeys:]: count of objects (0) differs from count of keys (1)
+    NSMutableDictionary *dict5 = [[NSMutableDictionary alloc] initWithObjects:nil forKeys:@[@"1"]];
+    // 崩溃 -[NSDictionary initWithObjects:forKeys:]: count of objects (1) differs from count of keys (0)
+    NSMutableDictionary *dict51 = [[NSMutableDictionary alloc] initWithObjects:@[@"1"] forKeys:nil];
+    // 崩溃 -[NSDictionary initWithObjects:forKeys:]: count of objects (1) differs from count of keys (3)
+    NSMutableDictionary *dict52 = [[NSMutableDictionary alloc] initWithObjects:@[@"1"] forKeys:@[@"1",@"2",@"3"]];
+
+    // 崩溃 -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[3]
+    NSMutableDictionary *dict6 = [[NSMutableDictionary alloc] initWithObjects:valueArray forKeys:keyArray count:3];
+
+/*  + dictionaryWithObjectsAndKeys:   -initWithObjectsAndKeys:  NSDictionary未处理
+    NSDictionary *dict7 = [NSDictionary dictionaryWithObjectsAndKeys:@1,@"a",@2,@"3", nil];
+    // 崩溃 +[NSDictionary dictionaryWithObjectsAndKeys:]: second object of each pair must be non-nil.  Or, did you forget to nil-terminate your parameter list?
+    NSDictionary *dict71 = [NSDictionary dictionaryWithObjectsAndKeys:@1,nil, @2,@"b", nil];
+    // 崩溃 +[NSDictionary dictionaryWithObjectsAndKeys:]: second object of each pair must be non-nil.  Or, did you forget to nil-terminate your parameter list?
+    NSDictionary *dict72 = [NSDictionary dictionaryWithObjectsAndKeys:@1,@"a", @2, nil];
+
+    NSDictionary *dict8 = [[NSDictionary alloc] initWithObjectsAndKeys:@1,@"a",@2,@"3", nil];
+    // 崩溃 -[__NSPlaceholderDictionary initWithObjectsAndKeys:]: second object of each pair must be non-nil.  Or, did you forget to nil-terminate your parameter list?
+    NSDictionary *dict81 = [[NSDictionary alloc] initWithObjectsAndKeys:@1,nil,@2,@"3", nil];
+    // 崩溃 -[__NSPlaceholderDictionary initWithObjectsAndKeys:]: second object of each pair must be non-nil.  Or, did you forget to nil-terminate your parameter list?
+    NSDictionary *dict82 = [[NSDictionary alloc] initWithObjectsAndKeys:@1,@"a",@2, nil];
+ */
+    // 崩溃 -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[0]
+    NSMutableDictionary *dict9 = [NSMutableDictionary dictionaryWithObject:nil forKey:@"1"];
+    // 崩溃 -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[0]'
+    NSMutableDictionary *dict91 = [NSMutableDictionary dictionaryWithObject:@"1" forKey:nil];
     
     
     //===========

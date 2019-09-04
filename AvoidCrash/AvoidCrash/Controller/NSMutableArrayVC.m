@@ -20,9 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"NSMutableArray";
-    
-//    [self mutableArray_Method_Crash];
-    
+        
     [self.view addSubview:self.tableView];
 }
 
@@ -280,7 +278,7 @@
 }
 
 
-#pragma mark - Private
+#pragma mark - Private 忽略
 
 -(void)mutableArray_Method_Crash {
     //===========

@@ -37,6 +37,12 @@
     [__NSPlaceholderDictionary swapInstanceMethod:@selector(initWithObjects:forKeys:count:) currentMethod:@selector(safe_initWithObjectsP:forKeys:count:)];
 }
 
+
+//=================================================================
+//                  initWithObjects:forKeys:
+//=================================================================
+#pragma mark - initWithObjects:forKeys:
+
 -(instancetype)safe_initWithObjectsP:(NSArray *)objects forKeys:(NSArray<id<NSCopying>> *)keys
 {
     id instance = nil;
@@ -61,6 +67,11 @@
         return instance;
     }
 }
+
+//=================================================================
+//                  initWithObjects:forKeys:count:
+//=================================================================
+#pragma mark - initWithObjects:forKeys:count:
 
 - (instancetype)safe_initWithObjectsP:(const id _Nonnull [_Nullable])objects forKeys:(const id <NSCopying> _Nonnull [_Nullable])keys count:(NSUInteger)cnt {
     id instance = nil;
@@ -87,10 +98,5 @@
         return instance;
     }
 }
-
-
-
-
-
 
 @end
