@@ -14,12 +14,20 @@
 #import "NSMutableDictionary+QYCSafe.h"
 // KVC
 #import "NSObject+QYCKVCSafe.h"
+// Device Info
+#import "NSString+QYCAvoidCrashDeviceInfo.h"
+#import "NSString+QYCAvoidCrashDate.h"
+
+
+static QYCSafeProtectorCatchExceptionBlock safeProtectorBlock;
 
 @implementation QYCSafeProtector
 
-+ (void)openAllProtector {
++ (void)openAllProtectorWithBlock:(QYCSafeProtectorCatchExceptionBlock)block {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        
+        safeProtectorBlock = block;
         
         // 此方法主要预防setValue:forKey:，KVC中还有重写系统方法
         [NSObject openKVCSafeProtector];
@@ -32,87 +40,105 @@
     });
 }
 
+
 + (void)handlerCrash:(NSException *)exception {
-    NSLog(@"哈哈哈");
-    
     // 堆栈数据
-    NSArray *callStackSymbolsArr = [NSThread callStackSymbols];
-    
-    //获取在哪个类的哪个方法中实例化的数组
-    NSString *mainMessage = [self safe_getMainCallStackSymbolMessageWithCallStackSymbolArray:callStackSymbolsArr index:2 first:YES];
-    
+    NSArray *callStackSymbolsArr = exception.callStackSymbols; // [NSThread callStackSymbols];  这两种方法以同样的方法获取堆栈消息，但时间不同。
+    // 获取在哪个类的哪个方法中实例化的数组
+    NSString *mainMessage = [self safe_getMainCallStackSymbolMessageWithCallStackSymbols:callStackSymbolsArr];
     if (mainMessage == nil) {
         mainMessage = @"崩溃方法定位失败,请您查看函数调用栈来查找crash原因";
     }
     
-    NSString *crashName = [NSString stringWithFormat:@"\t\t[Crash Type]: %@",exception.name];
-    
-    NSString *crashReason = [NSString stringWithFormat:@"\t\t[Crash Reason]: %@",exception.reason];;
-    NSString *crashLocation = [NSString stringWithFormat:@"\t\t[Crash Location]: %@",mainMessage];
-    
-    NSString *fullMessage = [NSString stringWithFormat:@"\n------------------------------------  Crash START -------------------------------------\n%@\n%@\n%@\n函数堆栈:\n%@\n------------------------------------   Crash END  -----------------------------------------", crashName, crashReason, crashLocation, exception.callStackSymbols];
-    
-    NSMutableDictionary *userInfo=[NSMutableDictionary dictionary];
-    userInfo[@"callStackSymbols"]=[NSString stringWithFormat:@"%@",exception.callStackSymbols];
-    userInfo[@"location"]=mainMessage;
+    // 新建exception，添加一些自定义的信息，如：crash location
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+    userInfo[@"location"] = mainMessage;
     NSException *newException = [NSException exceptionWithName:exception.name reason:exception.reason userInfo:userInfo];
-    NSLog(@"");
     
+    // 将数据传出
+    if (safeProtectorBlock) {
+        safeProtectorBlock(newException);
+    }
     
 #ifdef DEBUG
-//    NSLog(@"================================JJException Start==================================");
-//    NSLog(@"JJException Type:%ld",(long)exceptionCategory);
-//    NSLog(@"JJException Description:%@",exceptionMessage);
-//    NSLog(@"JJException Extra info:%@",info);
-//    NSLog(@"JJException CallStack:%@",callStack);
-//    NSLog(@"================================JJException End====================================");
-//    if (self.exceptionWhenTerminate) {
-//        NSAssert(NO, @"");
-//    }
+    NSString *showCrashStr = [NSString stringWithFormat:@" \
+                              \n================================ Crash Start ================================== \
+                              \n\t\t------------ APP Info ------------ \
+                              \n\t\t[APP Version]: %@ \
+                              \n\t\t[APP Memory]: %@ %@ %@ \
+                              \n\t\t------------ Device Info ------------ \
+                              \n\t\t[Device Type]: %@ \
+                              \n\t\t[Device SystemName]: %@ \
+                              \n\t\t[Device SystemVersion]: %@ \
+                              \n\t\t------------ Crash Info ------------ \
+                              \n\t\t[Crash Type]: %@ \
+                              \n\t\t[Crash Reason]: %@ \
+                              \n\t\t[Crash Location]: %@ \
+                              \n[堆栈信息]: \n %@ \
+                              \n================================ Crash End ====================================", \
+                              [NSString getAPPInfo_BundleShortVersion], \
+                              [NSString getTotalMemorySize], \
+                              [NSString getCurrentMemorySize], \
+                              [NSString getCurrentMemoryPercentage], \
+                              [NSString getDeviceName], \
+                              [NSString getSystemName], \
+                              [NSString getSystemVersion], \
+                              exception.name, \
+                              exception.reason, \
+                              mainMessage, \
+                              exception.callStackSymbols];
+    NSLog(@"%@", showCrashStr);
 #endif
 }
 
 
 #pragma mark -   获取堆栈主要崩溃精简化的信息<根据正则表达式匹配出来
-+ (NSString *)safe_getMainCallStackSymbolMessageWithCallStackSymbolArray:(NSArray *)callStackSymbolArray index:(NSInteger)index first:(BOOL)first
-{
-    NSString *  callStackSymbolString;
-    if (callStackSymbolArray.count<=0) {
-        return nil;
-    }
-    if (index<callStackSymbolArray.count) {
-        callStackSymbolString=callStackSymbolArray[index];
-    }
-    //正则表达式
-    //http://www.jianshu.com/p/b25b05ef170d
+/** 参考自 https://github.com/chenfanfang/AvoidCrash
+ *  获取堆栈主要崩溃精简化的信息<根据正则表达式匹配出来>
+ *
+ *  @param callStackSymbols 堆栈主要崩溃信息
+ *
+ *  @return 堆栈主要崩溃精简化的信息
+ */
++ (NSString *)safe_getMainCallStackSymbolMessageWithCallStackSymbols:(NSArray<NSString *> *)callStackSymbols {
     
-    //mainCallStackSymbolMsg 的格式为   +[类名 方法名]  或者 -[类名 方法名]
+    //mainCallStackSymbolMsg的格式为   +[类名 方法名]  或者 -[类名 方法名]
     __block NSString *mainCallStackSymbolMsg = nil;
     
     //匹配出来的格式为 +[类名 方法名]  或者 -[类名 方法名]
     NSString *regularExpStr = @"[-\\+]\\[.+\\]";
     
+    
     NSRegularExpression *regularExp = [[NSRegularExpression alloc] initWithPattern:regularExpStr options:NSRegularExpressionCaseInsensitive error:nil];
     
-    [regularExp enumerateMatchesInString:callStackSymbolString options:NSMatchingReportProgress range:NSMakeRange(0, callStackSymbolString.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
-        if (result) {
-            mainCallStackSymbolMsg = [callStackSymbolString substringWithRange:result.range];
-            *stop = YES;
-        }
-    }];
     
-    if (index==0) {
-        return mainCallStackSymbolMsg;
-    }
-    if (mainCallStackSymbolMsg==nil) {
-        NSInteger newIndex=0;
-        if (first) {
-            newIndex=callStackSymbolArray.count-1;
-        }else{
-            newIndex=index-1;
+    for (int index = 2; index < callStackSymbols.count; index++) {
+        NSString *callStackSymbol = callStackSymbols[index];
+        
+        [regularExp enumerateMatchesInString:callStackSymbol options:NSMatchingReportProgress range:NSMakeRange(0, callStackSymbol.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+            if (result) {
+                NSString* tempCallStackSymbolMsg = [callStackSymbol substringWithRange:result.range];
+                
+                //get className
+                NSString *className = [tempCallStackSymbolMsg componentsSeparatedByString:@" "].firstObject;
+                className = [className componentsSeparatedByString:@"["].lastObject;
+                
+                NSBundle *bundle = [NSBundle bundleForClass:NSClassFromString(className)];
+                
+                //filter category and system class
+                if (![className hasSuffix:@")"] && bundle == [NSBundle mainBundle]) {
+                    mainCallStackSymbolMsg = tempCallStackSymbolMsg;
+                    
+                }
+                *stop = YES;
+            }
+        }];
+        
+        if (mainCallStackSymbolMsg.length) {
+            break;
         }
-        mainCallStackSymbolMsg = [self safe_getMainCallStackSymbolMessageWithCallStackSymbolArray:callStackSymbolArray index:newIndex first:NO];
     }
+    
     return mainCallStackSymbolMsg;
 }
 
