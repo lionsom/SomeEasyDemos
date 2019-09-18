@@ -14,8 +14,8 @@ inhibit_all_warnings!
 
 target 'AvoidCrash' do
 
-    pod 'Bugly'
-    pod 'Fabric'
-    pod 'Crashlytics'
+	pod 'Bugly'
+	pod 'Fabric'
+	pod 'Crashlytics'
 
 end

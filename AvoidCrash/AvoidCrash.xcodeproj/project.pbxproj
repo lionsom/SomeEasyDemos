@@ -161,8 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				99804FB0232126450091553F /* NSString+QYCAvoidCrashDate.h */,
-				99804FB1232126450091553F /* NSString+QYCAvoidCrashDeviceInfo.h */,
 				99804FB2232126450091553F /* NSString+QYCAvoidCrashDate.m */,
+				99804FB1232126450091553F /* NSString+QYCAvoidCrashDeviceInfo.h */,
 				99804FB3232126450091553F /* NSString+QYCAvoidCrashDeviceInfo.m */,
 			);
 			path = "Category(辅助分类)";

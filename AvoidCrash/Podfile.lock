@@ -1,16 +1,25 @@
 PODS:
   - Bugly (2.5.0)
+  - Crashlytics (3.13.4):
+    - Fabric (~> 1.10.2)
+  - Fabric (1.10.2)
 
 DEPENDENCIES:
   - Bugly
+  - Crashlytics
+  - Fabric
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Bugly
+    - Crashlytics
+    - Fabric
 
 SPEC CHECKSUMS:
   Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
+  Crashlytics: 2dfd686bcb918dc10ee0e76f7f853fe42c7bd552
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
 
-PODFILE CHECKSUM: a8c91d117bcc308305c36a3475f8456ac030833a
+PODFILE CHECKSUM: 8267d14bfcf674fcaf94b1e90710232f3e8f271f
 
 COCOAPODS: 1.7.4

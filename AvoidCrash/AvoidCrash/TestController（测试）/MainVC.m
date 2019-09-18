@@ -14,6 +14,9 @@
 #import "NSDictionaryVC.h"
 #import "NSMutableDictionaryVC.h"
 
+// KVC
+#import "QYCAvoidCrash_KVCTest_VC.h"
+
 
 @interface MainVC ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -67,8 +70,8 @@
         cell.textLabel.text = @"NSDictionary";
     } else if (indexPath.section == 0 && indexPath.row == 3) {
         cell.textLabel.text = @"NSMutableDictionary";
-    } else if (indexPath.section == 0 && indexPath.row == 4) {
-        cell.textLabel.text = @"";
+    } else if (indexPath.section == 1 && indexPath.row == 0) {
+        cell.textLabel.text = @"KVC";
     } else if (indexPath.section == 0 && indexPath.row == 5) {
         cell.textLabel.text = @"";
     }
@@ -125,8 +128,9 @@
     } else if (indexPath.section == 0 && indexPath.row == 3) {
         NSMutableDictionaryVC *vc = [NSMutableDictionaryVC new];
         [self.navigationController pushViewController:vc animated:YES];
-    } else if (indexPath.section == 0 && indexPath.row == 4) {
-        
+    } else if (indexPath.section == 1 && indexPath.row == 0) {
+        QYCAvoidCrash_KVCTest_VC *vc = [QYCAvoidCrash_KVCTest_VC new];
+        [self.navigationController pushViewController:vc animated:YES];
     } else if (indexPath.section == 0 && indexPath.row == 5) {
         
     }
