@@ -9,6 +9,8 @@
 // 通知类
 #import <UserNotifications/UserNotifications.h>
 
+#import "DownloadManager.h"
+
 @interface ViewController ()
 
 @end
@@ -36,6 +38,8 @@
     content.title = @"我是通知标题";
 
     content.subtitle = @"我是通知副标题！";
+    
+    content.userInfo = @{@"1":@1, @"234":@[@1,@2], @"ddd":@{@"a":@3}};
   
     // trigger = nil 立刻发送
     UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"UNNotificationDefault_LLL" content:content trigger:nil];
@@ -82,6 +86,10 @@
             NSLog(@"成功");
         }
     }];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [[DownloadManager shareManager] start:@""];
 }
 
 @end

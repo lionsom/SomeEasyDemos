@@ -14,6 +14,7 @@
 		99C3E35C2696985A0060A8EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99C3E35B2696985A0060A8EC /* Assets.xcassets */; };
 		99C3E35F2696985A0060A8EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99C3E35D2696985A0060A8EC /* LaunchScreen.storyboard */; };
 		99C3E3622696985B0060A8EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C3E3612696985B0060A8EC /* main.m */; };
+		99C3E36F2697F50B0060A8EC /* DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C3E36E2697F50B0060A8EC /* DownloadManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		99C3E3602696985B0060A8EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99C3E3612696985B0060A8EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		99C3E3682696C50B0060A8EC /* LocalNotif_OC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LocalNotif_OC.entitlements; sourceTree = "<group>"; };
+		99C3E36D2697F50B0060A8EC /* DownloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadManager.h; sourceTree = "<group>"; };
+		99C3E36E2697F50B0060A8EC /* DownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,8 @@
 				99C3E35D2696985A0060A8EC /* LaunchScreen.storyboard */,
 				99C3E3602696985B0060A8EC /* Info.plist */,
 				99C3E3612696985B0060A8EC /* main.m */,
+				99C3E36D2697F50B0060A8EC /* DownloadManager.h */,
+				99C3E36E2697F50B0060A8EC /* DownloadManager.m */,
 			);
 			path = LocalNotif_OC;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 				99C3E357269698580060A8EC /* ViewController.m in Sources */,
 				99C3E351269698580060A8EC /* AppDelegate.m in Sources */,
 				99C3E3622696985B0060A8EC /* main.m in Sources */,
+				99C3E36F2697F50B0060A8EC /* DownloadManager.m in Sources */,
 				99C3E354269698580060A8EC /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
